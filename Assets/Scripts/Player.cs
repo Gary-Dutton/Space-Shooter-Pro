@@ -4,38 +4,47 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // public or private reference
-    // data type (int, float, bool, string)
-    // every variable has a name
-    // optional value assigned
     [SerializeField]
     private float _speed = 3.5f;
+    [SerializeField]
+    private GameObject _laserShot;
+    [SerializeField]
+    private float _fireRate = 0.3f;
+
+    private float _nextFire = 0.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        // take the current position = new position (0, 0, 0)
         transform.position = new Vector3(0,0,0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        float horizontalInput = Input.GetAxis ("Horizontal");
-        float VerticalInput = Input.GetAxis ("Vertical");
+        playerMovement();
 
-        // new Vector3(5,0,0) * real time * 5
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _nextFire)
+        {
+            laserShot();
+        }
+        
+    }
+
+    void playerMovement()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float VerticalInput = Input.GetAxis("Vertical");
+
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * _speed);
         transform.Translate(Vector3.up * VerticalInput * Time.deltaTime * _speed);
-
-        // if player position on the y is greater than 0, y position = 0 or y position = 3.5
-        // if player position on the x is greater than 10.20 or less than -10.20, then switch to opposite value
 
         if (transform.position.y >= 0)
         {
             transform.position = new Vector3(transform.position.x, 0, 0);
 
-        } else if (transform.position.y <=-3.5f)
+        }
+        else if (transform.position.y <= -3.5f)
         {
             transform.position = new Vector3(transform.position.x, -3.5f, 0);
         }
@@ -43,9 +52,18 @@ public class Player : MonoBehaviour
         if (transform.position.x <= -11.3f)
         {
             transform.position = new Vector3(11.3f, transform.position.y, 0);
-        } else if (transform.position.x >= 11.3f)
+        }
+        else if (transform.position.x >= 11.3f)
         {
             transform.position = new Vector3(-11.3f, transform.position.y, 0);
         }
     }
-}
+
+    void laserShot()
+    {
+
+        _nextFire = Time.time + _fireRate;
+        Instantiate(_laserShot, transform.position + new Vector3(0,0.6f,0), Quaternion.identity);
+
+    }
+ }
