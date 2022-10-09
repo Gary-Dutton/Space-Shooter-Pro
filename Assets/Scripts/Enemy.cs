@@ -11,18 +11,18 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.Translate(Vector3.left * Input.GetAxis("Horizontal") * Time.deltaTime * _speed);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        float enemyRangeX = Random.Range(-9f, 9f);
-
+        
         transform.Translate(Vector3.down * Time.deltaTime * _speed);
 
         if(transform.position.y <= -5.75f)
         {
+            float enemyRangeX = Random.Range(-9f, 9f);
             transform.position = new Vector3(enemyRangeX, 8f,0);
         }
 
