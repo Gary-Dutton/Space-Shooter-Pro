@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8477527620377710982}
   - component: {fileID: 5874028078224586749}
   - component: {fileID: 4898939034324516898}
-  - component: {fileID: 7808324511305548860}
   - component: {fileID: 2831740318787704602}
+  - component: {fileID: 7808324511305548860}
   m_Layer: 0
   m_Name: SpeedPowerUp
   m_TagString: SpeedPowerUp
@@ -133,20 +133,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7808324511305548860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8192371651724689791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79d798e7fe4c64844a42c30b27809343, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 3
-  powerUpID: 1
 --- !u!95 &2831740318787704602
 Animator:
   serializedVersion: 3
@@ -166,3 +152,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7808324511305548860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8192371651724689791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d798e7fe4c64844a42c30b27809343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 3
+  powerUpID: 1
+  _clip: {fileID: 8300000, guid: 5ee343246919d2b4bba63ae629e95494, type: 3}

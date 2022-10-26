@@ -13,29 +13,57 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _tripleShot;
     [SerializeField]
+    private GameObject _shieldOnline;
+    [SerializeField]
     private float _fireRate = 0.3f;
 
     private float _nextFire = 0.0f;
 
     [SerializeField]
     private int _lives = 3;
+    [SerializeField]
+    private int _newScore = 0;
 
     private SpawnManager _spawnManager;
 
-    [SerializeField]
     private bool _isTripleShotActive;
-    [SerializeField]
     private bool _isSpeedBoostActive;
+    private bool _isShieldOnlineActive;
+
+    private UIManager _uiManager;
+
+    [SerializeField]
+    private GameObject _rightEngine, _leftEngine;
+
+    [SerializeField]
+    private AudioClip _laserSoundClip;
+    private AudioSource _audioSource;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(0,0,0);
+        transform.position = new Vector3(0,-1.31f, 0);
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        _uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+        _audioSource = GetComponent<AudioSource>();
 
         if (_spawnManager == null)
         {
             Debug.LogError("Spawn Manager is NULL or missing!");
+        }
+
+        if (_uiManager == null)
+        {
+            Debug.LogError("UI Manager is NULL or missing!");
+        }
+
+        if (_audioSource == null)
+        {
+            Debug.LogError("Player Audio Source is NULL or missing!");
+        } else
+        {
+            _audioSource.clip = _laserSoundClip;
         }
     }
 
@@ -72,13 +100,13 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(transform.position.x, -3.5f, 0);
         }
 
-        if (transform.position.x <= -11.3f)
+        if (transform.position.x <= -10.5f)
         {
-            transform.position = new Vector3(11.3f, transform.position.y, 0);
+            transform.position = new Vector3(10.5f, transform.position.y, 0);
         }
-        else if (transform.position.x >= 11.3f)
+        else if (transform.position.x >= 10.5f)
         {
-            transform.position = new Vector3(-11.3f, transform.position.y, 0);
+            transform.position = new Vector3(-10.5f, transform.position.y, 0);
         }
     }
 
@@ -95,15 +123,34 @@ public class Player : MonoBehaviour
             Instantiate(_tripleShot, transform.position +new Vector3(0, 0.6f, 0), Quaternion.identity);
         }
         
-
+        _audioSource.Play();
     }
 
     public void playerDamage()
     {
-        _lives--;
 
-        if (_lives < 1)
+        if (_isShieldOnlineActive is true)
         {
+            ShieldOnline();
+            return;
+        }
+
+        _lives--;
+        _uiManager.UpdateLives(_lives);
+
+        if (_lives == 2 )
+        {
+            _rightEngine.SetActive(true);
+           _speed /= _speedMultipler;
+
+        } 
+        else if (_lives == 1){
+            _leftEngine.SetActive(true);
+            _speed /= _speedMultipler;
+        }
+        else if (_lives < 1)
+        {
+
             _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
         }
@@ -134,4 +181,24 @@ public class Player : MonoBehaviour
         _speed /= _speedMultipler;
         _isSpeedBoostActive = false;
     }
- }
+
+    public void ShieldOnline()
+    {
+        _isShieldOnlineActive = true;
+        _shieldOnline.SetActive(true);
+        StartCoroutine(shieldOnlinePowerUpDowerDown());
+    }
+
+    IEnumerator shieldOnlinePowerUpDowerDown()
+    {
+        yield return new WaitForSeconds(15.0f);
+        _shieldOnline.gameObject.SetActive(false);
+        _isShieldOnlineActive = false;
+    }
+
+    public void scoringSystem(int _score)
+    {
+        _newScore += _score;
+        _uiManager.ScoringSystem(_newScore);
+    }
+}
