@@ -8,15 +8,9 @@ public class PowerUp : MonoBehaviour
     [SerializeField]
     private float _speed = 3.0f;
     [SerializeField]
-    private int powerUpID;
+    private int _powerUpID;
     [SerializeField]
     private AudioClip _clip;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -39,7 +33,7 @@ public class PowerUp : MonoBehaviour
             
             if (player != null)
             {
-                switch (powerUpID)
+                switch (_powerUpID)
                 {
                     case 0:
                         player.tripleShot();
