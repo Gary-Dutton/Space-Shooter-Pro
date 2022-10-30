@@ -79,6 +79,14 @@ public class Player : MonoBehaviour
             laserShot();
         }
         
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            LeftSpeedBoost();
+        } 
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            LeftSpeedNormal();
+        }
     }
 
     void playerMovement()
@@ -182,6 +190,18 @@ public class Player : MonoBehaviour
         _isTripleShotActive = false;
     }
 
+    private void LeftSpeedBoost()
+    {
+        _isSpeedBoostActive = true;
+        _speed *= _speedMultipler;
+    }
+
+    private void LeftSpeedNormal()
+    {
+        _speed /= _speedMultipler;
+        _isSpeedBoostActive = false;
+    }
+    
     public void speedBoost()
     {
         _isSpeedBoostActive = true;
