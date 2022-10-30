@@ -37,8 +37,10 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private AudioClip _laserSoundClip;
+    [SerializeField]
+    private AudioClip _playerDamageSoundClip;
     private AudioSource _audioSource;
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -131,6 +133,9 @@ public class Player : MonoBehaviour
 
         if (_isShieldOnlineActive is true)
         {
+            _audioSource.clip = _playerDamageSoundClip;
+            _audioSource.pitch = 1.5f;
+            _audioSource.Play();
             ShieldOnline();
             return;
         }
@@ -140,19 +145,27 @@ public class Player : MonoBehaviour
 
         if (_lives == 2 )
         {
+            _audioSource.clip = _playerDamageSoundClip;
+            _audioSource.pitch = 0.3f;
+            _audioSource.Play();
             _rightEngine.SetActive(true);
-           _speed /= _speedMultipler;
+            _speed /= _speedMultipler;
 
         } 
         else if (_lives == 1){
+            _audioSource.clip = _playerDamageSoundClip;
+            _audioSource.pitch = 0.3f;
+            _audioSource.Play();
             _leftEngine.SetActive(true);
             _speed /= _speedMultipler;
         }
         else if (_lives < 1)
         {
-
+            _audioSource.clip = _playerDamageSoundClip;
+            _audioSource.pitch = 0.1f;
+            _audioSource.Play();
             _spawnManager.OnPlayerDeath();
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 0.5f);
         }
     }
 

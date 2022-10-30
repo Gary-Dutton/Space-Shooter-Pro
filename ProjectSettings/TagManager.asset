@@ -19,6 +19,7 @@ TagManager:
   - RestartText
   - Asteriod
   - Explosion
+  - EnemyLaser
   layers:
   - Default
   - TransparentFX

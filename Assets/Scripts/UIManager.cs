@@ -47,7 +47,7 @@ public class UIManager : MonoBehaviour
     public void UpdateLives(int currentLives)
     {
         _livesView.sprite = _livesLeft[currentLives];
-
+        
         if (currentLives <= 0)
         {
             _gameOverText.gameObject.SetActive(true);
