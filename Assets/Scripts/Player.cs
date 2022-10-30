@@ -124,7 +124,8 @@ public class Player : MonoBehaviour
         {
             Instantiate(_tripleShot, transform.position +new Vector3(0, 0.6f, 0), Quaternion.identity);
         }
-        
+        _audioSource.pitch = 1.0f;
+        _audioSource.clip = _laserSoundClip;
         _audioSource.Play();
     }
 

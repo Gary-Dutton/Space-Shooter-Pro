@@ -46,6 +46,11 @@ public class UIManager : MonoBehaviour
 
     public void UpdateLives(int currentLives)
     {
+        if (currentLives <= 0)
+        {
+            currentLives = 0;
+        }
+
         _livesView.sprite = _livesLeft[currentLives];
         
         if (currentLives <= 0)

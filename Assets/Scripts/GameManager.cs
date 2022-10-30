@@ -9,11 +9,17 @@ public class GameManager : MonoBehaviour
     private bool _isGameOver;
 
     private void Update()
-    {
+    {        
         if (Input.GetKeyDown(KeyCode.R) && _isGameOver == true)
         {
             SceneManager.LoadScene(1); //Current Game Scene is 0
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
     }
 
 
