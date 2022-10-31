@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _lives = 3;
     [SerializeField]
+    private int _ammo = 15;
+    private int _hitCounter = 3;
+    [SerializeField]
     private int _newScore = 0;
 
     private SpawnManager _spawnManager;
@@ -40,7 +43,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private AudioClip _playerDamageSoundClip;
     private AudioSource _audioSource;
-    
+    private SpriteRenderer _fadingColor;
+
 
     // Start is called before the first frame update
     void Start()
@@ -125,27 +129,41 @@ public class Player : MonoBehaviour
 
         _nextFire = Time.time + _fireRate;
         
-        if (_isTripleShotActive is false)
+        if(_ammo > 0)
         {
-            Instantiate(_laserShot, transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
-        } else
+            if (_isTripleShotActive is false)
+            {
+                Instantiate(_laserShot, transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
+                ammoLeft(1);
+            } else
+            {
+                Instantiate(_tripleShot, transform.position +new Vector3(0, 0.6f, 0), Quaternion.identity);
+                ammoLeft(3);
+            }
+
+            _audioSource.pitch = 1.0f;
+            _audioSource.clip = _laserSoundClip;
+            _audioSource.Play();
+        } 
+        else
         {
-            Instantiate(_tripleShot, transform.position +new Vector3(0, 0.6f, 0), Quaternion.identity);
+            _audioSource.pitch = 0.1f;
+            _audioSource.reverbZoneMix = 0.5f;
+            _audioSource.clip = _laserSoundClip;
+            _audioSource.Play();
         }
-        _audioSource.pitch = 1.0f;
-        _audioSource.clip = _laserSoundClip;
-        _audioSource.Play();
     }
 
     public void playerDamage()
     {
-
         if (_isShieldOnlineActive is true)
         {
             _audioSource.clip = _playerDamageSoundClip;
             _audioSource.pitch = 1.5f;
             _audioSource.Play();
+            ShieldFading(_hitCounter);
             ShieldOnline();
+            _hitCounter --;
             return;
         }
 
@@ -178,6 +196,12 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void ammoLeft(int amtFired)
+    {
+        _ammo -= amtFired;
+        _uiManager.UpdateAmmo(_ammo);
+    }
+
     public void tripleShot()
     {
         _isTripleShotActive = true;
@@ -192,14 +216,12 @@ public class Player : MonoBehaviour
 
     private void LeftSpeedBoost()
     {
-        _isSpeedBoostActive = true;
         _speed *= _speedMultipler;
     }
 
     private void LeftSpeedNormal()
     {
         _speed /= _speedMultipler;
-        _isSpeedBoostActive = false;
     }
     
     public void speedBoost()
@@ -220,14 +242,36 @@ public class Player : MonoBehaviour
     {
         _isShieldOnlineActive = true;
         _shieldOnline.SetActive(true);
-        StartCoroutine(shieldOnlinePowerUpDowerDown());
+        StartCoroutine(shieldOnlinePowerUpDowerDown(15.0f));
     }
 
-    IEnumerator shieldOnlinePowerUpDowerDown()
+    private void ShieldFading(int _fading)
     {
-        yield return new WaitForSeconds(15.0f);
+        if(_fading == 3)
+        {
+            _fadingColor = _shieldOnline.GetComponent<SpriteRenderer>();
+            _fadingColor.color = Color.blue;
+        }
+        else if(_fading == 2)
+        {
+            _fadingColor = _shieldOnline.GetComponent<SpriteRenderer>();
+            _fadingColor.color = Color.red;
+        }
+        else if (_fading <= 1)
+        {
+            StartCoroutine(shieldOnlinePowerUpDowerDown(0.5f));
+        }
+
+    }
+
+    IEnumerator shieldOnlinePowerUpDowerDown(float activeTimer)
+    {
+        yield return new WaitForSeconds(activeTimer);
+        _fadingColor = _shieldOnline.GetComponent<SpriteRenderer>();
         _shieldOnline.gameObject.SetActive(false);
         _isShieldOnlineActive = false;
+        _fadingColor.color = Color.cyan;
+        _hitCounter = 3;
     }
 
     public void scoringSystem(int _score)

@@ -16,6 +16,10 @@ public class UIManager : MonoBehaviour
     private Text _gameOverText;
     [SerializeField]
     private Text _restartText;
+    [SerializeField]
+    private Image _ammoView;
+    [SerializeField]
+    private Sprite[] _ammoLeft;
 
     private GameManager _gameManager;
 
@@ -54,6 +58,12 @@ public class UIManager : MonoBehaviour
             _restartText.gameObject.SetActive(true);
             _gameManager.GameOver();
         }
+    }
+
+    public void UpdateAmmo(int currentAmmo)
+    {
+        _ammoView.sprite = _ammoLeft[currentAmmo];
+
     }
 
 }
