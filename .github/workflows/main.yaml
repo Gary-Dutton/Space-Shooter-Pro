@@ -6,13 +6,14 @@ on:
     branches: [ main ]
   release:
     types: [ published ]
-    - name: Zip build/${{ matrix.targetPlatform }}
+    
+- name: Zip build/${{ matrix.targetPlatform }}
       uses: montudor/zip@v1
       if: github.event.action == 'published'
       with:
         args: zip -qq -r build-${{ matrix.targetPlatform }}.zip buuld/${{ matrix.targetPlatform }}
 
-    - name: Upload build-${{ matrix.targetPlatform }}.zip to Github Release
+- name: Upload build-${{ matrix.targetPlatform }}.zip to Github Release
       uses: svenstaro/upload-release-action@v2
       if: github.event.action == 'published'
       with:
@@ -45,5 +46,3 @@ release_webgl_to_itch:
         ITCH_USER: Gary.Dutton
         PACKAGE: build-WebGL.zip
         VERSION: ${{ steps.download-webgl.outputs.version }}
-        
-        
