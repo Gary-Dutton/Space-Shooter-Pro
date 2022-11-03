@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _shieldOnline;
     [SerializeField]
+    private GameObject _ammoReload;
+    [SerializeField]
     private float _fireRate = 0.3f;
 
     private float _nextFire = 0.0f;
@@ -135,10 +137,16 @@ public class Player : MonoBehaviour
             {
                 Instantiate(_laserShot, transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
                 ammoLeft(1);
-            } else
+            } 
+            else if (_isTripleShotActive is true && _ammo >= 3)
             {
                 Instantiate(_tripleShot, transform.position +new Vector3(0, 0.6f, 0), Quaternion.identity);
                 ammoLeft(3);
+            } 
+            else
+            {
+                Instantiate(_laserShot, transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
+                ammoLeft(1);
             }
 
             _audioSource.pitch = 1.0f;
@@ -272,6 +280,12 @@ public class Player : MonoBehaviour
         _isShieldOnlineActive = false;
         _fadingColor.color = Color.cyan;
         _hitCounter = 3;
+    }
+
+    public void AmmoReload()
+    {
+        _ammo = 15;
+        _uiManager.UpdateAmmo(_ammo);
     }
 
     public void scoringSystem(int _score)

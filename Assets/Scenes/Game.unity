@@ -402,6 +402,7 @@ MonoBehaviour:
   _laserShot: {fileID: 1873411901950341368, guid: 792912e8ef5d8c84b9af231e765e9365, type: 3}
   _tripleShot: {fileID: 1050623616619881512, guid: 2ad396059f19bf44b8212bfea94a0675, type: 3}
   _shieldOnline: {fileID: 768178169}
+  _ammoReload: {fileID: 7202416182450141842, guid: f019051f67558d9428b595a100d9790e, type: 3}
   _fireRate: 0.3
   _lives: 3
   _ammo: 15
@@ -718,6 +719,7 @@ MonoBehaviour:
   - {fileID: 3002994337996148086, guid: d63dc81541f78f64dbc2eea1e2e4dd20, type: 3}
   - {fileID: 8192371651724689791, guid: 5b1a8d57c2aa1424eb307d116f3369b8, type: 3}
   - {fileID: 4819072144285142753, guid: 4e73a10576aec074c90c4fe64e3e1788, type: 3}
+  - {fileID: 7202416182450141842, guid: f019051f67558d9428b595a100d9790e, type: 3}
 --- !u!4 &587368408
 Transform:
   m_ObjectHideFlags: 0
