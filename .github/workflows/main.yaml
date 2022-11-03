@@ -6,23 +6,24 @@ on:
     branches: [ main ]
   release:
     types: [ published ]
-    
-- name: Zip build/${{ matrix.targetPlatform }}
-      uses: montudor/zip@v1
-      if: github.event.action == 'published'
-      with:
-        args: zip -qq -r build-${{ matrix.targetPlatform }}.zip buuld/${{ matrix.targetPlatform }}
 
-- name: Upload build-${{ matrix.targetPlatform }}.zip to Github Release
-      uses: svenstaro/upload-release-action@v2
-      if: github.event.action == 'published'
-      with:
-        repo_token: ${{ secret.GH_CREDENTIALS }}
-        asset_name: build-${{ matrix.targetPlatform }}.zip
-        file: build/build-${{ matrix.targetPlatform }}.zip
-        tag: ${{ github.ref }}
-        overwrite: true
-        body: ${{ github.event.release.body }}
+jobs:
+  - name: Zip build/${{ matrix.targetPlatform }}
+    uses: montudor/zip@v1
+    if: github.event.action == 'published'
+    with:
+      args: zip -qq -r build-${{ matrix.targetPlatform }}.zip buuld/${{ matrix.targetPlatform }}
+
+  - name: Upload build-${{ matrix.targetPlatform }}.zip to Github Release
+    uses: svenstaro/upload-release-action@v2
+    if: github.event.action == 'published'
+    with:
+      repo_token: ${{ secret.GH_CREDENTIALS }}
+      asset_name: build-${{ matrix.targetPlatform }}.zip
+      file: build/build-${{ matrix.targetPlatform }}.zip
+      tag: ${{ github.ref }}
+      overwrite: true
+      body: ${{ github.event.release.body }}
 
 release_webgl_to_itch:
   name: Release WebGL to itch.io
