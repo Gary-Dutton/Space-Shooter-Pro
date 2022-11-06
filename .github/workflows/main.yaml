@@ -4,45 +4,43 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  release:
-    types: [ published ]
-    - name: Zip build/${{ matrix.targetPlatform }}
-      uses: montudor/zip@v1
-      if: github.event.action == 'published'
-      with:
-        args: zip -qq -r build-${{ matrix.targetPlatform }}.zip build/${{ matrix.targetPlatform }}
-
-    - name: Upload build-${{ matrix.targetPlatform }}.zip to Github Release
-      uses: svenstaro/upload-release-action@v2
-      if: github.event.action == 'published'
-      with:
-        asset_name: build-${{ matrix.targetPlatform }}.zip
-        file: build/build-${{ matrix.targetPlatform }}.zip
-        tag: ${{ github.ref }}
-        overwrite: true
-        body: ${{ github.event.release.body }}
-
-release_webgl_to_itch:
-  name: Release WebGL to itch.io
-  run-on: ubuntu-latest
-  needs: build
-  if: github.event.action == 'published'
-  steps:
-    - name: download WEBGL
-      id: download-webgl
-      uses: dsaltares/fetch-gh-release-asset@main
-      with:
-        version: "latest"
-        file: build-WebGL.zip
-        token: "${{ secrets.GH_CREDENTIALS }}"
-    - name: deploy to itch.io (WEBGL)
-      uses: josephbmanley/butler-publish-itchio-action@main
-      env:
-        BUTLER_CREDENTIALS: ${{ secret.BUTLER_CREDENTIALS }}
-        CHANNEL: html
-        ITCH_GAME: space-shooter
-        ITCH_USER: Gary.Dutton
-        PACKAGE: build-WebGL.zip
-        VERSION: ${{ steps.download-webgl.outputs.version }}
-        
-        
+#  release:
+#    types: [ published ]
+#    - name: Zip build/${{ matrix.targetPlatform }}
+#      uses: montudor/zip@v1
+#      if: github.event.action == 'published'
+#      with:
+#        args: zip -qq -r build-${{ matrix.targetPlatform }}.zip build/${{ matrix.targetPlatform }}
+#
+#    - name: Upload build-${{ matrix.targetPlatform }}.zip to Github Release
+#      uses: svenstaro/upload-release-action@v2
+#      if: github.event.action == 'published'
+#      with:
+#        asset_name: build-${{ matrix.targetPlatform }}.zip
+#        file: build/build-${{ matrix.targetPlatform }}.zip
+#        tag: ${{ github.ref }}
+#        overwrite: true
+#        body: ${{ github.event.release.body }}
+#
+#release_webgl_to_itch:
+#  name: Release WebGL to itch.io
+#  run-on: ubuntu-latest
+#  needs: build
+#  if: github.event.action == 'published'
+#  steps:
+#    - name: download WEBGL
+#      id: download-webgl
+#      uses: dsaltares/fetch-gh-release-asset@main
+#      with:
+#        version: "latest"
+#        file: build-WebGL.zip
+#        token: "${{ secrets.GH_CREDENTIALS }}"
+#    - name: deploy to itch.io (WEBGL)
+#      uses: josephbmanley/butler-publish-itchio-action@main
+#      env:
+#        BUTLER_CREDENTIALS: ${{ secret.BUTLER_CREDENTIALS }}
+#        CHANNEL: html
+#        ITCH_GAME: space-shooter
+#        ITCH_USER: Gary.Dutton
+#        PACKAGE: build-WebGL.zip
+#        VERSION: ${{ steps.download-webgl.outputs.version }}
