@@ -20,6 +20,9 @@ public class UIManager : MonoBehaviour
     private Image _ammoView;
     [SerializeField]
     private Sprite[] _ammoLeft;
+    [SerializeField]
+    private Image _missileReady;
+
 
     private GameManager _gameManager;
 
@@ -28,6 +31,8 @@ public class UIManager : MonoBehaviour
     {
         _gameOverText.gameObject.SetActive(false);
         _restartText.gameObject.SetActive(false);
+        _missileReady.gameObject.SetActive(false);
+        //_missileReady.gameObject.SetActive(false);
         _scoreText.text = "Score: " + 0;
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
@@ -64,6 +69,19 @@ public class UIManager : MonoBehaviour
     {
         _ammoView.sprite = _ammoLeft[currentAmmo];
 
+    }
+
+    public IEnumerator UpdateMissileStatus()
+    {
+        if (_missileReady.IsActive() == false)
+        {
+            float waitTime = Random.Range(30f, 60f);
+            yield return new WaitForSeconds(waitTime);
+            _missileReady.gameObject.SetActive(true);
+            yield return new WaitForSeconds(5f);
+            _missileReady.gameObject.SetActive(false);
+        }
+        
     }
 
 }

@@ -44,6 +44,12 @@ public class PowerUp : MonoBehaviour
                     case 2:
                         player.ShieldOnline();
                         break;
+                    case 3:
+                        player.AmmoReload();
+                        break;
+                    case 4:
+                        player.HealthRecovery();
+                        break;
                     default:
                         Debug.Log("Default switch enabled...");
                         break;

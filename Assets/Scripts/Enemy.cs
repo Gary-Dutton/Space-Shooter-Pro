@@ -90,7 +90,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
+        Debug.Log("Who fired? " + other.tag);
         if (other.tag == "Player")
         {
             Player player = other.transform.GetComponent<Player>();
@@ -116,12 +116,28 @@ public class Enemy : MonoBehaviour
             }
             Destroy(other.gameObject);
             _anim.SetTrigger("EnemyDestroyed");
-            _speed = 1f;
+            _speed = 0.5f;
             _audioSource.clip = _enemyExplosionSoundClip;
             _audioSource.Play();
             Destroy(GetComponent<Collider2D>());
             Destroy(this.gameObject, 2.8f);
         }
-        
+
+        if (other.tag == "MissilePowerUp")
+        {
+            Debug.Log("Missile");
+            if (_player != null)
+            {
+                _player.scoringSystem(10);
+            }
+            Destroy(other.gameObject);
+            _anim.SetTrigger("EnemyDestroyed");
+            _speed = 0.2f;
+            _audioSource.clip = _enemyExplosionSoundClip;
+            _audioSource.Play();
+            Destroy(GetComponent<Collider2D>());
+            Destroy(this.gameObject, 2.8f);
+        }
+
     }
 }

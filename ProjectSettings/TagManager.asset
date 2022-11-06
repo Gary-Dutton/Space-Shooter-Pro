@@ -4,22 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
-  - Laser
+  - Shootable
+  - Undefined
   - SpawnManager
-  - TripleShot
-  - TripleShotPowerUp
-  - SpeedPowerUp
-  - ShieldPowerUp
-  - ShieldOnline
-  - ScoreText
-  - UIManager
-  - LivesView
-  - GaveOverText
-  - RestartText
-  - Asteriod
   - Explosion
-  - EnemyLaser
+  - MissilePowerUp
+  - MissileReady
+  - PlayerThruster
+  - ShieldPowerUp
+  - Laser
+  - TripleShotPowerUp
+  - Asteriod
   layers:
   - Default
   - TransparentFX
@@ -27,11 +22,11 @@ TagManager:
   - 
   - Water
   - UI
-  - PostProcessing
   - 
   - 
-  - 
-  - 
+  - Lighting
+  - Ground
+  - Postprocessing
   - 
   - 
   - 
@@ -54,12 +49,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Fire
+    uniqueID: 3804908061
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Background
-    uniqueID: 3290863923
+    uniqueID: 2245698435
     locked: 0
   - name: Foreground
-    uniqueID: 537426483
+    uniqueID: 2306543133
     locked: 0
