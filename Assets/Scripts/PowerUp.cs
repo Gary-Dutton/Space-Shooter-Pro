@@ -50,6 +50,9 @@ public class PowerUp : MonoBehaviour
                     case 4:
                         player.HealthRecovery();
                         break;
+                    case 5:
+                        player.MultipleLasersCall();
+                        break;
                     default:
                         Debug.Log("Default switch enabled...");
                         break;

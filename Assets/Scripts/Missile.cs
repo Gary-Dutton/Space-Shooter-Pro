@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public class Missile : MonoBehaviour
 {
-    public Transform _target;
+    public Transform target;
     [SerializeField]
     private Rigidbody2D _rb;
     [SerializeField]
@@ -20,24 +20,45 @@ public class Missile : MonoBehaviour
     {
         if (_rb != null)
         { 
-            _target = GameObject.FindGameObjectWithTag("Enemy").transform;
-            _rb = GetComponent<Rigidbody2D>();
+            target = GameObject.FindGameObjectWithTag("Enemy").transform;
+
+            if (target != null)
+            {
+                _rb = GetComponent<Rigidbody2D>();
+            }
         }
     }
 
+    void Update()
+    {
+        if (this.gameObject.transform.position.x > 12
+            || this.gameObject.transform.position.x < -12)
+        {
+            if (this.transform.gameObject != null)
+            {
+                Destroy(transform.gameObject);
+            }
+        }
+        else if (this.gameObject.transform.position.y < -8
+            || this.gameObject.transform.position.y > 8)
+        {
+            if (this.transform.gameObject != null)
+            {
+                Destroy(transform.gameObject);
+            }
+        }
+    }
 
-     void FixedUpdate()
+    void FixedUpdate()
     {
         this.gameObject.SetActive(true);
-        if (_target != null)
+        if (target != null)
         {
-            Vector2 direction = (Vector2)_target.position - _rb.position;
+            Vector2 direction = (Vector2)target.position - _rb.position;
             direction.Normalize();
             float rotateAmount = Vector3.Cross(direction, transform.up).z;
             _rb.angularVelocity = -rotateAmount * _rotateSpeed;
             _rb.velocity = transform.up * _speed;
         }
-        
     }
-
 }

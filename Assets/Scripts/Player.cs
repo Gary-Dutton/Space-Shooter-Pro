@@ -1,14 +1,34 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    private float _speed = 3.5f;
+    private float _speed = 3.5f;    
+    [SerializeField]
+    private float _fireRate = 0.3f;    
+    [SerializeField]
+    private int _lives = 3;
+    [SerializeField]
+    private int _ammo = 15;
+    [SerializeField]
+    private int _newScore = 0;
+
     private float _speedMultipler = 2.0f;
+    private int _hitCounter = 3;
+    private float _nextFire = 0.0f; 
+    
+    private bool _isTripleShotActive;
+    private bool _isSpeedBoostActive;
+    private bool _isShieldOnlineActive;
+    private bool _isMissileStatusActive;
+    private bool _isMultipleLasersActive;
+
     [SerializeField]
     private GameObject _laserShot;
     [SerializeField]
@@ -18,44 +38,38 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _shieldOnline;
     [SerializeField]
-    private float _fireRate = 0.3f;
-
-    private float _nextFire = 0.0f;
-
-    [SerializeField]
-    private int _lives = 3;
-    [SerializeField]
-    private int _ammo = 15;
-    private int _hitCounter = 3;
-    [SerializeField]
-    private int _newScore = 0;
-    [SerializeField]
     private GameObject _isMissileActive;
+    [SerializeField]
+    private GameObject _rightEngine, _leftEngine;
 
     private SpawnManager _spawnManager;
-
-    private bool _isTripleShotActive;
-    private bool _isSpeedBoostActive;
-    private bool _isShieldOnlineActive;
-    private bool _isMissileStatusActive;
-
     private UIManager _uiManager;
 
     [SerializeField]
-    private GameObject _rightEngine, _leftEngine;
+    private GameObject _multipleLasers;
 
     [SerializeField]
     private AudioClip _laserSoundClip;
     [SerializeField]
     private AudioClip _playerDamageSoundClip;
+
     private AudioSource _audioSource;
     private SpriteRenderer _fadingColor;
+
+    //[SerializeField]
+    //private GameObject _laser;
+    [SerializeField]
+    private int _numberOfLasers = 3;
+    [SerializeField]
+    private float _angleOfSpread = 90f;
+    [SerializeField]
+    private Rigidbody2D _rb;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(0,-1.31f, 0);
+        transform.position = new Vector3(0, -1.31f, 0);
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         _uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         _audioSource = GetComponent<AudioSource>();
@@ -88,11 +102,11 @@ public class Player : MonoBehaviour
         {
             laserShot();
         }
-        
+
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             LeftSpeedBoost();
-        } 
+        }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             LeftSpeedNormal();
@@ -109,10 +123,10 @@ public class Player : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float VerticalInput = Input.GetAxis("Vertical");
 
-        
+
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * _speed);
         transform.Translate(Vector3.up * VerticalInput * Time.deltaTime * _speed);
-   
+
 
 
         if (transform.position.y >= 0)
@@ -137,21 +151,28 @@ public class Player : MonoBehaviour
 
     void laserShot()
     {
-
+        int _ammoCounter =+ 1;
         _nextFire = Time.time + _fireRate;
-        
-        if(_ammo > 0)
+
+        if (_ammo > 0)
         {
-            Debug.Log("is missile active? " + _isMissileStatusActive);
             if (_isTripleShotActive is true & _ammo > 2)
             {
-                Instantiate(_tripleShot, transform.position +new Vector3(0, 0.6f, 0), Quaternion.identity);
+                Instantiate(_tripleShot, transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
                 ammoLeft(3);
             }
             else if (_isMissileActive.activeSelf is true)
             {
                 Instantiate(_secretWeapon, transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
                 ammoLeft(1);
+            }
+            else if (_isMultipleLasersActive is true & _ammo > 2 & _ammoCounter < 3)
+            {
+                MultipleLasersActive();
+                ammoLeft(3);
+
+                _ammoCounter++;
+                
             }
             else
             {
@@ -162,7 +183,7 @@ public class Player : MonoBehaviour
             _audioSource.pitch = 1.0f;
             _audioSource.clip = _laserSoundClip;
             _audioSource.Play();
-        } 
+        }
         else
         {
             _audioSource.pitch = 0.1f;
@@ -181,14 +202,14 @@ public class Player : MonoBehaviour
             _audioSource.Play();
             ShieldFading(_hitCounter);
             ShieldOnline();
-            _hitCounter --;
+            _hitCounter--;
             return;
         }
 
         _lives--;
         _uiManager.UpdateLives(_lives);
 
-        if (_lives == 2 )
+        if (_lives == 2)
         {
             _audioSource.clip = _playerDamageSoundClip;
             _audioSource.pitch = 0.3f;
@@ -196,8 +217,8 @@ public class Player : MonoBehaviour
             _rightEngine.SetActive(true);
             _speed /= _speedMultipler;
 
-        } 
-        else if (_lives == 1){
+        }
+        else if (_lives == 1) {
             _audioSource.clip = _playerDamageSoundClip;
             _audioSource.pitch = 0.3f;
             _audioSource.Play();
@@ -241,7 +262,7 @@ public class Player : MonoBehaviour
     {
         _speed /= _speedMultipler;
     }
-    
+
     public void speedBoost()
     {
         _isSpeedBoostActive = true;
@@ -265,12 +286,12 @@ public class Player : MonoBehaviour
 
     private void ShieldFading(int _fading)
     {
-        if(_fading == 3)
+        if (_fading == 3)
         {
             _fadingColor = _shieldOnline.GetComponent<SpriteRenderer>();
             _fadingColor.color = Color.blue;
         }
-        else if(_fading == 2)
+        else if (_fading == 2)
         {
             _fadingColor = _shieldOnline.GetComponent<SpriteRenderer>();
             _fadingColor.color = Color.red;
@@ -314,7 +335,36 @@ public class Player : MonoBehaviour
             _speed *= _speedMultipler;
             _uiManager.UpdateLives(_lives);
         }
-        
+    }
+
+    public void MultipleLasersCall()
+    {
+        _isMultipleLasersActive = true;
+        StartCoroutine(MultipleLasersCoolDown(5f));
+    }
+
+    public void MultipleLasersActive()
+    {
+        float facingRotation = Mathf.Atan2(_laserShot.transform.position.y, _laserShot.transform.position.x) * Mathf.Rad2Deg;
+        float startRotation = facingRotation - _angleOfSpread / 2f;
+        float angleIncrease = _angleOfSpread / ((float)_numberOfLasers - 1f);
+
+        for (int i = 0; i < _numberOfLasers; i++)
+        {
+            float tempRotation = startRotation - angleIncrease * i;
+            GameObject newLaser = Instantiate(_laserShot, transform.position, Quaternion.Euler(0f, 0f, tempRotation));
+            MultipleLasers temp = newLaser.GetComponent<MultipleLasers>();
+            if (temp)
+            {
+                _ = (new Vector2(Mathf.Cos(tempRotation * Mathf.Deg2Rad), Mathf.Sin(tempRotation * Mathf.Deg2Rad)));
+            }
+        }
+    }
+
+    IEnumerator MultipleLasersCoolDown(float activeTimer)
+    {
+        yield return new WaitForSeconds(activeTimer);
+        _isMultipleLasersActive = false;
     }
 
     public void MissileReady()

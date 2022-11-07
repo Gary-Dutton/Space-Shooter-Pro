@@ -15,6 +15,17 @@ TagManager:
   - Laser
   - TripleShotPowerUp
   - Asteriod
+  - RestartText
+  - GaveOverText
+  - ScoreText
+  - LivesView
+  - UIManager
+  - Enemy
+  - SpeedPowerUp
+  - HealthPowerUp
+  - EnemyLaser
+  - MultipleLasers
+  - MultipleLasersPowerUp
   layers:
   - Default
   - TransparentFX
