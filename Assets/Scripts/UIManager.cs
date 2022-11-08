@@ -75,7 +75,7 @@ public class UIManager : MonoBehaviour
     {
         if (_missileReady.IsActive() == false)
         {
-            float waitTime = Random.Range(30f, 60f);
+            float waitTime = Random.Range(15f, 45f);
             yield return new WaitForSeconds(waitTime);
             _missileReady.gameObject.SetActive(true);
             yield return new WaitForSeconds(5f);

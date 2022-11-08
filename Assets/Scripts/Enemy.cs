@@ -70,6 +70,11 @@ public class Enemy : MonoBehaviour
                     }
                 }
 
+                if (this.gameObject == null && lasers.Length > 0)
+                {
+                    Debug.Log("Enemy still fired!");
+                }
+
                 _audioSource.clip = _enemyLaserSoundClip;
                 _audioSource.pitch = 0.5f;
                 _audioSource.Play();
@@ -90,7 +95,6 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Who fired? " + other.tag);
         if (other.tag == "Player")
         {
             Player player = other.transform.GetComponent<Player>();
@@ -125,7 +129,6 @@ public class Enemy : MonoBehaviour
 
         if (other.tag == "MissilePowerUp")
         {
-            Debug.Log("Missile");
             if (_player != null)
             {
                 _player.scoringSystem(10);

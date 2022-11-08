@@ -8,7 +8,6 @@ TagManager:
   - Undefined
   - SpawnManager
   - Explosion
-<<<<<<< HEAD
   - MissilePowerUp
   - MissileReady
   - PlayerThruster
@@ -16,10 +15,17 @@ TagManager:
   - Laser
   - TripleShotPowerUp
   - Asteriod
-=======
+  - RestartText
+  - GaveOverText
+  - ScoreText
+  - LivesView
+  - UIManager
+  - Enemy
+  - SpeedPowerUp
+  - HealthPowerUp
   - EnemyLaser
-  - AmmoReload
->>>>>>> 7826e9eefe9e31bad8ffff4afd66887b33481ee4
+  - MultipleLasers
+  - MultipleLasersPowerUp
   layers:
   - Default
   - TransparentFX
