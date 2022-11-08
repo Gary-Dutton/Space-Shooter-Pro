@@ -13,6 +13,7 @@ public class SpawnManager : MonoBehaviour
     private GameObject[] _powerUpPrefab;
 
 
+
     private bool _stopSpawning = false;
 
     public void StartSpawning()
@@ -42,7 +43,7 @@ public class SpawnManager : MonoBehaviour
         while (_stopSpawning == false)
         {
             Vector3 posToSpawnPowerUp = new Vector3(Random.Range(-9f, 9f), 7, 0);
-            int powerUpsRS = Random.Range(0, 3);
+            int powerUpsRS = Random.Range(0, _powerUpPrefab.Length);
             Instantiate(_powerUpPrefab[powerUpsRS], posToSpawnPowerUp, Quaternion.identity);
             yield return new WaitForSeconds(Random.Range(3.0f, 15.0f));
         }

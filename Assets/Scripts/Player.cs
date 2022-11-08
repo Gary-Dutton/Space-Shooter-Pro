@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -12,6 +13,8 @@ public class Player : MonoBehaviour
     private GameObject _laserShot;
     [SerializeField]
     private GameObject _tripleShot;
+    [SerializeField]
+    private GameObject _secretWeapon;
     [SerializeField]
     private GameObject _shieldOnline;
     [SerializeField]
@@ -28,12 +31,15 @@ public class Player : MonoBehaviour
     private int _hitCounter = 3;
     [SerializeField]
     private int _newScore = 0;
+    [SerializeField]
+    private GameObject _isMissileActive;
 
     private SpawnManager _spawnManager;
 
     private bool _isTripleShotActive;
     private bool _isSpeedBoostActive;
     private bool _isShieldOnlineActive;
+    private bool _isMissileStatusActive;
 
     private UIManager _uiManager;
 
@@ -93,6 +99,11 @@ public class Player : MonoBehaviour
         {
             LeftSpeedNormal();
         }
+
+        if (Input.GetKeyDown(KeyCode.RightShift))
+        {
+            MissileReady();
+        }
     }
 
     void playerMovement()
@@ -133,16 +144,31 @@ public class Player : MonoBehaviour
         
         if(_ammo > 0)
         {
+<<<<<<< HEAD
+            Debug.Log("is missile active? " + _isMissileStatusActive);
+            if (_isTripleShotActive is true & _ammo > 2)
+=======
             if (_isTripleShotActive is false)
             {
                 Instantiate(_laserShot, transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
                 ammoLeft(1);
             } 
             else if (_isTripleShotActive is true && _ammo >= 3)
+>>>>>>> 7826e9eefe9e31bad8ffff4afd66887b33481ee4
             {
                 Instantiate(_tripleShot, transform.position +new Vector3(0, 0.6f, 0), Quaternion.identity);
                 ammoLeft(3);
             } 
+            else
+            {
+                Instantiate(_laserShot, transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
+                ammoLeft(1);
+            }
+            else if (_isMissileActive.activeSelf is true)
+            {
+                Instantiate(_secretWeapon, transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
+                ammoLeft(1);
+            }
             else
             {
                 Instantiate(_laserShot, transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
@@ -288,6 +314,33 @@ public class Player : MonoBehaviour
         _uiManager.UpdateAmmo(_ammo);
     }
 
+<<<<<<< HEAD
+    public void HealthRecovery()
+    {
+        if (_lives == 2)
+        {
+            _lives++;
+            _rightEngine.SetActive(false);
+            _speed *= _speedMultipler;
+            _uiManager.UpdateLives(_lives);
+        }
+        else if (_lives == 1)
+        {
+            _lives++;
+            _leftEngine.SetActive(false);
+            _speed *= _speedMultipler;
+            _uiManager.UpdateLives(_lives);
+        }
+        
+    }
+
+    public void MissileReady()
+    {
+        StartCoroutine(_uiManager.UpdateMissileStatus());
+    }
+
+=======
+>>>>>>> 7826e9eefe9e31bad8ffff4afd66887b33481ee4
     public void scoringSystem(int _score)
     {
         _newScore += _score;
