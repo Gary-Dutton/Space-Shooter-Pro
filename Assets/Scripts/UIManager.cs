@@ -23,6 +23,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Image _missileReady;
 
+    public Image _afterBurner;
+
 
     private GameManager _gameManager;
 
@@ -32,6 +34,7 @@ public class UIManager : MonoBehaviour
         _gameOverText.gameObject.SetActive(false);
         _restartText.gameObject.SetActive(false);
         _missileReady.gameObject.SetActive(false);
+        _afterBurner.gameObject.SetActive(false);
         //_missileReady.gameObject.SetActive(false);
         _scoreText.text = "Score: " + 0;
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();

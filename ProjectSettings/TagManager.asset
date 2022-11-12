@@ -26,6 +26,7 @@ TagManager:
   - EnemyLaser
   - MultipleLasers
   - MultipleLasersPowerUp
+  - Afterburner
   layers:
   - Default
   - TransparentFX
