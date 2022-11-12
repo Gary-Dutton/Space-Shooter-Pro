@@ -27,6 +27,8 @@ TagManager:
   - MultipleLasers
   - MultipleLasersPowerUp
   - Afterburner
+  - EnemyDodger
+  - EnemyContainer
   layers:
   - Default
   - TransparentFX

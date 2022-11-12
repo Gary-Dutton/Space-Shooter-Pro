@@ -19,9 +19,16 @@ public class Missile : MonoBehaviour
     void Start()
     {
         if (_rb != null)
-        { 
-            target = GameObject.FindGameObjectWithTag("Enemy").transform;
-
+        {
+            if (GameObject.FindGameObjectWithTag("Enemy"))
+            {
+                target = GameObject.FindGameObjectWithTag("Enemy").transform;
+            }
+            else if(GameObject.FindGameObjectWithTag("EnemyDodger"))
+            {
+                target = GameObject.FindGameObjectWithTag("EnemyDodger").transform;
+            }
+            
             if (target != null)
             {
                 _rb = GetComponent<Rigidbody2D>();

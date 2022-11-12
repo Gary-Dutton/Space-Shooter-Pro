@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UIElements;
 
 public class Enemy : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Enemy : MonoBehaviour
     private Player _player;
     private Animator _anim;
     private AudioSource _audioSource;
+    private bool _dodge = false;
+    private int _dodgePath = 0; // 0 = left, 1 = right
 
     private float _fireRate = 3.0f;
     private float _canFire = -1f;
@@ -55,6 +58,12 @@ public class Enemy : MonoBehaviour
         
         if (_player != null)
         {
+            if ( this.CompareTag("EnemyDodger") && _dodge == true)
+            {
+                Vector3 path = (_dodgePath == 0) ? Vector3.left : Vector3.right;
+                transform.Translate(path * _speed * 2 * Time.deltaTime);
+            }
+
             if (Time.time > _canFire)
             {
                 _fireRate = Random.Range(3f, 7f);
@@ -84,7 +93,35 @@ public class Enemy : MonoBehaviour
 
     void CalculateMovement()
     {
+
         transform.Translate(Vector3.down * Time.deltaTime * _speed);
+
+        if (transform.position.y <= -5.75f)
+        {
+            float enemyRangeX = Random.Range(-9f, 9f);
+            transform.position = new Vector3(enemyRangeX, 8f, 0);
+        }
+        int _leftrightMovement = Random.Range(0, 2);
+        MovementArray(_leftrightMovement);
+    }
+
+    void MovementArray(int _leftrightMovement)
+    {
+        if (_leftrightMovement == 1)
+        {
+            if (transform.position.x >= Random.Range(-9, 3))
+            {
+                transform.Translate((Vector3.down + Vector3.right) * Time.deltaTime * _speed);
+            }
+            else if (transform.position.x <= Random.Range(9, -3))
+            {
+                transform.Translate((Vector3.down + Vector3.left) * Time.deltaTime * _speed);
+            }
+        }
+        else if (_leftrightMovement == 0)
+        {
+            transform.Translate(Vector3.down * Time.deltaTime * _speed);
+        }
 
         if (transform.position.y <= -5.75f)
         {
@@ -142,5 +179,18 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject, 2.8f);
         }
 
+    }
+
+    IEnumerator DodgeRoutine()
+    {
+        _dodgePath = Random.Range(0, 2);
+        _dodge = true;
+        yield return new WaitForSeconds(3f);
+        _dodge = false;
+    }
+
+    public void Dodge()
+    {
+        StartCoroutine(DodgeRoutine());
     }
 }

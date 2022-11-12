@@ -24,6 +24,10 @@ public class Player : MonoBehaviour
     private int _ammo = 15;
     [SerializeField]
     private int _newScore = 0;
+    [SerializeField]
+    private Text _whatsLeft;
+    [SerializeField]
+    private GameObject _separator;
 
     private float _speedMultipler = 2.0f;
     private int _hitCounter = 3;
@@ -373,7 +377,9 @@ public class Player : MonoBehaviour
     public void ammoLeft(int amtFired)
     {
         _ammo -= amtFired;
+        _whatsLeft.text = _ammo.ToString();
         _uiManager.UpdateAmmo(_ammo);
+        
     }
 
     public void tripleShot()
@@ -475,6 +481,7 @@ public class Player : MonoBehaviour
     public void AmmoReload()
     {
         _ammo = 15;
+        _whatsLeft.text = _ammo.ToString();
         _uiManager.UpdateAmmo(_ammo);
     }
 

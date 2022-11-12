@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
@@ -22,6 +23,10 @@ public class UIManager : MonoBehaviour
     private Sprite[] _ammoLeft;
     [SerializeField]
     private Image _missileReady;
+    [SerializeField]
+    private GameObject _separator;
+
+    public Text whatsLeft;
 
     public Image _afterBurner;
 
@@ -71,7 +76,6 @@ public class UIManager : MonoBehaviour
     public void UpdateAmmo(int currentAmmo)
     {
         _ammoView.sprite = _ammoLeft[currentAmmo];
-
     }
 
     public IEnumerator UpdateMissileStatus()
@@ -80,9 +84,11 @@ public class UIManager : MonoBehaviour
         {
             float waitTime = Random.Range(15f, 45f);
             yield return new WaitForSeconds(waitTime);
+            _separator.gameObject.SetActive(false);
             _missileReady.gameObject.SetActive(true);
             yield return new WaitForSeconds(5f);
             _missileReady.gameObject.SetActive(false);
+            _separator.gameObject.SetActive(true);
         }
         
     }
