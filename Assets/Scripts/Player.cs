@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
     private SpawnManager _spawnManager;
     private UIManager _uiManager;
     
-    [SerializeField]
+    //[SerializeField]
     private GameObject _multipleLasers;
 
     [SerializeField]

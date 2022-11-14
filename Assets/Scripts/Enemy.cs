@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     private GameObject _enemyLaserPrefab;
 
     private Player _player;
+    private SpawnManager _spawnManager;
     private Animator _anim;
     private AudioSource _audioSource;
     private bool _dodge = false;
@@ -25,11 +26,14 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private AudioClip _enemyExplosionSoundClip;
 
+    public int hitCounter = 1;
+
 
     // Start is called before the first frame update
     void Start()
     {
         _player = GameObject.Find("Player").GetComponent<Player>();
+        _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         _audioSource = GetComponent<AudioSource>();
         
         if(_player == null)
@@ -53,7 +57,6 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         CalculateMovement();
         
         if (_player != null)
@@ -61,7 +64,7 @@ public class Enemy : MonoBehaviour
             if ( this.CompareTag("EnemyDodger") && _dodge == true)
             {
                 Vector3 path = (_dodgePath == 0) ? Vector3.left : Vector3.right;
-                transform.Translate(path * _speed * 2 * Time.deltaTime);
+                transform.Translate(path * _speed * 1.25f * Time.deltaTime);
             }
 
             if (Time.time > _canFire)
@@ -138,6 +141,7 @@ public class Enemy : MonoBehaviour
 
             if (player != null)
             {
+                EnemyKills(1);
                 player.playerDamage();
                 _anim.SetTrigger("EnemyDestroyed");
                 _speed = 1f;
@@ -155,6 +159,7 @@ public class Enemy : MonoBehaviour
             {
                 _player.scoringSystem(10);
             }
+            EnemyKills(1);
             Destroy(other.gameObject);
             _anim.SetTrigger("EnemyDestroyed");
             _speed = 0.5f;
@@ -170,6 +175,7 @@ public class Enemy : MonoBehaviour
             {
                 _player.scoringSystem(10);
             }
+            EnemyKills(1);
             Destroy(other.gameObject);
             _anim.SetTrigger("EnemyDestroyed");
             _speed = 0.2f;
@@ -183,14 +189,26 @@ public class Enemy : MonoBehaviour
 
     IEnumerator DodgeRoutine()
     {
-        _dodgePath = Random.Range(0, 2);
+        _dodgePath = Random.Range(0, 1);
         _dodge = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         _dodge = false;
     }
 
     public void Dodge()
     {
         StartCoroutine(DodgeRoutine());
+    }
+
+    public void EnemyKills(int hitCounter)
+    {
+        hitCounter = +1;
+        if (_spawnManager!= null)
+        {
+            _spawnManager.enemyCount(1);
+            
+        }
+        Debug.Log("Value :" + hitCounter);
+        
     }
 }

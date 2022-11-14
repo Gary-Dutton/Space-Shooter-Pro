@@ -23,6 +23,8 @@ public class UIManager : MonoBehaviour
     private Image _missileReady;
     [SerializeField]
     private GameObject _separator;
+    [SerializeField]
+    private Text _waveLevelUp;
 
     public Text whatsLeft;
 
@@ -35,6 +37,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         _gameOverText.gameObject.SetActive(false);
+        _waveLevelUp.gameObject.SetActive(false);
         _restartText.gameObject.SetActive(false);
         _missileReady.gameObject.SetActive(false);
         _afterBurner.gameObject.SetActive(false);
@@ -52,6 +55,11 @@ public class UIManager : MonoBehaviour
     public void ScoringSystem(int _newScore)
     {
         _scoreText.text = "Score: " + _newScore;
+    }
+
+    public void LevelingUp(Text NextWavetext)
+    {
+        _waveLevelUp.text = NextWavetext.text;
     }
 
     public void UpdateLives(int currentLives)

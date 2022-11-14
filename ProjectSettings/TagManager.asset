@@ -29,6 +29,8 @@ TagManager:
   - Afterburner
   - EnemyDodger
   - EnemyContainer
+  - WaveSpawner
+  - NextWaveText
   layers:
   - Default
   - TransparentFX
