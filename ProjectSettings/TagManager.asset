@@ -31,6 +31,7 @@ TagManager:
   - EnemyContainer
   - WaveSpawner
   - NextWaveText
+  - PowerDown
   layers:
   - Default
   - TransparentFX

@@ -83,15 +83,17 @@ public class SpawnManager : MonoBehaviour
 
             Debug.Log("Calling next wave!");
             _testText.gameObject.SetActive(true);
+            _stopSpawning = true;
             WaveLevelUpMain();
             _enemyCount = 0;
             _waveIndex += 1;
+            _stopSpawning = false;
             StartSpawning();
         }
     }
     IEnumerator SpawnEnemyRoutine(int numberOfEnemies, float rateOfRelease)
     {
-        yield return new WaitForSeconds(rateOfRelease);
+        yield return new WaitForSeconds(7);
         numberOfEnemiesActive++;
 
         while (_stopSpawning == false && numberOfEnemiesActive <= numberOfEnemies)
@@ -101,7 +103,7 @@ public class SpawnManager : MonoBehaviour
             GameObject newEnemy = Instantiate(_ememyArray[ememyPrefabRS], posToSpawnEnemy, Quaternion.identity);
             newEnemy.transform.parent = _enemyContainer.transform;
             numberOfEnemiesActive++;
-            yield return new WaitForSeconds(5.0f);
+            yield return new WaitForSeconds(rateOfRelease);
         }
 
 
@@ -109,7 +111,7 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnPowerUpRoutine()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(5.0f);
         while (_stopSpawning == false)
         {
             Vector3 posToSpawnPowerUp = new Vector3(Random.Range(-9f, 9f), 7, 0);
@@ -143,6 +145,7 @@ public class SpawnManager : MonoBehaviour
     }
     private void WaveLevelUp5()
     {
+        _testText.gameObject.SetActive(true);
         _testText.text = "5".ToString();
         StartCoroutine(TextWaveLevelUp5(_testText));
 
@@ -202,6 +205,5 @@ public class SpawnManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         _testText.gameObject.SetActive(false);
-
     }
 }

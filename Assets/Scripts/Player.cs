@@ -485,6 +485,13 @@ public class Player : MonoBehaviour
         _uiManager.UpdateAmmo(_ammo);
     }
 
+    public void NoAmmo()
+    {
+        _ammo = 0;
+        _whatsLeft.text = _ammo.ToString();
+        _uiManager.UpdateAmmo(_ammo);
+    }
+
     public void HealthRecovery()
     {
         if (_lives == 2)

@@ -53,6 +53,9 @@ public class PowerUp : MonoBehaviour
                     case 5:
                         player.MultipleLasersCall();
                         break;
+                    case 6:
+                        player.NoAmmo();
+                        break;
                     default:
                         Debug.Log("Default switch enabled...");
                         break;

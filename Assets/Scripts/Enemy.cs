@@ -57,8 +57,9 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CalculateMovement();
-        
+        //CalculateMovement();
+        MovementArray();
+
         if (_player != null)
         {
             if ( this.CompareTag("EnemyDodger") && _dodge == true)
@@ -97,28 +98,49 @@ public class Enemy : MonoBehaviour
     void CalculateMovement()
     {
 
-        transform.Translate(Vector3.down * Time.deltaTime * _speed);
+        //transform.Translate(Vector3.down * Time.deltaTime * _speed);
 
-        if (transform.position.y <= -5.75f)
-        {
-            float enemyRangeX = Random.Range(-9f, 9f);
-            transform.position = new Vector3(enemyRangeX, 8f, 0);
-        }
-        int _leftrightMovement = Random.Range(0, 2);
-        MovementArray(_leftrightMovement);
+        //if (transform.position.y <= -5.75f)
+        //{
+        //    float enemyRangeX = Random.Range(-9f, 9f);
+        //    transform.position = new Vector3(enemyRangeX, 8f, 0);
+        //}
+        //int _leftrightMovement = Random.Range(0, 2);
+        //MovementArray(_leftrightMovement);
     }
 
-    void MovementArray(int _leftrightMovement)
+    void MovementArray()
     {
+
+        transform.Translate(Vector3.down * Time.deltaTime * _speed);
+        int _leftrightMovement = Random.Range(0, 2);
+        
+
         if (_leftrightMovement == 1)
         {
             if (transform.position.x >= Random.Range(-9, 3))
             {
                 transform.Translate((Vector3.down + Vector3.right) * Time.deltaTime * _speed);
+                if (transform.position.x <= -10.5f)
+                {
+                    transform.position = new Vector3(10.5f, transform.position.y, 0);
+                }
+                else if (transform.position.x >= 10.5f)
+                {
+                    transform.position = new Vector3(-10.5f, transform.position.y, 0);
+                }
             }
             else if (transform.position.x <= Random.Range(9, -3))
             {
                 transform.Translate((Vector3.down + Vector3.left) * Time.deltaTime * _speed);
+                if (transform.position.x <= -10.5f)
+                {
+                    transform.position = new Vector3(10.5f, transform.position.y, 0);
+                }
+                else if (transform.position.x >= 10.5f)
+                {
+                    transform.position = new Vector3(-10.5f, transform.position.y, 0);
+                }
             }
         }
         else if (_leftrightMovement == 0)
