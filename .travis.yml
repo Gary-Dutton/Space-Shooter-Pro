@@ -29,11 +29,11 @@ after_success:
 before_deploy:
 - DEPLOY_UNITYPACKAGE="$(ls -a release/*.zip | head -n 1)"
 
+
 deploy:
-  provider: releases
-  api_key: $GITHUB_TOKEN
-  file: $DEPLOY_UNITYPACKAGE
+  provider: pages
   skip_cleanup: true
-  overwrite: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
   on:
-    tags: true 
+    branch: main
