@@ -1,8 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +13,7 @@ public class SpawnManager : MonoBehaviour
     }
 
     public WaveMachine[] waveMachine;
+    public int enemyCounter;
 
     //[SerializeField]
     private GameObject _enemyPrefab;
@@ -36,11 +33,8 @@ public class SpawnManager : MonoBehaviour
     private UIManager _uiManager;
     [SerializeField]
     private Text _testText;
-    
-    private int numberOfEnemiesActive = 0;
 
-    public int enemyCounter;
-
+    private int _numberOfEnemiesActive = 0;
     private bool _stopSpawning = false;
 
     public void StartSpawning()
@@ -94,15 +88,15 @@ public class SpawnManager : MonoBehaviour
     IEnumerator SpawnEnemyRoutine(int numberOfEnemies, float rateOfRelease)
     {
         yield return new WaitForSeconds(7);
-        numberOfEnemiesActive++;
+        _numberOfEnemiesActive++;
 
-        while (_stopSpawning == false && numberOfEnemiesActive <= numberOfEnemies)
+        while (_stopSpawning == false && _numberOfEnemiesActive <= numberOfEnemies)
         {
             Vector3 posToSpawnEnemy = new Vector3(Random.Range(-9f, 9f), 7, 0);
             int ememyPrefabRS = Random.Range(0, _ememyArray.Length); 
             GameObject newEnemy = Instantiate(_ememyArray[ememyPrefabRS], posToSpawnEnemy, Quaternion.identity);
             newEnemy.transform.parent = _enemyContainer.transform;
-            numberOfEnemiesActive++;
+            _numberOfEnemiesActive++;
             yield return new WaitForSeconds(rateOfRelease);
         }
 

@@ -1041,22 +1041,20 @@ MonoBehaviour:
   waveMachine:
   - name: EASY
     numberOfEnemies: 5
-    rateOfRelease: 10
+    rateOfRelease: 7.5
   - name: MILD
     numberOfEnemies: 15
     rateOfRelease: 5
   - name: HARD
     numberOfEnemies: 30
     rateOfRelease: 2.5
-  - name: EXTEREME
+  - name: EXTREME
     numberOfEnemies: 50
-    rateOfRelease: 0.5
+    rateOfRelease: 1
   - name: RANDOM
     numberOfEnemies: 100
     rateOfRelease: 10
-  - name: RANDOM
-    numberOfEnemies: 100
-    rateOfRelease: 10
+  enemyCounter: 0
   _ememyArray:
   - {fileID: 4754366940141859025, guid: 3edf0f317b09d174e95c98f40e86eaac, type: 3}
   - {fileID: 8968822993820582850, guid: e6ec55bcf6295804b9c91e6f6c9a1bfd, type: 3}
@@ -1073,7 +1071,6 @@ MonoBehaviour:
   _enemyCount: 0
   _uiManager: {fileID: 2118890204}
   _testText: {fileID: 1765838884}
-  enemyCounter: 0
 --- !u!4 &587368408
 Transform:
   m_ObjectHideFlags: 0
