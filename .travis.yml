@@ -4,7 +4,7 @@ rvm:
 - 2.2         #see before_install for getting RVM stable.
 
 env:
-- TRAVIS_TAG="Deploy-2020.3.39f1" PROJECT_NAME="Space-Shooter-Pro" UNITY_PROJECT_PATH="~/Workspace/GameDevHQ/Space-Shooter-Pro" DEPLOY_UNITYPACKAGE="path set in deploy script"
+- TRAVIS_TAG="Deploy-2020.3.39f1" PROJECT_NAME="Space-Shooter-Pro" UNITY_PROJECT_PATH="Space-Shooter-Pro" DEPLOY_UNITYPACKAGE="travis-build/"
 
 
 cache:
