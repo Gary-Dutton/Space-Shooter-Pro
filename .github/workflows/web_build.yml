@@ -35,7 +35,7 @@ jobs:
     name: Web Build and deployment
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: true
+      #fail-fast: false
       matrix:
         targetPlatform:
           - WebGL
@@ -135,10 +135,13 @@ jobs:
 
   butler_push:
     name: Push to Itch.io
+    - name: Sleep for 30 seconds
+      run: sleep 30s
+      shell: bash
     needs: [unity_build]
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: true
+      #fail-fast: false
       matrix:
         targetPlatform:
           - WebGL
@@ -146,9 +149,6 @@ jobs:
           - html5
 
     steps:
-      - name: Sleep for 30 seconds
-        run: sleep 30s
-        shell: bash
       - name: Download Build
         uses: actions/download-artifact@v2
         with:
@@ -185,17 +185,20 @@ jobs:
       #   run: tree
 
       - name: Butler Push
-        uses: josephbmanley/butler-publish-itchio-action@master
-        env:
-          BUTLER_CREDENTIALS: ${{ env.BUTLER_API_KEY }}
-          CHANNEL: ${{ matrix.butlerChannel }}
-          ITCH_GAME: ${{ env.ITCHIO_GAME }}
-          ITCH_USER: ${{ env.ITCHIO_USER }}
-          PACKAGE: build/${{ matrix.targetPlatform }}
+        uses: KikimoraGames/itch-publish@v0.0.3
+        with:
+          butlerApiKey: ${{secrets.BUTLER_API_KEY}}
+          gameData: ./build/${{ matrix.template }}
+          itchUsername: ${{env.ITCH_USERNAME}}
+          itchGameId: ${{ env.ITCH_GAME_ID }}
+          buildChannel: ${{ matrix.channel }}
+          buildNumber: ${{ needs.version.outputs.version_hash }}
 
-        # env:
-        #   ITCH_USERNAME: my-username
-        #   ITCH_GAME_ID: my-game-id
+          # BUTLER_CREDENTIALS: ${{ env.BUTLER_API_KEY }}
+          # CHANNEL: ${{ matrix.butlerChannel }}
+          # ITCH_GAME: ${{ env.ITCHIO_GAME }}
+          # ITCH_USER: ${{ env.ITCHIO_USER }}
+          # PACKAGE: build/${{ matrix.targetPlatform }}
         # jobs:
         #   deploy:
         #     name: Upload to Itch
