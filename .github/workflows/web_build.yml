@@ -139,6 +139,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       # fail-fast: false
+      - name: Sleep for 30 seconds
+        run: sleep 30s
+        shell: bash
       matrix:
         targetPlatform:
           - WebGL
@@ -146,6 +149,9 @@ jobs:
           - html5
 
     steps:
+      - name: Sleep for 30 seconds
+        run: sleep 30s
+        shell: bash
       - name: Download Build
         uses: actions/download-artifact@v2
         with:
@@ -154,32 +160,35 @@ jobs:
       
       ## manual butler setup [alternative]
 
-      - name: Butler download
-        run:
+      # - name: Butler download
+      #   run: |
       #     # -L follows redirects
       #     # -O specifies output name
       #     # -s hides all errors and the progress bar
       #     # -S tells curl to be silent, except when there is an error
-          curl -S -s -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+      #     curl -S -s -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
 
-      - name: Butler Unzip
-        run: unzip butler.zip -d ${{ env.BUTLER_PATH }}
+      # - name: Butler Unzip
+      #   run: unzip butler.zip -d ${{ env.BUTLER_PATH }}
 
-      - name: Make Butler executable
+      # - name: Make Butler executable
       #   # GNU unzip tends to not set the executable bit even though it's set in the .zip
       #   # mark extracted file as executable
-        run: chmod +x ${{ env.BUTLER_PATH }}/butler
+      #   run: chmod +x ${{ env.BUTLER_PATH }}/butler
 
-      - name: Butler test run
+      # - name: Butler test run
       #   # just a sanity check run (and also helpful in case you're sharing CI logs)
-        run: ${{ env.BUTLER_PATH }}/butler -V
+      #   run: ${{ env.BUTLER_PATH }}/butler -V
 
-      - name: Butler login
+      # - name: Butler login
       #   # just a sanity check run (and also helpful in case you're sharing CI logs)
-        run: ${{ env.BUTLER_PATH }}/butler login
+      #   run: ${{ env.BUTLER_PATH }}/butler login
 
-      - name: Directory content after Butler Download
-        run: tree
+      # - name: Directory content after Butler Download
+      #   run: tree
+
+      - name: Butler Push
+        uses: josephbmanley/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ env.BUTLER_API_KEY }}
           CHANNEL: ${{ matrix.butlerChannel }}
