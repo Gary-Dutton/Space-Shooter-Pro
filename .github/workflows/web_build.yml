@@ -103,7 +103,7 @@ jobs:
       - name: Building game
         uses: game-ci/unity-builder@v2
         env:
-          #UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           githubToken: ${{ secrets.GIT_PRIVATE_TOKEN }}
           # Path where the builds should be stored.
@@ -116,6 +116,7 @@ jobs:
           # Custom parameters to configure the build.
           # Parameters must start with a hyphen (-) and may be followed by a value (without hyphen). Parameters without a value will be considered booleans (with a value of true).
           # customParameters: '-nographics' # <--- This is the important bit [https://github.com/webbertakken/unity-builder/issues/153]
+          -nographics
 
       - name: Directory content after build
         run: ls -al
