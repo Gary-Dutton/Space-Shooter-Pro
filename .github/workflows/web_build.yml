@@ -35,7 +35,7 @@ jobs:
     name: Web Build and deployment
     runs-on: ubuntu-latest
     strategy:
-      #fail-fast: false
+      # fail-fast: false
       matrix:
         targetPlatform:
           - WebGL
@@ -51,7 +51,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          lfs: true
+          lfs: false
 
       - name: Current folder path
         run: pwd
@@ -138,15 +138,13 @@ jobs:
     needs: [unity_build]
     runs-on: ubuntu-latest
     strategy:
-      #fail-fast: false
+      # fail-fast: false
       matrix:
         targetPlatform:
           - WebGL
         butlerChannel:
           - html5
-      - name: Sleep for 30 seconds
-        run: sleep 30s
-        shell: bash
+
     steps:
       - name: Download Build
         uses: actions/download-artifact@v2
@@ -184,44 +182,12 @@ jobs:
       #   run: tree
 
       - name: Butler Push
-        uses: KikimoraGames/itch-publish@v0.0.3
-        with:
-          butlerApiKey: ${{secrets.BUTLER_API_KEY}}
-          gameData: ./build/${{ matrix.template }}
-          itchUsername: ${{env.ITCH_USERNAME}}
-          itchGameId: ${{ env.ITCH_GAME_ID }}
-          buildChannel: ${{ matrix.channel }}
-          buildNumber: ${{ needs.version.outputs.version_hash }}
-
-          # BUTLER_CREDENTIALS: ${{ env.BUTLER_API_KEY }}
-          # CHANNEL: ${{ matrix.butlerChannel }}
-          # ITCH_GAME: ${{ env.ITCHIO_GAME }}
-          # ITCH_USER: ${{ env.ITCHIO_USER }}
-          # PACKAGE: build/${{ matrix.targetPlatform }}
-        # jobs:
-        #   deploy:
-        #     name: Upload to Itch
-        #     runs-on: ubuntu-latest
-        #     strategy:
-        #       fail-fast: true
-        #       matrix:
-        #         channel:
-        #           - windows
-        #           - webgl
-        #     runs-on: ubuntu-latest
-        #     name: Deploy - Itch.io ${{ matrix.template }}
-        #     steps:
-        #       - uses: actions/download-artifact@v2.0.8
-        #         with:
-        #           name: ${{ matrix.channel }}
-        #           path: build/${{ matrix.channel }}
-        #       - uses: KikimoraGames/itch-publish@v0.0.3
-        #         with:
-        #           butlerApiKey: ${{secrets.BUTLER_API_KEY}}
-        #           gameData: ./build/${{ matrix.template }}
-        #           itchUsername: ${{env.ITCH_USERNAME}}
-        #           itchGameId: ${{ env.ITCH_GAME_ID }}
-        #           buildChannel: ${{ matrix.channel }}
-        #           buildNumber: ${{ needs.version.outputs.version_hash }}
+        uses: josephbmanley/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ env.BUTLER_API_KEY }}
+          CHANNEL: ${{ matrix.butlerChannel }}
+          ITCH_GAME: ${{ env.ITCHIO_GAME }}
+          ITCH_USER: ${{ env.ITCHIO_USER }}
+          PACKAGE: build/${{ matrix.targetPlatform }}
 
       # TODO - Create release https://github.com/marketplace/actions/upload-a-release-asset
