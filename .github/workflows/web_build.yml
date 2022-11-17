@@ -71,9 +71,6 @@ jobs:
         uses: andstor/file-reader-action@v1
         with:
           path: ${{ env.VERSIONING_FILE_PATH }}
-      
-      - name: Unity - Activate
-        uses: game-ci/unity-activate@v2.0.0
 
       - name: Version from file
         run: echo ${{ steps.read_file.outputs.contents }}
