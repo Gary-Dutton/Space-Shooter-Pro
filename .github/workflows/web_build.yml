@@ -92,10 +92,6 @@ jobs:
         id: artifact_output
         run: echo "::set-output name=buildArtifactName::${{ env.BUILD_ARTIFACT_NAME }}"
 
-      - name: Sleep for 15 seconds
-        run: sleep 15s
-        shell: bash
-
       - name: Directory content after build
         run: ls -al
         
@@ -103,10 +99,6 @@ jobs:
         run: |
           sudo apt-get install tree
           tree ${{ env.BUILD_OUTPUT_PATH }}
-
-      - name: Sleep for 30 seconds
-        run: sleep 30s
-        shell: bash
 
       - name: Building game
         uses: game-ci/unity-builder@v2
@@ -191,14 +183,14 @@ jobs:
 
       - name: Butler Push
         uses: josephbmanley/butler-publish-itchio-action@master
+      - name: Sleep for 30 seconds
+        run: sleep 30s
+        shell: bash
         env:
           BUTLER_CREDENTIALS: ${{ env.BUTLER_API_KEY }}
           CHANNEL: ${{ matrix.butlerChannel }}
           ITCH_GAME: ${{ env.ITCHIO_GAME }}
           ITCH_USER: ${{ env.ITCHIO_USER }}
           PACKAGE: build/${{ matrix.targetPlatform }}
-      - name: Sleep for 15 seconds
-        run: sleep 15s
-        shell: bash
 
       # TODO - Create release https://github.com/marketplace/actions/upload-a-release-asset
