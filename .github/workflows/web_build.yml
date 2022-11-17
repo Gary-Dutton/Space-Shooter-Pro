@@ -135,9 +135,6 @@ jobs:
 
   butler_push:
     name: Push to Itch.io
-    - name: Sleep for 30 seconds
-      run: sleep 30s
-      shell: bash
     needs: [unity_build]
     runs-on: ubuntu-latest
     strategy:
