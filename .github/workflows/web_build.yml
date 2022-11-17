@@ -138,10 +138,7 @@ jobs:
     needs: [unity_build]
     runs-on: ubuntu-latest
     strategy:
-      # fail-fast: false
-      - name: Sleep for 30 seconds
-        run: sleep 30s
-        shell: bash
+      fail-fast: false
       matrix:
         targetPlatform:
           - WebGL
