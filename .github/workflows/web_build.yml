@@ -92,6 +92,10 @@ jobs:
         id: artifact_output
         run: echo "::set-output name=buildArtifactName::${{ env.BUILD_ARTIFACT_NAME }}"
 
+      - name: Sleep for 15 seconds
+        run: sleep 15s
+        shell: bash
+        
       - name: Directory content after build
         run: ls -al
         
@@ -99,6 +103,10 @@ jobs:
         run: |
           sudo apt-get install tree
           tree ${{ env.BUILD_OUTPUT_PATH }}
+
+      - name: Sleep for 15 seconds
+        run: sleep 15s
+        shell: bash
 
       - name: Building game
         uses: game-ci/unity-builder@v2
