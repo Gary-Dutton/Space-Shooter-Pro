@@ -6,6 +6,12 @@ rvm:
 env:
 - TRAVIS_TAG="Deploy-2020.3.39f1" PROJECT_NAME="Space-Shooter-Pro" UNITY_PROJECT_PATH="Space-Shooter-Pro" DEPLOY_UNITYPACKAGE="travis-build/"
 
+variables:
+  BUILD_NAME: $PROJECT_NAME
+  UNITY_ACTIVATION_FILE: ./unity3d.alf
+  ITCH_USER: $ITCH_USER
+  ITCH_PROJECT: $ITCH_PROJECT
+
 
 cache:
   directories:
@@ -29,12 +35,27 @@ after_success:
 before_deploy:
 - DEPLOY_UNITYPACKAGE="$(ls -a release/*.zip | head -n 1)"
 
+#deploy:
+#  provider: pages
+#  skip_cleanup: true
+#  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+#  keep_history: true
+#  target_branch: release
+#  on:
+#    branch: main
 
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-  keep_history: true
-  target_branch: release
-  on:
-    branch: main
+
+itch:
+  image: dosowisko/butler
+  stage: deploy
+  script:
+    - VERSION=$CI_COMMIT_SHORT_SHA
+    - butler push "$DEPLOY_UNITYPACKAGE" "${ITCH_USER}/${ITCH_PROJECT}:web" --userversion $VERSION
+    #- butler push "./Builds/StandaloneLinux64" "${ITCH_USER}/${ITCH_PROJECT}:linux" --userversion $VERSION
+    #- butler push "./Builds/StandaloneWindows64" "${ITCH_USER}/${ITCH_PROJECT}:windows" --userversion $VERSION
+    #- butler push "./Builds/StandaloneOSX" "${ITCH_USER}/${ITCH_PROJECT}:mac" --userversion $VERSION
+  only:
+    - main
+
+
+
