@@ -197,5 +197,8 @@ jobs:
           ITCH_GAME: ${{ env.ITCHIO_GAME }}
           ITCH_USER: ${{ env.ITCHIO_USER }}
           PACKAGE: build/${{ matrix.targetPlatform }}
+      - name: Sleep for 15 seconds
+        run: sleep 15s
+        shell: bash
 
       # TODO - Create release https://github.com/marketplace/actions/upload-a-release-asset
