@@ -105,6 +105,7 @@ jobs:
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
+          githubToken: ${{ secrets.GIT_PRIVATE_TOKEN }}
           # Path where the builds should be stored.
           buildsPath: ${{ env.BUILD_OUTPUT_PATH}}
           buildName: ${{ env.BUILD_NAME}}
