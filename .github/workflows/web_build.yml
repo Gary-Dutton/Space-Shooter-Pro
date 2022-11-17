@@ -182,10 +182,7 @@ jobs:
       #   run: tree
 
       - name: Butler Push
-        uses: josephbmanley/butler-publish-itchio-action@master
-        - name: Sleep for 30 seconds
-          run: sleep 30s
-          shell: bash
+        uses: manleydev/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ env.BUTLER_API_KEY }}
           CHANNEL: ${{ matrix.butlerChannel }}
