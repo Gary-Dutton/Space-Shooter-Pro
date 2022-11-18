@@ -131,7 +131,7 @@ jobs:
             echo "::set-output name=hasNewFiles::false"
           fi
       - name: Push New Files
-        if: £{{ steps.newFiles.outputs.hasNewFiles == 'true' }}
+        if: ${{ steps.newFiles.outputs.hasNewFiles == 'true' }}
         shell: bash
         working-directory: dest
         run: |
