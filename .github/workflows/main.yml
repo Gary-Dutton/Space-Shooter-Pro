@@ -98,8 +98,6 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          destination-repository-name: 'Release'
-          branch: main
           name: build-WebGL
           path: build/WebGL
 
@@ -123,6 +121,6 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          destination-repository-name: 'Release'
-          branch: release
+          repository-naame: Release
+          branch: main
           folder: build/WebGL
