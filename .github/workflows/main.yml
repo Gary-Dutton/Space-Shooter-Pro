@@ -121,6 +121,6 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          branch: release
+          destination-repository-name: 'Release'
+          branch: main
           folder: build/WebGL
-
