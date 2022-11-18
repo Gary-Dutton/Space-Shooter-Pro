@@ -122,6 +122,8 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          repository: Gary-Dutton/Release
           branch: release
           folder: build/WebGL
+          repository: Gary-Dutton/Release
+          token: ${{ secrets.GIT_PRIVATE_TOKEN}}
+          persist-credentials: true
