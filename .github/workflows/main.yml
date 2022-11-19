@@ -97,7 +97,7 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          path: build/WebGL
+          path: build/
           name: build-WebGL
           ref: 'main'
           persist-credentials: false
@@ -116,7 +116,7 @@ jobs:
         run:  |
           ls -altr
           mkdir -p dest/
-          cp -rvT build/WebGL dest/
+          cp -rvT build/ dest/
       - name: Check for New Files
         id: newFiles
         shell: bash
