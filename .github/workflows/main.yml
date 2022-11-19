@@ -132,7 +132,7 @@ jobs:
           pwd
           ls -altr
       - name: Push New Files
-        if: ${{ hasNewFiles == 'true' }}
+        if: ${{ newFiles.outputs.hasNewFiles == 'true' }}
         shell: bash
         working-directory: dest
         run: |
