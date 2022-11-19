@@ -150,10 +150,15 @@ jobs:
           path: dest
 
       - name: Display structure of root files
-        run: ls -R
+        run: |
+          ls -R
+          cd WebGL
         working-directory: dest
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          branch: release         
+          branch: release
+          folder: dest
+
+          
