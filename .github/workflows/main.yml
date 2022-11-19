@@ -151,11 +151,11 @@ jobs:
 
       - name: Display structure of root files
         run: ls -R
-        working-directory: dest/WebGL
+        working-directory: dest/
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: release
-          folder: WebGL
+          folder: /
           
