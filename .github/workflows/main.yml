@@ -125,7 +125,7 @@ jobs:
         run: |
           git add -A
           git status --porcelain | wc -l
-          if [[ $(git status --porcelain | wc -l ) -gt 0 ]];
+          if [[ $(git status --porcelain | wc -l ) -gt 0 ]]; then
             echo "::set-output name-hasNewFiles::true"
           else
             echo "::set-output name=hasNewFiles::false"
