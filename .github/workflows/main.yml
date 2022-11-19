@@ -117,7 +117,6 @@ jobs:
         run:  |
           mkdir -p dest/
           cp -rvT build/WebGL dest/
-      
       - name: Check for New Files
         id: newFiles
         shell: bash
@@ -130,7 +129,6 @@ jobs:
           else
             echo "::setOutput name=hasNewFiles::false"
           fi
-      
       - name: Push New Files
         if: ${{ steps.newFiles.outputs.hasNewFiles == 'true' }}
         shell: bash
