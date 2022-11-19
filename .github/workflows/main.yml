@@ -147,15 +147,15 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: build-WebGL
-          path: dest
+          path: /
 
       - name: Display structure of root files
         run: ls -R
-        working-directory: dest/
+        working-directory: /
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: release
-          folder: dest/
+          folder: /
           
