@@ -86,7 +86,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: Library
-          key: Library-build-WebGL
+          key: Library-build-
           restore-keys: |
             Library-build-
             Library-
@@ -97,8 +97,8 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          path: build/
-          name: build-WebGL
+          path: build
+          name: build
           ref: 'main'
           persist-credentials: false
 
@@ -115,8 +115,8 @@ jobs:
         shell: bash
         run:  |
           ls -altr
-          mkdir -p dest/
-          cp -rvT build/ dest/
+          mkdir -p dest
+          cp -rvT build dest
       - name: Check for New Files
         id: newFiles
         shell: bash
@@ -146,17 +146,14 @@ jobs:
 
       - uses: actions/download-artifact@v3
         with:
-          name: build-WebGL
-          path: 'dest'
+          name: build
+          path: dest
 
       - name: Display structure of root files
         run: ls -R
-        working-directory: 'dest'
+        working-directory: dest
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          branch: release
-          folder: 'dest'
-
-          
+          branch: release         
