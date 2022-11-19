@@ -133,7 +133,6 @@ jobs:
           ls -altr
       - name: Push New Files
         if: ${{ hasNewFiles == 'true' }}
-        #if: ${{ steps.newFiles.outputs.hasNewFiles == 'true' }}
         shell: bash
         working-directory: dest
         run: |
