@@ -118,7 +118,7 @@ jobs:
           mkdir -p dest/
           cp -rvT build/WebGL dest/
       - name: Check for New Files
-        id: 'newFiles'
+        id: newFiles
         shell: bash
         working-directory: dest
         run: |
@@ -147,15 +147,15 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: build-WebGL
-          path: /
+          path: dest
 
       - name: Display structure of root files
         run: ls -R
-        working-directory: /
+        working-directory: dest/
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: release
-          folder: /
+          folder: dest/
           
