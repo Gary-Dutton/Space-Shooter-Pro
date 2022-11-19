@@ -105,7 +105,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          path: 'dest'
+          path: '/'
           ref: 'release'
           repository: 'Gary-Dutton/Release'
           token: ${{ secrets.GIT_PRIVATE_TOKEN }}
@@ -115,12 +115,12 @@ jobs:
         shell: bash
         run:  |
           ls -altr
-          mkdir -p dest/
-          cp -rvT build/WebGL dest/
+          mkdir -p /
+          cp -rvT build/WebGL /
       - name: Check for New Files
         id: newFiles
         shell: bash
-        working-directory: dest
+        working-directory: /
         run: |
           git add -A
           git status --porcelain | wc -l
@@ -147,15 +147,15 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: build-WebGL
-          path: dest
+          path: /
 
       - name: Display structure of root files
         run: ls -R
-        working-directory: dest/
+        working-directory: /
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: release
-          folder: dest/
+          folder: /
           
