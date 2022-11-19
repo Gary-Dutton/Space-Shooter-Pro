@@ -117,6 +117,7 @@ jobs:
         run:  |
           mkdir -p dest/
           cp -rvT build/WebGL dest/
+      
       - name: Check for New Files
         id: newFiles
         shell: bash
@@ -125,10 +126,11 @@ jobs:
           git add -A
           git status --porcelain | wc -l
           if [[ $(git status --porcelain | wc -l ) -gt 0 ]]; then
-            echo "::setOutput name-hasNewFiles::true"
+            echo "::setOutput name=hasNewFiles::true"
           else
             echo "::setOutput name=hasNewFiles::false"
           fi
+      
       - name: Push New Files
         if: ${{ steps.newFiles.outputs.hasNewFiles == 'true' }}
         shell: bash
