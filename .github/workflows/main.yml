@@ -98,7 +98,7 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          path: src/build/WebGL
+          path: 'src'
           name: build-WebGL
           ref: 'main'
           persist-credentials: false
@@ -106,7 +106,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          path: dest/build/WebGL
+          path: 'dest'
           ref: 'release'
           repository: 'Gary-Dutton/Release'
           token: ${{ secrets.GIT_PRIVATE_TOKEN }}
@@ -116,8 +116,8 @@ jobs:
       - name: Copy common files to new repo
         shell: bash
         run:  |
-          mkdir -p build/WebGL
-          cp -rvT src/build/WebGL dest/build/WebGL
+          mkdir -p dest/build/WebGL
+          cp -rvT src dest/build/WebGL
       - name: Check for New Files
         id: newFiles
         shell: bash
