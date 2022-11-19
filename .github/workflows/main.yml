@@ -1,5 +1,4 @@
 name: GameCI Template 🎮
-
 on: push
 
 env:
@@ -116,8 +115,8 @@ jobs:
       - name: Copy common files to new repo
         shell: bash
         run:  |
-          mkdir -p dest/build/WebGL
-          cp -rvT build/WebGL dest/build/WebGL
+          mkdir -p dest/
+          cp -rvT build/WebGL dest/
       - name: Check for New Files
         id: newFiles
         shell: bash
