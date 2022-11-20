@@ -66,12 +66,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Create LFS file list
-        run: |
-          cd ..
-          pwd
-          ls -altr
-          rm -dr Space-Shooter-Pro
-          git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
+        run: git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
 
       - name: Restore LFS cache
         uses: actions/cache@v2
@@ -83,7 +78,10 @@ jobs:
       - name: Git LFS Pull
         run: |
           git lfs pull
+          cd ..
           pwd
+          ls -altr
+          rm -dr Space-Shooter-Pro
           exit 1
           git add .
           git reset --hard
