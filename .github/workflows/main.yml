@@ -68,6 +68,10 @@ jobs:
       - name: Create LFS file list
         run: |
           pwd
+<<<<<<< HEAD
+=======
+          cd ..
+>>>>>>> parent of 80bcf75 (BDGP)
           exit 1
           git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
 
