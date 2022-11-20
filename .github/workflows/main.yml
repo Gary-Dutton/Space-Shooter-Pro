@@ -106,7 +106,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: build-WebGL
-          path: build/WebGL
+          path: release
 
   deployPages:
     needs: buildWebGL
@@ -119,10 +119,20 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: build-WebGL
+<<<<<<< HEAD
           path: build
 
       - name: Display structure of root files
         run: ls -R
+=======
+          path: relase
+
+      - name: Display structure of root files
+        run: | 
+          pwd
+          ls -R
+          exit 1
+>>>>>>> parent of aac516a (BDGP 12)
         working-directory: build/WebGL
 
       - name: Deploy 🚀
