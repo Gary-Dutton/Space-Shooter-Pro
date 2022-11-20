@@ -97,7 +97,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: build-WebGL
-          path: release
+          path: build/WebGL
 
   deployPages:
     needs: buildWebGL
@@ -105,19 +105,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - uses: actions/download-artifact@v3
         with:
           name: build-WebGL
-          path: relase
+          path: build/WebGL
 
       - name: Display structure of root files
+        working-directory: build/WebGL
         run: | 
           pwd
           ls -R
-          exit 1
-        working-directory: build/WebGL
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
