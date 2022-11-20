@@ -70,7 +70,7 @@ jobs:
           cd ..
           pwd
           ls -altr
-          exit 1
+          rm -dr Space-Shooter-Pro
           git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
 
       - name: Restore LFS cache
@@ -83,6 +83,8 @@ jobs:
       - name: Git LFS Pull
         run: |
           git lfs pull
+          pwd
+          exit 1
           git add .
           git reset --hard
 
