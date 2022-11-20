@@ -70,9 +70,12 @@ jobs:
         run: git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
 =======
         run: |
+<<<<<<< HEAD
           cd ..
           mv Space-Shooter-Pro ..
           ls -altr
+=======
+>>>>>>> parent of 8f72d44 (Breaking down GIT PUSH)
           pwd
           exit 1
           git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
