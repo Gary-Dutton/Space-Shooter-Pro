@@ -22,6 +22,7 @@ jobs:
 
       - name: Create LFS file list
         run: |
+          cd Space-Shooter-Pro
           ls -altr
           pwd
           exit 1
