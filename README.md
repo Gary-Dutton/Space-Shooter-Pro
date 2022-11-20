@@ -7,7 +7,7 @@ GameDevHQ - first coding project
 
 - Added Player Script
 - Added Laser script
-
+- Added New Features
 
 --
 Read more @ https://medium.com/@Gary.Dutton
