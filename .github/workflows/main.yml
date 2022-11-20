@@ -67,18 +67,17 @@ jobs:
 
       - name: Create LFS file list
         run: |
-          cd ..
-          mv Space-Shooter-Pro ..
+          git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
+          cd lfs
           ls -altr
           pwd
           exit 1
-          git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
 
       - name: Restore LFS cache
         uses: actions/cache@v3
         id: lfs-cache
         with:
-          path: .git/lfs
+          path: .git/lfs/Space-Shooter-Pro
           key: ${{ runner.os }}-lfs-${{ hashFiles('.lfs-assets-id') }}
 
       - name: Git LFS Pull
