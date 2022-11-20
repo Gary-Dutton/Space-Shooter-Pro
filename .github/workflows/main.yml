@@ -67,8 +67,9 @@ jobs:
 
       - name: Create LFS file list
         run: |
-          pwd
           cd ..
+          pwd
+          ls -altr
           exit 1
           git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
 
