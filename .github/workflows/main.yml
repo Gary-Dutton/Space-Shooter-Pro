@@ -82,7 +82,7 @@ jobs:
           pwd
           ls -altr
           rm -dr Space-Shooter-Pro
-          exit 1
+          pwd
           git add .
           git reset --hard
 
