@@ -69,6 +69,7 @@ NavMeshProjectSettings:
     cost: 1
   - name: 
     cost: 1
+<<<<<<< HEAD
   m_LastAgentTypeID: -887442657
   m_Settings:
   - serializedVersion: 2
@@ -91,3 +92,5 @@ NavMeshProjectSettings:
       m_Flags: 0
   m_SettingNames:
   - Humanoid
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)

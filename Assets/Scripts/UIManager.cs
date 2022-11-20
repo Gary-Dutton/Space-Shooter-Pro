@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
 using UnityEngine.SocialPlatforms.Impl;
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -22,6 +25,17 @@ public class UIManager : MonoBehaviour
     private Sprite[] _ammoLeft;
     [SerializeField]
     private Image _missileReady;
+<<<<<<< HEAD
+=======
+    [SerializeField]
+    private GameObject _separator;
+    [SerializeField]
+    private Text _waveLevelUp;
+
+    public Text whatsLeft;
+
+    public Image _afterBurner;
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 
 
     private GameManager _gameManager;
@@ -30,8 +44,15 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         _gameOverText.gameObject.SetActive(false);
+<<<<<<< HEAD
         _restartText.gameObject.SetActive(false);
         _missileReady.gameObject.SetActive(false);
+=======
+        _waveLevelUp.gameObject.SetActive(false);
+        _restartText.gameObject.SetActive(false);
+        _missileReady.gameObject.SetActive(false);
+        _afterBurner.gameObject.SetActive(false);
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
         //_missileReady.gameObject.SetActive(false);
         _scoreText.text = "Score: " + 0;
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -48,6 +69,14 @@ public class UIManager : MonoBehaviour
         _scoreText.text = "Score: " + _newScore;
     }
 
+<<<<<<< HEAD
+=======
+    public void LevelingUp(Text NextWavetext)
+    {
+        _waveLevelUp.text = NextWavetext.text;
+    }
+
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     public void UpdateLives(int currentLives)
     {
         if (currentLives <= 0)
@@ -68,18 +97,31 @@ public class UIManager : MonoBehaviour
     public void UpdateAmmo(int currentAmmo)
     {
         _ammoView.sprite = _ammoLeft[currentAmmo];
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     }
 
     public IEnumerator UpdateMissileStatus()
     {
         if (_missileReady.IsActive() == false)
         {
+<<<<<<< HEAD
             float waitTime = Random.Range(30f, 60f);
             yield return new WaitForSeconds(waitTime);
             _missileReady.gameObject.SetActive(true);
             yield return new WaitForSeconds(5f);
             _missileReady.gameObject.SetActive(false);
+=======
+            float waitTime = Random.Range(15f, 45f);
+            yield return new WaitForSeconds(waitTime);
+            _separator.gameObject.SetActive(false);
+            _missileReady.gameObject.SetActive(true);
+            yield return new WaitForSeconds(5f);
+            _missileReady.gameObject.SetActive(false);
+            _separator.gameObject.SetActive(true);
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
         }
         
     }

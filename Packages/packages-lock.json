@@ -1,5 +1,27 @@
 {
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "com.unity.2d.sprite": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
+    },
+    "com.unity.2d.tilemap": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
+    },
+    "com.unity.cinemachine": {
+      "version": "2.6.17",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     "com.unity.collab-proxy": {
       "version": "1.17.2",
       "depth": 0,
@@ -41,6 +63,18 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+<<<<<<< HEAD
+=======
+    "com.unity.postprocessing": {
+      "version": "3.2.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.physics": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     "com.unity.services.core": {
       "version": "1.0.1",
       "depth": 1,
@@ -182,6 +216,7 @@
         "com.unity.modules.imageconversion": "1.0.0"
       }
     },
+<<<<<<< HEAD
     "com.unity.modules.subsystems": {
       "version": "1.0.0",
       "depth": 1,
@@ -190,6 +225,8 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       }
     },
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     "com.unity.modules.terrain": {
       "version": "1.0.0",
       "depth": 0,
@@ -319,6 +356,7 @@
         "com.unity.modules.unitywebrequest": "1.0.0"
       }
     },
+<<<<<<< HEAD
     "com.unity.modules.vr": {
       "version": "1.0.0",
       "depth": 0,
@@ -329,11 +367,14 @@
         "com.unity.modules.xr": "1.0.0"
       }
     },
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     "com.unity.modules.wind": {
       "version": "1.0.0",
       "depth": 0,
       "source": "builtin",
       "dependencies": {}
+<<<<<<< HEAD
     },
     "com.unity.modules.xr": {
       "version": "1.0.0",
@@ -344,6 +385,8 @@
         "com.unity.modules.jsonserialize": "1.0.0",
         "com.unity.modules.subsystems": "1.0.0"
       }
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     }
   }
 }

@@ -50,6 +50,15 @@ public class PowerUp : MonoBehaviour
                     case 4:
                         player.HealthRecovery();
                         break;
+<<<<<<< HEAD
+=======
+                    case 5:
+                        player.MultipleLasersCall();
+                        break;
+                    case 6:
+                        player.NoAmmo();
+                        break;
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
                     default:
                         Debug.Log("Default switch enabled...");
                         break;
