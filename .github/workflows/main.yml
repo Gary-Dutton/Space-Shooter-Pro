@@ -18,10 +18,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Create LFS file list
-        run: git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
+        run: |
+          ls -altr
+          pwd
+          exit 1
+          git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
 
       - name: Restore LFS cache
         uses: actions/cache@v3
@@ -78,11 +82,7 @@ jobs:
       - name: Git LFS Pull
         run: |
           git lfs pull
-          cd ..
-          pwd
-          ls -altr
-          rm -dr Space-Shooter-Pro
-          pwd
+          cd Space-Shooter-Pro
           git add .
           git reset --hard
 
@@ -118,7 +118,10 @@ jobs:
           path: build
 
       - name: Display structure of root files
-        run: ls -R
+        run: | 
+          pwd
+          ls -R
+          exit 0
         working-directory: build/WebGL
 
       - name: Deploy 🚀
