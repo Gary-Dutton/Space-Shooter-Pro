@@ -32,6 +32,7 @@ jobs:
 
       - name: Git LFS Pull
         run: |
+          cd ..
           git lfs pull
           ls -altr
           pwd
