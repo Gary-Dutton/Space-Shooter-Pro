@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+=======
+using UnityEngine;
+using UnityEngine.UIElements;
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -18,14 +23,20 @@ public class Enemy : MonoBehaviour
 
     private Player _player;
 <<<<<<< HEAD
+<<<<<<< HEAD
     private Animator _anim;
     private AudioSource _audioSource;
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     private SpawnManager _spawnManager;
     private Animator _anim;
     private AudioSource _audioSource;
     private bool _dodge = false;
     private int _dodgePath = 0; // 0 = left, 1 = right
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 
     private float _fireRate = 3.0f;
@@ -36,6 +47,11 @@ public class Enemy : MonoBehaviour
     private AudioClip _enemyExplosionSoundClip;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    public int hitCounter = 1;
+
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
     public int hitCounter = 1;
 
@@ -46,6 +62,10 @@ public class Enemy : MonoBehaviour
     {
         _player = GameObject.Find("Player").GetComponent<Player>();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -73,12 +93,15 @@ public class Enemy : MonoBehaviour
     void Update()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         CalculateMovement();
         
         if (_player != null)
         {
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
         //CalculateMovement();
         MovementArray();
 
@@ -90,6 +113,9 @@ public class Enemy : MonoBehaviour
                 transform.Translate(path * _speed * 1.25f * Time.deltaTime);
             }
 
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
             if (Time.time > _canFire)
             {
@@ -107,12 +133,18 @@ public class Enemy : MonoBehaviour
                 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
                 if (this.gameObject == null && lasers.Length > 0)
                 {
                     Debug.Log("Enemy still fired!");
                 }
 
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
                 _audioSource.clip = _enemyLaserSoundClip;
                 _audioSource.pitch = 0.5f;
@@ -124,8 +156,11 @@ public class Enemy : MonoBehaviour
     void CalculateMovement()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         transform.Translate(Vector3.down * Time.deltaTime * _speed);
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 
         //transform.Translate(Vector3.down * Time.deltaTime * _speed);
 
@@ -176,6 +211,9 @@ public class Enemy : MonoBehaviour
         {
             transform.Translate(Vector3.down * Time.deltaTime * _speed);
         }
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 
         if (transform.position.y <= -5.75f)
@@ -188,7 +226,10 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         Debug.Log("Who fired? " + other.tag);
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
         if (other.tag == "Player")
@@ -198,6 +239,10 @@ public class Enemy : MonoBehaviour
             if (player != null)
             {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+                EnemyKills(1);
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
                 EnemyKills(1);
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -219,6 +264,10 @@ public class Enemy : MonoBehaviour
                 _player.scoringSystem(10);
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+            EnemyKills(1);
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
             EnemyKills(1);
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -234,7 +283,10 @@ public class Enemy : MonoBehaviour
         if (other.tag == "MissilePowerUp")
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             Debug.Log("Missile");
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
             if (_player != null)
@@ -242,6 +294,10 @@ public class Enemy : MonoBehaviour
                 _player.scoringSystem(10);
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+            EnemyKills(1);
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
             EnemyKills(1);
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -256,7 +312,10 @@ public class Enemy : MonoBehaviour
 
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 
     IEnumerator DodgeRoutine()
     {
@@ -282,5 +341,8 @@ public class Enemy : MonoBehaviour
         Debug.Log("Value :" + hitCounter);
         
     }
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 }

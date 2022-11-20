@@ -8,7 +8,11 @@ QualitySettings:
   m_QualitySettings:
   - serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     name: Very Low
+=======
+    name: Fastest
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
     name: Fastest
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -19,7 +23,11 @@ QualitySettings:
     shadowCascades: 1
     shadowDistance: 15
 <<<<<<< HEAD
+<<<<<<< HEAD
     shadowNearPlaneOffset: 3
+=======
+    shadowNearPlaneOffset: 2
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
     shadowNearPlaneOffset: 2
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -46,6 +54,7 @@ QualitySettings:
     particleRaycastBudget: 4
     asyncUploadTimeSlice: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
@@ -54,12 +63,17 @@ QualitySettings:
   - serializedVersion: 2
     name: Low
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     asyncUploadBufferSize: 4
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Fast
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     pixelLightCount: 0
     shadows: 0
@@ -68,7 +82,11 @@ QualitySettings:
     shadowCascades: 1
     shadowDistance: 20
 <<<<<<< HEAD
+<<<<<<< HEAD
     shadowNearPlaneOffset: 3
+=======
+    shadowNearPlaneOffset: 2
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
     shadowNearPlaneOffset: 2
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -95,6 +113,7 @@ QualitySettings:
     particleRaycastBudget: 16
     asyncUploadTimeSlice: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
@@ -103,12 +122,17 @@ QualitySettings:
   - serializedVersion: 2
     name: Medium
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     asyncUploadBufferSize: 4
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Simple
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     pixelLightCount: 1
     shadows: 1
@@ -117,7 +141,11 @@ QualitySettings:
     shadowCascades: 1
     shadowDistance: 20
 <<<<<<< HEAD
+<<<<<<< HEAD
     shadowNearPlaneOffset: 3
+=======
+    shadowNearPlaneOffset: 2
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
     shadowNearPlaneOffset: 2
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -133,7 +161,11 @@ QualitySettings:
     realtimeReflectionProbes: 0
     billboardsFaceCameraPosition: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     vSyncCount: 1
+=======
+    vSyncCount: 0
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
     vSyncCount: 0
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -148,6 +180,7 @@ QualitySettings:
     particleRaycastBudget: 64
     asyncUploadTimeSlice: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
@@ -156,12 +189,17 @@ QualitySettings:
   - serializedVersion: 2
     name: High
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     asyncUploadBufferSize: 4
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Good
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     pixelLightCount: 2
     shadows: 2
@@ -170,7 +208,11 @@ QualitySettings:
     shadowCascades: 2
     shadowDistance: 40
 <<<<<<< HEAD
+<<<<<<< HEAD
     shadowNearPlaneOffset: 3
+=======
+    shadowNearPlaneOffset: 2
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
     shadowNearPlaneOffset: 2
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -182,7 +224,11 @@ QualitySettings:
     anisotropicTextures: 1
     antiAliasing: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     softParticles: 0
+=======
+    softParticles: 1
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
     softParticles: 1
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -201,6 +247,7 @@ QualitySettings:
     particleRaycastBudget: 256
     asyncUploadTimeSlice: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
@@ -209,12 +256,17 @@ QualitySettings:
   - serializedVersion: 2
     name: Very High
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     asyncUploadBufferSize: 4
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Beautiful
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     pixelLightCount: 3
     shadows: 2
@@ -223,7 +275,11 @@ QualitySettings:
     shadowCascades: 2
     shadowDistance: 70
 <<<<<<< HEAD
+<<<<<<< HEAD
     shadowNearPlaneOffset: 3
+=======
+    shadowNearPlaneOffset: 2
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
     shadowNearPlaneOffset: 2
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -234,7 +290,11 @@ QualitySettings:
     textureQuality: 0
     anisotropicTextures: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     antiAliasing: 2
+=======
+    antiAliasing: 0
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
     antiAliasing: 0
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -254,6 +314,7 @@ QualitySettings:
     particleRaycastBudget: 1024
     asyncUploadTimeSlice: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
@@ -262,12 +323,17 @@ QualitySettings:
   - serializedVersion: 2
     name: Ultra
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     asyncUploadBufferSize: 4
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Fantastic
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     pixelLightCount: 4
     shadows: 2
@@ -275,6 +341,7 @@ QualitySettings:
     shadowProjection: 1
     shadowCascades: 4
     shadowDistance: 150
+<<<<<<< HEAD
 <<<<<<< HEAD
     shadowNearPlaneOffset: 3
     shadowCascade2Split: 0.33333334
@@ -285,6 +352,8 @@ QualitySettings:
     anisotropicTextures: 2
     antiAliasing: 2
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     shadowNearPlaneOffset: 2
     shadowCascade2Split: 0.33333334
     shadowCascade4Split: {x: 0.06666667, y: 0.19999999, z: 0.46666664}
@@ -293,6 +362,9 @@ QualitySettings:
     textureQuality: 0
     anisotropicTextures: 2
     antiAliasing: 0
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     softParticles: 1
     softVegetation: 1
@@ -309,6 +381,7 @@ QualitySettings:
     streamingMipmapsMaxFileIORequests: 1024
     particleRaycastBudget: 4096
     asyncUploadTimeSlice: 2
+<<<<<<< HEAD
 <<<<<<< HEAD
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
@@ -332,6 +405,8 @@ QualitySettings:
     iPhone: 2
     tvOS: 2
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     asyncUploadBufferSize: 4
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
@@ -339,4 +414,7 @@ QualitySettings:
   m_PerPlatformDefaultQuality:
     Standalone: 0
     WebGL: 0
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)

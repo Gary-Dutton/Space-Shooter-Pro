@@ -4,6 +4,7 @@
 EditorSettings:
   m_ObjectHideFlags: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   serializedVersion: 11
   m_SerializationMode: 2
   m_LineEndingsForNewScripts: 2
@@ -32,6 +33,8 @@ EditorSettings:
   m_SerializeInlineMappingsOnOneLine: 1
   m_DisableCookiesInLightmapper: 0
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   serializedVersion: 9
   m_ExternalVersionControlSupport: Visible Meta Files
   m_SerializationMode: 2
@@ -56,6 +59,9 @@ EditorSettings:
   m_EnterPlayModeOptions: 3
   m_ShowLightmapResolutionOverlay: 1
   m_UseLegacyProbeSampleCount: 1
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   m_AssetPipelineMode: 1
   m_CacheServerMode: 0
@@ -64,8 +70,11 @@ EditorSettings:
   m_CacheServerEnableDownload: 1
   m_CacheServerEnableUpload: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_CacheServerEnableAuth: 0
   m_CacheServerEnableTls: 0
   m_CacheServerValidationMode: 2
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)

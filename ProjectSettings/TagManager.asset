@@ -4,8 +4,11 @@
 TagManager:
   serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
   tags: []
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   tags:
   - Shootable
   - Undefined
@@ -35,6 +38,9 @@ TagManager:
   - WaveSpawner
   - NextWaveText
   - PowerDown
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   layers:
   - Default
@@ -46,9 +52,15 @@ TagManager:
   - 
   - 
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 
   - 
   - 
+=======
+  - Lighting
+  - Ground
+  - Postprocessing
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   - Lighting
   - Ground
@@ -77,10 +89,13 @@ TagManager:
   - 
   m_SortingLayers:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - name: Default
     uniqueID: 0
     locked: 0
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   - name: Fire
     uniqueID: 3804908061
     locked: 0
@@ -93,4 +108,7 @@ TagManager:
   - name: Foreground
     uniqueID: 2306543133
     locked: 0
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)

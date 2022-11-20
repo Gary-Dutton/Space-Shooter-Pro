@@ -5,7 +5,11 @@ PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 22
 <<<<<<< HEAD
+<<<<<<< HEAD
   productGUID: ce75c4997df324847b9c4f8e988f737c
+=======
+  productGUID: 2735500d43319c643a5c64e2b4909f97
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   productGUID: 2735500d43319c643a5c64e2b4909f97
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -18,7 +22,11 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: DefaultCompany
 <<<<<<< HEAD
+<<<<<<< HEAD
   productName: Space-Shooter-Pro
+=======
+  productName: Space Shooter Pro
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   productName: Space Shooter Pro
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -51,8 +59,13 @@ PlayerSettings:
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   defaultScreenWidth: 1920
   defaultScreenHeight: 1080
+=======
+  defaultScreenWidth: 1024
+  defaultScreenHeight: 768
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   defaultScreenWidth: 1024
   defaultScreenHeight: 768
@@ -80,7 +93,11 @@ PlayerSettings:
   androidStartInFullscreen: 1
   androidRenderOutsideSafeArea: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   androidUseSwappy: 1
+=======
+  androidUseSwappy: 0
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   androidUseSwappy: 0
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -94,7 +111,11 @@ PlayerSettings:
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   runInBackground: 0
+=======
+  runInBackground: 1
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   runInBackground: 1
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -119,7 +140,11 @@ PlayerSettings:
   xboxEnableKinectAutoTracking: 0
   xboxEnableFitness: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   visibleInBackground: 1
+=======
+  visibleInBackground: 0
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   visibleInBackground: 0
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -139,7 +164,11 @@ PlayerSettings:
   xboxOneEnableTypeOptimization: 0
   xboxOnePresentImmediateThreshold: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   switchQueueCommandMemory: 1048576
+=======
+  switchQueueCommandMemory: 0
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   switchQueueCommandMemory: 0
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -169,8 +198,13 @@ PlayerSettings:
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   xboxOneDisableKinectGpuReservation: 1
   xboxOneEnable7thCore: 1
+=======
+  xboxOneDisableKinectGpuReservation: 0
+  xboxOneEnable7thCore: 0
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   xboxOneDisableKinectGpuReservation: 0
   xboxOneEnable7thCore: 0
@@ -183,7 +217,11 @@ PlayerSettings:
   D3DHDRBitDepth: 0
   m_ColorGamuts: 00000000
 <<<<<<< HEAD
+<<<<<<< HEAD
   targetPixelDensity: 0
+=======
+  targetPixelDensity: 30
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   targetPixelDensity: 30
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -192,9 +230,12 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
 <<<<<<< HEAD
+<<<<<<< HEAD
   applicationIdentifier: {}
   buildNumber: {}
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   applicationIdentifier:
     Android: com.Company.ProductName
     Standalone: com.DefaultCompany.Space-Shooter-Pro
@@ -205,6 +246,9 @@ PlayerSettings:
     Standalone: 0
     iPhone: 0
     tvOS: 0
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   overrideDefaultApplicationIdentifier: 0
   AndroidBundleVersionCode: 1
@@ -222,6 +266,7 @@ PlayerSettings:
   keepLoadedShadersAlive: 0
   StripUnusedMeshComponents: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   VertexChannelCompressionMask: 4054
   iPhoneSdkVersion: 988
   iOSTargetOSVersionString: 
@@ -229,12 +274,17 @@ PlayerSettings:
   tvOSRequireExtendedGameController: 0
   tvOSTargetOSVersionString: 
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   VertexChannelCompressionMask: 214
   iPhoneSdkVersion: 988
   iOSTargetOSVersionString: 11.0
   tvOSSdkVersion: 0
   tvOSRequireExtendedGameController: 0
   tvOSTargetOSVersionString: 11.0
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   uIPrerenderedIcon: 0
   uIRequiresPersistentWiFi: 0
@@ -278,7 +328,11 @@ PlayerSettings:
   metalEditorSupport: 1
   metalAPIValidation: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   iOSRenderExtraFrameOnPause: 0
+=======
+  iOSRenderExtraFrameOnPause: 1
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   iOSRenderExtraFrameOnPause: 1
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -294,7 +348,11 @@ PlayerSettings:
   appleEnableProMotion: 0
   shaderPrecisionModel: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   clonedFromGUID: 00000000000000000000000000000000
+=======
+  clonedFromGUID: 91978008845431f4dbfdca1209e8fb66
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   clonedFromGUID: 91978008845431f4dbfdca1209e8fb66
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -308,6 +366,7 @@ PlayerSettings:
   useCustomGradlePropertiesTemplate: 0
   useCustomProguardFile: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   AndroidTargetArchitectures: 1
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
@@ -317,6 +376,8 @@ PlayerSettings:
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   AndroidTargetArchitectures: 5
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
@@ -325,6 +386,9 @@ PlayerSettings:
   AndroidKeyaliasName: 
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   AndroidIsGame: 1
   AndroidEnableTango: 0
@@ -343,6 +407,7 @@ PlayerSettings:
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_BuildTargetIcons: []
   m_BuildTargetPlatformIcons: []
   m_BuildTargetBatching: []
@@ -351,6 +416,8 @@ PlayerSettings:
   m_BuildTargetGraphicsAPIs: []
   m_BuildTargetVRSettings: []
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
@@ -455,6 +522,9 @@ PlayerSettings:
   - m_BuildTarget: tvOS
     m_Enabled: 0
     m_Devices: []
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
@@ -462,11 +532,14 @@ PlayerSettings:
   m_TemplateCustomTags: {}
   mobileMTRendering:
 <<<<<<< HEAD
+<<<<<<< HEAD
     Android: 1
     iPhone: 1
     tvOS: 1
   m_BuildTargetGroupLightmapEncodingQuality: []
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     iPhone: 1
     tvOS: 1
   m_BuildTargetGroupLightmapEncodingQuality:
@@ -476,6 +549,9 @@ PlayerSettings:
     m_EncodingQuality: 1
   - m_BuildTarget: PS4
     m_EncodingQuality: 1
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   m_BuildTargetGroupLightmapSettings: []
   m_BuildTargetNormalMapEncoding: []
@@ -498,7 +574,11 @@ PlayerSettings:
   switchUseCPUProfiler: 0
   switchUseGOLDLinker: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   switchApplicationID: 0x01004b9000490000
+=======
+  switchApplicationID: 0x0005000C10000001
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   switchApplicationID: 0x0005000C10000001
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -572,7 +652,11 @@ PlayerSettings:
   switchLegalInformation: 
   switchMainThreadStackSize: 1048576
 <<<<<<< HEAD
+<<<<<<< HEAD
   switchPresenceGroupId: 
+=======
+  switchPresenceGroupId: 0x0005000C10000001
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   switchPresenceGroupId: 0x0005000C10000001
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -588,8 +672,13 @@ PlayerSettings:
   switchUserAccountSaveDataJournalSize: 0
   switchApplicationAttribute: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   switchCardSpecSize: -1
   switchCardSpecClock: -1
+=======
+  switchCardSpecSize: 4
+  switchCardSpecClock: 25
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   switchCardSpecSize: 4
   switchCardSpecClock: 25
@@ -609,7 +698,11 @@ PlayerSettings:
   switchRatingsInt_11: 0
   switchRatingsInt_12: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   switchLocalCommunicationIds_0: 
+=======
+  switchLocalCommunicationIds_0: 0x0005000C10000001
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   switchLocalCommunicationIds_0: 0x0005000C10000001
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -628,7 +721,11 @@ PlayerSettings:
   switchUserAccountLockEnabled: 0
   switchSystemResourceMemory: 16777216
 <<<<<<< HEAD
+<<<<<<< HEAD
   switchSupportedNpadStyles: 22
+=======
+  switchSupportedNpadStyles: 3
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   switchSupportedNpadStyles: 3
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -655,7 +752,11 @@ PlayerSettings:
   ps4NPTitleSecret: 
   ps4NPTrophyPackPath: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   ps4ParentalLevel: 11
+=======
+  ps4ParentalLevel: 1
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   ps4ParentalLevel: 1
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -669,7 +770,11 @@ PlayerSettings:
   ps4VideoOutInitialWidth: 1920
   ps4VideoOutBaseModeInitialWidth: 1920
 <<<<<<< HEAD
+<<<<<<< HEAD
   ps4VideoOutReprojectionRate: 60
+=======
+  ps4VideoOutReprojectionRate: 120
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   ps4VideoOutReprojectionRate: 120
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -691,7 +796,11 @@ PlayerSettings:
   ps4RemotePlayKeyMappingDir: 
   ps4PlayTogetherPlayerCount: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   ps4EnterButtonAssignment: 2
+=======
+  ps4EnterButtonAssignment: 1
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   ps4EnterButtonAssignment: 1
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -718,7 +827,11 @@ PlayerSettings:
   ps4UseLowGarlicFragmentationMode: 1
   ps4SocialScreenEnabled: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   ps4ScriptOptimizationLevel: 2
+=======
+  ps4ScriptOptimizationLevel: 3
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   ps4ScriptOptimizationLevel: 3
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -748,15 +861,21 @@ PlayerSettings:
   blurSplashScreenBackground: 1
   spritePackerPolicy: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   webGLMemorySize: 32
   webGLExceptionSupport: 1
   webGLNameFilesAsHashes: 0
   webGLDataCaching: 1
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   webGLMemorySize: 256
   webGLExceptionSupport: 1
   webGLNameFilesAsHashes: 0
   webGLDataCaching: 0
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
@@ -764,6 +883,7 @@ PlayerSettings:
   webGLTemplate: APPLICATION:Default
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
   webGLCompressionFormat: 0
   webGLWasmArithmeticExceptions: 0
@@ -778,6 +898,8 @@ PlayerSettings:
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   webGLCompressionFormat: 2
   webGLWasmArithmeticExceptions: 0
   webGLLinkerTarget: 0
@@ -824,6 +946,9 @@ PlayerSettings:
   incrementalIl2cppBuild:
     iPhone: 0
     tvOS: 0
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   suppressCommonWarnings: 1
   allowUnsafeCode: 0
@@ -833,7 +958,11 @@ PlayerSettings:
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   gcIncremental: 1
+=======
+  gcIncremental: 0
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   gcIncremental: 0
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -843,7 +972,11 @@ PlayerSettings:
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   metroPackageName: Space-Shooter-Pro
+=======
+  metroPackageName: FPS2
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   metroPackageName: FPS2
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -854,7 +987,11 @@ PlayerSettings:
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
 <<<<<<< HEAD
+<<<<<<< HEAD
   metroApplicationDescription: Space-Shooter-Pro
+=======
+  metroApplicationDescription: FPS2
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   metroApplicationDescription: FPS2
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -868,16 +1005,22 @@ PlayerSettings:
   metroLastRequiredScene: 0
   metroDefaultTileSize: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   metroTileForegroundText: 2
   metroTileBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21568628, a: 0}
   metroSplashScreenBackgroundColor: {r: 0.12941177, g: 0.17254902, b: 0.21568628, a: 1}
   metroSplashScreenUseBackgroundColor: 0
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   metroTileForegroundText: 1
   metroTileBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21568628, a: 0}
   metroSplashScreenBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21568628,
     a: 1}
   metroSplashScreenUseBackgroundColor: 1
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   platformCapabilities: {}
   metroTargetDeviceFamilies: {}
@@ -905,7 +1048,11 @@ PlayerSettings:
   XboxOneIsContentPackage: 0
   XboxOneEnhancedXboxCompatibilityMode: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   XboxOneEnableGPUVariability: 1
+=======
+  XboxOneEnableGPUVariability: 0
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   XboxOneEnableGPUVariability: 0
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -918,8 +1065,11 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
 <<<<<<< HEAD
+<<<<<<< HEAD
   cloudServicesEnabled: {}
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   cloudServicesEnabled:
     Analytics: 0
     Build: 0
@@ -930,6 +1080,9 @@ PlayerSettings:
     Purchasing: 0
     UNet: 1
     Unity_Ads: 0
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   luminIcon:
     m_Name: 
@@ -948,14 +1101,20 @@ PlayerSettings:
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
 <<<<<<< HEAD
+<<<<<<< HEAD
   projectName: 
   organizationId: 
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   projectName: EffectsExamples
   organizationId: 
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 1
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   virtualTexturingSupportEnabled: 0

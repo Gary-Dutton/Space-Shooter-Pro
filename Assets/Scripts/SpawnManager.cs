@@ -1,5 +1,6 @@
 using System.Collections;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private GameObject _enemyPrefab;
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,16 +34,22 @@ public class SpawnManager : MonoBehaviour
     private GameObject _enemyDodgePrefab;
     [SerializeField]
     private GameObject[] _ememyArray;
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     [SerializeField]
     private GameObject _enemyContainer;
     [SerializeField]
     private GameObject[] _powerUpPrefab;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     [SerializeField]
     private int _waveIndex = 0;
     [SerializeField]
@@ -51,11 +60,15 @@ public class SpawnManager : MonoBehaviour
     private Text _testText;
 
     private int _numberOfEnemiesActive = 0;
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     private bool _stopSpawning = false;
 
     public void StartSpawning()
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
         StartCoroutine(SpawnEnemyRoutine());
         StartCoroutine(SpawnPowerUpRoutine());
@@ -72,6 +85,8 @@ public class SpawnManager : MonoBehaviour
             newEnemy.transform.parent = _enemyContainer.transform;
             yield return new WaitForSeconds(5.0f);
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
         _uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         switch (waveMachine[_waveIndex].name)
         {
@@ -131,6 +146,9 @@ public class SpawnManager : MonoBehaviour
             newEnemy.transform.parent = _enemyContainer.transform;
             _numberOfEnemiesActive++;
             yield return new WaitForSeconds(rateOfRelease);
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
         }
 
@@ -140,7 +158,11 @@ public class SpawnManager : MonoBehaviour
     IEnumerator SpawnPowerUpRoutine()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         yield return new WaitForSeconds(3.0f);
+=======
+        yield return new WaitForSeconds(5.0f);
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
         yield return new WaitForSeconds(5.0f);
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -159,7 +181,10 @@ public class SpawnManager : MonoBehaviour
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     public void enemyCount(int enemyCounter)
     {
         _enemyCount ++;
@@ -240,5 +265,8 @@ public class SpawnManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         _testText.gameObject.SetActive(false);
     }
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 }

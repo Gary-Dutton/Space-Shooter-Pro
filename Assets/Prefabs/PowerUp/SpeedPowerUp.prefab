@@ -30,7 +30,11 @@ Transform:
   m_GameObject: {fileID: 8192371651724689791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalPosition: {x: 0, y: 7.5, z: 0}
+=======
+  m_LocalPosition: {x: 0, y: 8, z: 0}
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   m_LocalPosition: {x: 0, y: 8, z: 0}
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)

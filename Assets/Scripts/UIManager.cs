@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using UnityEngine.SocialPlatforms.Impl;
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 using UnityEngine.UI;
@@ -26,7 +29,10 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Image _missileReady;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     [SerializeField]
     private GameObject _separator;
     [SerializeField]
@@ -35,6 +41,9 @@ public class UIManager : MonoBehaviour
     public Text whatsLeft;
 
     public Image _afterBurner;
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 
 
@@ -45,13 +54,19 @@ public class UIManager : MonoBehaviour
     {
         _gameOverText.gameObject.SetActive(false);
 <<<<<<< HEAD
+<<<<<<< HEAD
         _restartText.gameObject.SetActive(false);
         _missileReady.gameObject.SetActive(false);
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
         _waveLevelUp.gameObject.SetActive(false);
         _restartText.gameObject.SetActive(false);
         _missileReady.gameObject.SetActive(false);
         _afterBurner.gameObject.SetActive(false);
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
         //_missileReady.gameObject.SetActive(false);
         _scoreText.text = "Score: " + 0;
@@ -70,12 +85,18 @@ public class UIManager : MonoBehaviour
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     public void LevelingUp(Text NextWavetext)
     {
         _waveLevelUp.text = NextWavetext.text;
     }
 
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     public void UpdateLives(int currentLives)
     {
@@ -98,7 +119,10 @@ public class UIManager : MonoBehaviour
     {
         _ammoView.sprite = _ammoLeft[currentAmmo];
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     }
@@ -108,12 +132,15 @@ public class UIManager : MonoBehaviour
         if (_missileReady.IsActive() == false)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             float waitTime = Random.Range(30f, 60f);
             yield return new WaitForSeconds(waitTime);
             _missileReady.gameObject.SetActive(true);
             yield return new WaitForSeconds(5f);
             _missileReady.gameObject.SetActive(false);
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
             float waitTime = Random.Range(15f, 45f);
             yield return new WaitForSeconds(waitTime);
             _separator.gameObject.SetActive(false);
@@ -121,6 +148,9 @@ public class UIManager : MonoBehaviour
             yield return new WaitForSeconds(5f);
             _missileReady.gameObject.SetActive(false);
             _separator.gameObject.SetActive(true);
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
         }
         

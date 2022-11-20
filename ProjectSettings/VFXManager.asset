@@ -7,12 +7,18 @@ VFXManager:
   m_CopyBufferShader: {fileID: 0}
   m_SortShader: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_StripUpdateShader: {fileID: 0}
   m_RenderPipeSettingsPath: 
   m_FixedTimeStep: 0.016666668
   m_MaxDeltaTime: 0.05
   m_CompiledVersion: 0
   m_RuntimeVersion: 0
+=======
+  m_RenderPipeSettingsPath: 
+  m_FixedTimeStep: 0.016666668
+  m_MaxDeltaTime: 0.05
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   m_RenderPipeSettingsPath: 
   m_FixedTimeStep: 0.016666668

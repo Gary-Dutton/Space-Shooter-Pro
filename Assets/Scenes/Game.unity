@@ -39,7 +39,11 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -128,7 +132,10 @@ NavMeshSettings:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!1 &2782493
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +215,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2782493}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!1 &38337065
 GameObject:
@@ -485,8 +495,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   _speed: 5
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   drainSpeed: 0.1
   recoverSpeed: 0.1
   frontThrusterBar: {fileID: 1891539894}
@@ -498,6 +511,9 @@ MonoBehaviour:
   _newScore: 0
   _whatsLeft: {fileID: 524037646}
   _separator: {fileID: 1141409494}
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   _laserShot: {fileID: 1873411901950341368, guid: 792912e8ef5d8c84b9af231e765e9365,
     type: 3}
@@ -506,6 +522,7 @@ MonoBehaviour:
   _secretWeapon: {fileID: 2335474587300507617, guid: 337e0b2f363f98749b32c35c5ecf3c8c,
     type: 3}
   _shieldOnline: {fileID: 768178169}
+<<<<<<< HEAD
 <<<<<<< HEAD
   _fireRate: 0.3
   _lives: 3
@@ -518,6 +535,8 @@ MonoBehaviour:
   _playerDamageSoundClip: {fileID: 8300000, guid: a885c043fab7e46438bba03ba9dab6bc,
     type: 3}
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   _isMissileActive: {fileID: 895382932}
   _rightEngine: {fileID: 1081577685}
   _leftEngine: {fileID: 2126357909}
@@ -529,6 +548,9 @@ MonoBehaviour:
   _angleOfSpread: 90
   _rb: {fileID: 8578109854486320637, guid: 792912e8ef5d8c84b9af231e765e9365, type: 3}
   cameraShake: {fileID: 1355974983}
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!212 &204386001
 SpriteRenderer:
@@ -590,7 +612,11 @@ Transform:
   m_GameObject: {fileID: 204385999}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalPosition: {x: 0.076, y: -2.1, z: 0}
+=======
+  m_LocalPosition: {x: 0, y: -2, z: 0}
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   m_LocalPosition: {x: 0, y: -2, z: 0}
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -601,6 +627,10 @@ Transform:
   - {fileID: 1081577686}
   - {fileID: 2126357910}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  - {fileID: 2149489420963490235}
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   - {fileID: 2149489420963490235}
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -806,7 +836,11 @@ Transform:
   m_GameObject: {fileID: 222274255}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalPosition: {x: -0.0591, y: 1.0729, z: 0}
+=======
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   m_LocalPosition: {x: 0, y: 0, z: 0}
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -816,7 +850,10 @@ Transform:
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!1 &285415739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,6 +1083,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 559231467}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!1 &587368406
 GameObject:
@@ -1060,7 +1100,11 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnManager
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_TagString: Undefined
+=======
+  m_TagString: SpawnManager
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   m_TagString: SpawnManager
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -1081,9 +1125,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   _enemyPrefab: {fileID: 8968822993820582850, guid: e6ec55bcf6295804b9c91e6f6c9a1bfd,
     type: 3}
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   waveMachine:
   - name: EASY
     numberOfEnemies: 5
@@ -1104,6 +1151,9 @@ MonoBehaviour:
   _ememyArray:
   - {fileID: 4754366940141859025, guid: 3edf0f317b09d174e95c98f40e86eaac, type: 3}
   - {fileID: 8968822993820582850, guid: e6ec55bcf6295804b9c91e6f6c9a1bfd, type: 3}
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   _enemyContainer: {fileID: 2142169730}
   _powerUpPrefab:
@@ -1113,13 +1163,19 @@ MonoBehaviour:
   - {fileID: 8197802687710336946, guid: 915ce759ae0a64944868175d36a17840, type: 3}
   - {fileID: 683005730955599944, guid: decd9e131b938dd4c8c2b89d7f349e68, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   - {fileID: 7007113954849699067, guid: 0ad9ba1d741bdb94f9b40dd23036b7b4, type: 3}
   - {fileID: 1406793227907465049, guid: 549ac2e737f87ee44a2c03a1ae840846, type: 3}
   _waveIndex: 0
   _enemyCount: 0
   _uiManager: {fileID: 2118890204}
   _testText: {fileID: 1765838884}
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!4 &587368408
 Transform:
@@ -1442,17 +1498,23 @@ RectTransform:
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -274.4, y: 181.1}
   m_SizeDelta: {x: 91.8134, y: 66.2349}
   m_Pivot: {x: 0.5, y: 0.5}
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 84.400024, y: -19}
   m_SizeDelta: {x: 91.813416, y: 66.23489}
   m_Pivot: {x: 0, y: 1}
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!114 &895382934
 MonoBehaviour:
@@ -1493,7 +1555,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 895382932}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!1 &974480696
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,6 +1654,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974480696}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!1 &1042420915
 GameObject:
@@ -1759,7 +1827,10 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!1 &1141409494
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,6 +2026,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184280394}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!1001 &1265606161
 PrefabInstance:
@@ -1964,12 +2038,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     - target: {fileID: -3357019714476102866, guid: 5c8e42a164ac0154497ed34adac556d3,
         type: 3}
       propertyPath: _spawnManager
       value: 
       objectReference: {fileID: 587368407}
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
     - target: {fileID: 4006249291765741114, guid: 5c8e42a164ac0154497ed34adac556d3,
         type: 3}
@@ -2061,6 +2141,10 @@ GameObject:
   - component: {fileID: 1355974979}
   - component: {fileID: 1355974982}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  - component: {fileID: 1355974983}
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   - component: {fileID: 1355974983}
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -2115,7 +2199,11 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_TargetEye: 3
+=======
+  m_TargetEye: 0
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   m_TargetEye: 0
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -2134,17 +2222,23 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355974978}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1942002461}
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2209,7 +2303,10 @@ MonoBehaviour:
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!114 &1355974983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2222,6 +2319,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cabe6548e1dfdf34393ea2efec3b11fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!1 &1465916790
 GameObject:
@@ -2294,17 +2394,23 @@ RectTransform:
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -322.3, y: 160.9}
   m_SizeDelta: {x: 400, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 137.5, y: -56.8}
   m_SizeDelta: {x: 400, y: 75}
   m_Pivot: {x: 0, y: 1}
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!1 &1560359505
 GameObject:
@@ -2516,7 +2622,10 @@ Transform:
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!1 &1634752257
 GameObject:
   m_ObjectHideFlags: 0
@@ -2678,6 +2787,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765838882}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!1 &1846553527
 GameObject:
@@ -2759,7 +2871,10 @@ RectTransform:
   m_SizeDelta: {x: 150, y: 30}
   m_Pivot: {x: 1, y: 1}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!1 &1891539892
 GameObject:
   m_ObjectHideFlags: 0
@@ -2866,6 +2981,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!1 &1946448069
 GameObject:
@@ -2943,13 +3061,19 @@ CanvasRenderer:
   m_GameObject: {fileID: 1946448069}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!1 &1974439299 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4006249291765741114, guid: 5c8e42a164ac0154497ed34adac556d3,
     type: 3}
   m_PrefabInstance: {fileID: 1265606161}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!1 &2118890203
 GameObject:
@@ -3012,11 +3136,17 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a694d68dd4dd7de448c6fc44d2c209d5, type: 3}
   _missileReady: {fileID: 895382934}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   _separator: {fileID: 1141409494}
   _waveLevelUp: {fileID: 1765838884}
   whatsLeft: {fileID: 524037646}
   _afterBurner: {fileID: 974480699}
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!114 &2118890205
 MonoBehaviour:
@@ -3097,13 +3227,19 @@ RectTransform:
   - {fileID: 1465916793}
   - {fileID: 895382933}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   - {fileID: 285415740}
   - {fileID: 559231468}
   - {fileID: 1891539893}
   - {fileID: 1184280395}
   - {fileID: 1141409495}
   - {fileID: 1765838883}
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -3227,7 +3363,11 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyContainer
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_TagString: Untagged
+=======
+  m_TagString: EnemyContainer
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 =======
   m_TagString: EnemyContainer
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
@@ -3250,7 +3390,10 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
 --- !u!1 &2149489420963490230
 GameObject:
   m_ObjectHideFlags: 0
@@ -3399,4 +3542,7 @@ Transform:
   m_Father: {fileID: 204386002}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+>>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
+=======
 >>>>>>> parent of 809a702 (Deploying to main from @ Gary-Dutton/Space-Shooter-Pro@aac516a53bc75fcb6a382446cf770b671244d2c4 🚀)
