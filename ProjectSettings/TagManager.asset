@@ -32,6 +32,10 @@ TagManager:
   - WaveSpawner
   - NextWaveText
   - PowerDown
+  - EnemyMissile
+  - AmmoPowerUp
+  - NewEnemyShip
+  - EnemyShield
   layers:
   - Default
   - TransparentFX

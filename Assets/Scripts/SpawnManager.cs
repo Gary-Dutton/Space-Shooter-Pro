@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,10 +16,6 @@ public class SpawnManager : MonoBehaviour
     public WaveMachine[] waveMachine;
     public int enemyCounter;
 
-    //[SerializeField]
-    private GameObject _enemyPrefab;
-    //[SerializeField]
-    private GameObject _enemyDodgePrefab;
     [SerializeField]
     private GameObject[] _ememyArray;
     [SerializeField]
@@ -33,56 +30,76 @@ public class SpawnManager : MonoBehaviour
     private UIManager _uiManager;
     [SerializeField]
     private Text _testText;
+    [SerializeField]
+    private int _numberOfSpawnedPowerUps = 0;
+    [SerializeField]
+    private int _healthPUCount = 0;
+    [SerializeField]
+    private int _ammoPUCount = 0;
 
+    //[SerializeField]
+    private GameObject _enemyPrefab;
+    //[SerializeField]
+    private GameObject _enemyDodgePrefab;
     private int _numberOfEnemiesActive = 0;
+    
     private bool _stopSpawning = false;
+    private Player _player;
 
     public void StartSpawning()
     {
         _uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
-        switch (waveMachine[_waveIndex].name)
+        _player = GameObject.Find("Player").GetComponent<Player>();
+
+        if (_player != null)
         {
-            case "EASY":
-                Debug.Log("Would use values: " + waveMachine[_waveIndex].rateOfRelease + "/" + waveMachine[_waveIndex].numberOfEnemies);
-                StartCoroutine(SpawnEnemyRoutine(waveMachine[_waveIndex].numberOfEnemies, waveMachine[_waveIndex].rateOfRelease));
-                break;
-            case "MILD":
-                Debug.Log("Would use values: " + waveMachine[_waveIndex].rateOfRelease + "/" + waveMachine[_waveIndex].numberOfEnemies);
-                StartCoroutine(SpawnEnemyRoutine(waveMachine[_waveIndex].numberOfEnemies, waveMachine[_waveIndex].rateOfRelease));
-                break;
-            case "HARD":
-                Debug.Log("Would use values: " + waveMachine[_waveIndex].rateOfRelease + "/" + waveMachine[_waveIndex].numberOfEnemies);
-                StartCoroutine(SpawnEnemyRoutine(waveMachine[_waveIndex].numberOfEnemies, waveMachine[_waveIndex].rateOfRelease));
-                break;
-            case "EXTREME":
-                Debug.Log("Would use values: " + waveMachine[_waveIndex].rateOfRelease + "/" + waveMachine[_waveIndex].numberOfEnemies);
-                StartCoroutine(SpawnEnemyRoutine(waveMachine[_waveIndex].numberOfEnemies, waveMachine[_waveIndex].rateOfRelease));
-                break;
-            case "RANDOM":
-                Debug.Log("Would use values: " + waveMachine[_waveIndex].rateOfRelease + "/" + waveMachine[_waveIndex].numberOfEnemies);
-                StartCoroutine(SpawnEnemyRoutine(waveMachine[_waveIndex].numberOfEnemies, waveMachine[_waveIndex].rateOfRelease));
-                break;
-            default:
-                Debug.Log("DEAFULT Would use values: " + waveMachine[_waveIndex].rateOfRelease + "/" + waveMachine[_waveIndex].numberOfEnemies);
-                break;
+            switch (waveMachine[_waveIndex].name)
+            {
+                case "EASY":
+                    Debug.Log("Would use values: " + waveMachine[_waveIndex].rateOfRelease + "/" + waveMachine[_waveIndex].numberOfEnemies);
+                    StartCoroutine(SpawnEnemyRoutine(waveMachine[_waveIndex].numberOfEnemies, waveMachine[_waveIndex].rateOfRelease));
+                    break;
+                case "MILD":
+                    Debug.Log("Would use values: " + waveMachine[_waveIndex].rateOfRelease + "/" + waveMachine[_waveIndex].numberOfEnemies);
+                    StartCoroutine(SpawnEnemyRoutine(waveMachine[_waveIndex].numberOfEnemies, waveMachine[_waveIndex].rateOfRelease));
+                    break;
+                case "HARD":
+                    Debug.Log("Would use values: " + waveMachine[_waveIndex].rateOfRelease + "/" + waveMachine[_waveIndex].numberOfEnemies);
+                    StartCoroutine(SpawnEnemyRoutine(waveMachine[_waveIndex].numberOfEnemies, waveMachine[_waveIndex].rateOfRelease));
+                    break;
+                case "EXTREME":
+                    Debug.Log("Would use values: " + waveMachine[_waveIndex].rateOfRelease + "/" + waveMachine[_waveIndex].numberOfEnemies);
+                    StartCoroutine(SpawnEnemyRoutine(waveMachine[_waveIndex].numberOfEnemies, waveMachine[_waveIndex].rateOfRelease));
+                    break;
+                case "RANDOM":
+                    Debug.Log("Would use values: " + waveMachine[_waveIndex].rateOfRelease + "/" + waveMachine[_waveIndex].numberOfEnemies);
+                    StartCoroutine(SpawnEnemyRoutine(waveMachine[_waveIndex].numberOfEnemies, waveMachine[_waveIndex].rateOfRelease));
+                    break;
+                default:
+                    Debug.Log("DEAFULT Would use values: " + waveMachine[_waveIndex].rateOfRelease + "/" + waveMachine[_waveIndex].numberOfEnemies);
+                    break;
+            }
+            //StartCoroutine(SpawnEnemyRoutine(numberOfEnemies, numberOfEnemiesActive));
+            StartCoroutine(SpawnPowerUpRoutine());
         }
-        //StartCoroutine(SpawnEnemyRoutine(numberOfEnemies, numberOfEnemiesActive));
-        StartCoroutine(SpawnPowerUpRoutine());
     }
 
     void Update()
     {
-        if (waveMachine[_waveIndex].numberOfEnemies == _enemyCount)
-        {
+        if (_player != null)
+        { 
+            if (waveMachine[_waveIndex].numberOfEnemies == _enemyCount)
+            {
 
-            Debug.Log("Calling next wave!");
-            _testText.gameObject.SetActive(true);
-            _stopSpawning = true;
-            WaveLevelUpMain();
-            _enemyCount = 0;
-            _waveIndex += 1;
-            _stopSpawning = false;
-            StartSpawning();
+                Debug.Log("Calling next wave!");
+                _testText.gameObject.SetActive(true);
+                _stopSpawning = true;
+                WaveLevelUpMain();
+                _enemyCount = 0;
+                _waveIndex += 1;
+                _stopSpawning = false;
+                StartSpawning();
+            }
         }
     }
     IEnumerator SpawnEnemyRoutine(int numberOfEnemies, float rateOfRelease)
@@ -106,11 +123,23 @@ public class SpawnManager : MonoBehaviour
     IEnumerator SpawnPowerUpRoutine()
     {
         yield return new WaitForSeconds(5.0f);
+
         while (_stopSpawning == false)
-        {
+        {   
+            _numberOfSpawnedPowerUps++;
+
             Vector3 posToSpawnPowerUp = new Vector3(Random.Range(-9f, 9f), 7, 0);
             int powerUpsRS = Random.Range(0, _powerUpPrefab.Length);
             Instantiate(_powerUpPrefab[powerUpsRS], posToSpawnPowerUp, Quaternion.identity);
+
+            if (_powerUpPrefab[powerUpsRS].tag == "HealthPowerUp")
+            {
+                _healthPUCount++;
+            }
+            else if (_powerUpPrefab[powerUpsRS].tag == "AmmoPowerUp")
+            {
+                _ammoPUCount++;
+            }
             yield return new WaitForSeconds(Random.Range(3.0f, 15.0f));
         }
     }
@@ -198,6 +227,7 @@ public class SpawnManager : MonoBehaviour
     IEnumerator TextWaveLevelUp1(Text _testText)
     {
         yield return new WaitForSeconds(1f);
+        _numberOfEnemiesActive = 0;
         _testText.gameObject.SetActive(false);
     }
 }

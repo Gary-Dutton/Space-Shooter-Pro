@@ -11,6 +11,13 @@ public class PowerUp : MonoBehaviour
     private int _powerUpID;
     [SerializeField]
     private AudioClip _clip;
+    [SerializeField]
+    private Enemy _enemy;
+
+    void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -21,18 +28,23 @@ public class PowerUp : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        if(transform.position.y >= 0.5 && transform.position.y <= 3)
+        {
+            StartCoroutine(StopPowerUp3s());
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             Player player = other.transform.GetComponent<Player>();
 
             AudioSource.PlayClipAtPoint(_clip, transform.position);
-            
+
             if (player != null)
             {
+                Debug.Log("Who? " + this.tag);
                 switch (_powerUpID)
                 {
                     case 0:
@@ -61,8 +73,31 @@ public class PowerUp : MonoBehaviour
                         break;
                 }
             }
-            
+
             Destroy(this.gameObject);
         }
+        if (other.tag == "NewEnemyShip")
+        {
+            Enemy _enemy = other.transform.GetComponent<Enemy>();
+            Debug.Log("Who? " + this.tag);
+            switch (_powerUpID)
+            {
+                case 2:
+                    _enemy.EnemyShieldOnline(true);
+                    Destroy(this.gameObject);
+                    Debug.Log("Enemy should have a sheild!");
+                    break;
+                default:
+                    Debug.Log("Default switch enabled...");
+                    break;
+            }
+        }
+    }
+
+    IEnumerator StopPowerUp3s ()
+    {
+        transform.Translate(Vector3.down * Time.deltaTime * -3);
+        yield return new WaitForSeconds(3f);
+        transform.Translate(Vector3.down * Time.deltaTime * _speed);
     }
 }

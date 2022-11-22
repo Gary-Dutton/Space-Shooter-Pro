@@ -1,14 +1,25 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class Enemy : MonoBehaviour
-{
+{    
+    public int hitCounter = 1;
+    
+    private CameraShake _cameraShake;
+
     [SerializeField]
     private float _speed = 4.0f;
     [SerializeField]
     private GameObject _enemyLaserPrefab;
+    [SerializeField]
+    private AudioClip _enemyLaserSoundClip;
+    [SerializeField]
+    private AudioClip _enemyExplosionSoundClip;
+    [SerializeField]
+    private GameObject _enemyShieldOnline;
 
     private Player _player;
     private SpawnManager _spawnManager;
@@ -16,22 +27,16 @@ public class Enemy : MonoBehaviour
     private AudioSource _audioSource;
     private bool _dodge = false;
     private int _dodgePath = 0; // 0 = left, 1 = right
-
     private float _fireRate = 3.0f;
     private float _canFire = -1f;
-    [SerializeField]
-    private AudioClip _enemyLaserSoundClip;
-    [SerializeField]
-    private AudioClip _enemyExplosionSoundClip;
-
-    public int hitCounter = 1;
-
+    private bool _isEnemyShieldOnlineActive;
 
     // Start is called before the first frame update
     void Start()
     {
         _player = GameObject.Find("Player").GetComponent<Player>();
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        _cameraShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
         _audioSource = GetComponent<AudioSource>();
         
         if(_player == null)
@@ -158,51 +163,58 @@ public class Enemy : MonoBehaviour
         if (other.tag == "Player")
         {
             Player player = other.transform.GetComponent<Player>();
-
             if (player != null)
             {
                 EnemyKills(1);
                 player.playerDamage();
                 _anim.SetTrigger("EnemyDestroyed");
-                _speed = 1f;
+                _speed = 0.2f;
                 _audioSource.clip = _enemyExplosionSoundClip;
                 _audioSource.Play();
-                Destroy(this.gameObject, 2.8f);
+                Destroy(this.gameObject, 1.8f);
 
             }
-            
         }
 
         if (other.tag == "Laser")
         {
-            if(_player != null)
+            if (_player != null && _isEnemyShieldOnlineActive == true)
+            {
+                Debug.Log("Entered Shield On Code");
+                EnemyDamage();
+            }
+            else if (_player != null && _isEnemyShieldOnlineActive == false)
             {
                 _player.scoringSystem(10);
+                EnemyKills(1);
+                Destroy(other.gameObject);
+                _anim.SetTrigger("EnemyDestroyed");
+                _speed = 0.2f;
+                _audioSource.clip = _enemyExplosionSoundClip;
+                _audioSource.Play();
+                Destroy(GetComponent<Collider2D>());
+                Destroy(this.gameObject, 1.8f);
             }
-            EnemyKills(1);
-            Destroy(other.gameObject);
-            _anim.SetTrigger("EnemyDestroyed");
-            _speed = 0.5f;
-            _audioSource.clip = _enemyExplosionSoundClip;
-            _audioSource.Play();
-            Destroy(GetComponent<Collider2D>());
-            Destroy(this.gameObject, 2.8f);
         }
 
         if (other.tag == "MissilePowerUp")
         {
+            if (_player != null && _isEnemyShieldOnlineActive == true)
+            {
+                EnemyDamage();
+            }
             if (_player != null)
             {
                 _player.scoringSystem(10);
+                EnemyKills(1);
+                Destroy(other.gameObject);
+                _anim.SetTrigger("EnemyDestroyed");
+                _speed = 0.2f;
+                _audioSource.clip = _enemyExplosionSoundClip;
+                _audioSource.Play();
+                Destroy(GetComponent<Collider2D>());
+                Destroy(this.gameObject, 1.8f);
             }
-            EnemyKills(1);
-            Destroy(other.gameObject);
-            _anim.SetTrigger("EnemyDestroyed");
-            _speed = 0.2f;
-            _audioSource.clip = _enemyExplosionSoundClip;
-            _audioSource.Play();
-            Destroy(GetComponent<Collider2D>());
-            Destroy(this.gameObject, 2.8f);
         }
 
     }
@@ -230,5 +242,45 @@ public class Enemy : MonoBehaviour
         }
         Debug.Log("Value :" + hitCounter);
         
+    }
+
+    public void EnemyDamage ()
+    {
+        Debug.Log("Enemy Damge has been called");
+        Debug.Log("True/False" + _isEnemyShieldOnlineActive);
+        if (_isEnemyShieldOnlineActive is true)
+        {
+            StartCoroutine(_cameraShake.Shake(.15f, 0.4f));
+            Debug.Log("Enemy Shield is online");
+            _audioSource.pitch = 1.5f;
+            _audioSource.Play();
+            _isEnemyShieldOnlineActive = false;
+            _enemyShieldOnline.SetActive(false);
+            return;
+        }
+    }
+
+    public void EnemyShieldOnline(bool PowerUp)
+    {
+        Debug.Log("Called by PowerUp Script...");
+        _isEnemyShieldOnlineActive = PowerUp;
+        _enemyShieldOnline.SetActive(PowerUp);
+        StartCoroutine(shieldOnlinePowerUpDowerDown(15.0f));
+    }
+
+    private void ShieldFading(int _fading)
+    {
+        if (_fading <= 1)
+        {
+            StartCoroutine(shieldOnlinePowerUpDowerDown(0.5f));
+        }
+
+    }
+
+    IEnumerator shieldOnlinePowerUpDowerDown(float activeTimer)
+    {
+        yield return new WaitForSeconds(activeTimer);
+        _enemyShieldOnline.SetActive(false);
+        _isEnemyShieldOnlineActive = false;
     }
 }

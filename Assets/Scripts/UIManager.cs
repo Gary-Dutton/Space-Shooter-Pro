@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
-{
+{    
+    public Text whatsLeft;
+    public Image afterBurner;
+
     [SerializeField]
     private Text _scoreText;
     [SerializeField]
@@ -26,11 +29,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Text _waveLevelUp;
 
-    public Text whatsLeft;
-
-    public Image _afterBurner;
-
-
     private GameManager _gameManager;
 
     // Start is called before the first frame update
@@ -40,7 +38,7 @@ public class UIManager : MonoBehaviour
         _waveLevelUp.gameObject.SetActive(false);
         _restartText.gameObject.SetActive(false);
         _missileReady.gameObject.SetActive(false);
-        _afterBurner.gameObject.SetActive(false);
+        afterBurner.gameObject.SetActive(false);
         //_missileReady.gameObject.SetActive(false);
         _scoreText.text = "Score: " + 0;
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();

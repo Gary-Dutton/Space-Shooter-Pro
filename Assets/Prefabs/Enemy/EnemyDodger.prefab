@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbd645440010f664788b1309ae7b41ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitCounter: 0
   _speed: 3
   _enemyLaserPrefab: {fileID: 1703562589502738148, guid: feba82ddb55f0234f87ce3444f233bf6,
     type: 3}
@@ -138,7 +139,8 @@ MonoBehaviour:
     type: 3}
   _enemyExplosionSoundClip: {fileID: 8300000, guid: a885c043fab7e46438bba03ba9dab6bc,
     type: 3}
-  hitCounter: 0
+  _enemyShieldOnline: {fileID: 2240771099470177034, guid: 74f14a6823cc2e74db56931619d862c3,
+    type: 3}
 --- !u!212 &6109537941150192632
 SpriteRenderer:
   m_ObjectHideFlags: 0

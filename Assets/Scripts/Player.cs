@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.UIElements;
-using Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +12,7 @@ public class Player : MonoBehaviour
     public float recoverSpeed = 0.1f;
     public Image frontThrusterBar;
     public Image backThrusterBar;
+    public CameraShake cameraShake;
 
     [SerializeField]
     private float _speed = 3.5f;    
@@ -28,7 +28,33 @@ public class Player : MonoBehaviour
     private Text _whatsLeft;
     [SerializeField]
     private GameObject _separator;
+    [SerializeField]
+    private GameObject _laserShot;
+    [SerializeField]
+    private GameObject _tripleShot;
+    [SerializeField]
+    private GameObject _secretWeapon;
+    [SerializeField]
+    private GameObject _shieldOnline;
+    [SerializeField]
+    private GameObject _isMissileActive;
+    [SerializeField]
+    private GameObject _rightEngine, _leftEngine;
+    [SerializeField]
+    private GameObject _asteriod;
+    [SerializeField]
+    private int _numberOfLasers = 3;
+    [SerializeField]
+    private float _angleOfSpread = 90f;
+    [SerializeField]
+    private Rigidbody2D _rb;
+    [SerializeField]
+    private AudioClip _laserSoundClip;
+    [SerializeField]
+    private AudioClip _playerDamageSoundClip;
 
+    //[SerializeField]
+    private GameObject _multipleLasers;
     private float _speedMultipler = 2.0f;
     private int _hitCounter = 3;
     private float _nextFire = 0.0f;
@@ -48,45 +74,10 @@ public class Player : MonoBehaviour
     private bool _isMissileStatusActive;
     private bool _isMultipleLasersActive;
 
-    [SerializeField]
-    private GameObject _laserShot;
-    [SerializeField]
-    private GameObject _tripleShot;
-    [SerializeField]
-    private GameObject _secretWeapon;
-    [SerializeField]
-    private GameObject _shieldOnline;
-    [SerializeField]
-    private GameObject _isMissileActive;
-    [SerializeField]
-    private GameObject _rightEngine, _leftEngine;
-    [SerializeField]
-    private GameObject _asteriod;
-
     private SpawnManager _spawnManager;
     private UIManager _uiManager;
-    
-    //[SerializeField]
-    private GameObject _multipleLasers;
-
-    [SerializeField]
-    private AudioClip _laserSoundClip;
-    [SerializeField]
-    private AudioClip _playerDamageSoundClip;
-
     private AudioSource _audioSource;
     private SpriteRenderer _fadingColor;
-
-    //[SerializeField]
-    //private GameObject _laser;
-    [SerializeField]
-    private int _numberOfLasers = 3;
-    [SerializeField]
-    private float _angleOfSpread = 90f;
-    [SerializeField]
-    private Rigidbody2D _rb;
-
-    public CameraShake cameraShake;
 
     // Start is called before the first frame update
     void Start()
@@ -159,7 +150,7 @@ public class Player : MonoBehaviour
                 if (backThrusterBar.fillAmount <= 0.1)
                 {
                     {
-                        _uiManager._afterBurner.gameObject.SetActive(false);
+                        _uiManager.afterBurner.gameObject.SetActive(false);
                         _timerOn = false;
                         _speed = 5f;
                     }
@@ -408,14 +399,14 @@ public class Player : MonoBehaviour
 
     public void ThrusterDrain(float drain)
     {
-        _uiManager._afterBurner.gameObject.SetActive(true);
+        _uiManager.afterBurner.gameObject.SetActive(true);
         _thrusters -= drain;
         _lerpTimer = 0f;
     }
 
     public void ThrusterRecovery(float charge)
     {
-        _uiManager._afterBurner.gameObject.SetActive(false);
+        _uiManager.afterBurner.gameObject.SetActive(false);
         _thrusters += charge;
         _lerpTimer = 0f;
     }
@@ -425,7 +416,7 @@ public class Player : MonoBehaviour
         _isSpeedBoostActive = true;
         _timerOn = true;
         _speed *= _speedMultipler;
-        _uiManager._afterBurner.gameObject.SetActive(true);
+        _uiManager.afterBurner.gameObject.SetActive(true);
         ThrusterDrain(drainSpeed);
         StartCoroutine(speedBoostPowerUpPowerDown());
     }
@@ -436,7 +427,7 @@ public class Player : MonoBehaviour
         _speed /= _speedMultipler;
         _isSpeedBoostActive = false;
         _timerOn = false;
-        _uiManager._afterBurner.gameObject.SetActive(false);
+        _uiManager.afterBurner.gameObject.SetActive(false);
     }
 
     public void ShieldOnline()

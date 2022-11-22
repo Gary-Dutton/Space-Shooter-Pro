@@ -3,7 +3,12 @@ guid: bbd645440010f664788b1309ae7b41ed
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _enemyLaserPrefab: {instanceID: 0}
+  - _enemyLaserSoundClip: {instanceID: 0}
+  - _enemyExplosionSoundClip: {instanceID: 0}
+  - _enemyShieldOnline: {fileID: 2240771099470177034, guid: 74f14a6823cc2e74db56931619d862c3,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

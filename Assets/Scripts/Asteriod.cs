@@ -12,8 +12,6 @@ public class Asteriod : MonoBehaviour
     private Player _player;
     private SpawnManager _spawnManager;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
