@@ -73,11 +73,12 @@ public class EnemyMissile : MonoBehaviour
         this.gameObject.SetActive(true);
         if (target != null)
         {
-            Vector2 direction = (Vector2)target.position + _rb.position;
+            Vector2 direction = (Vector2)target.position - _rb.position;
             direction.Normalize();
-            float rotateAmount = Vector3.Cross(-direction, transform.up).z;
+            float rotateAmount = Vector3.Cross(direction, transform.up).z;
             _rb.angularVelocity = rotateAmount * _rotateSpeed;
             _rb.velocity = -transform.up * _speed;
+            StartCoroutine(EnemyLaserCoolDown());
         }
     }
 
@@ -96,5 +97,10 @@ public class EnemyMissile : MonoBehaviour
             Destroy(this.gameObject);
             Destroy(other.gameObject);
         }
+    }
+
+    IEnumerator EnemyLaserCoolDown()
+    {
+        yield return new WaitForSeconds(15);
     }
 }

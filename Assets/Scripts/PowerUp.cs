@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PowerUp : MonoBehaviour
 {
+
+
     [SerializeField]
     private float _speed = 3.0f;
     [SerializeField]
@@ -14,23 +17,38 @@ public class PowerUp : MonoBehaviour
     [SerializeField]
     private Enemy _enemy;
 
+    private Player _player;
+    private float _distanceToActivate = 5f;
+    private float _pickUpSpeed;
+
     void Start()
     {
-        
+        _player = GameObject.Find("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.down * Time.deltaTime * _speed);
+        if (_player != null)
+        {
+            transform.Translate(Vector3.down * Time.deltaTime * _speed);
+            float _distanceBetweenPlayerAndPickup = Vector2.Distance(transform.position, _player.transform.position);
 
-        if(transform.position.y < -5.75f)
-        {
-            Destroy(this.gameObject);
-        }
-        if(transform.position.y >= 0.5 && transform.position.y <= 3)
-        {
-            StartCoroutine(StopPowerUp3s());
+            if (_distanceBetweenPlayerAndPickup < _distanceToActivate && Input.GetKey(KeyCode.C))
+            {
+                Debug.Log("Player? " + _player.transform);
+                _pickUpSpeed = _distanceToActivate - _distanceBetweenPlayerAndPickup;
+                transform.position = Vector2.MoveTowards(transform.position, _player.transform.position, _pickUpSpeed * Time.deltaTime);
+            }
+
+            if (transform.position.y < -5.75f)
+            {
+                Destroy(this.gameObject);
+            }
+            if (transform.position.y >= 0.5 && transform.position.y <= 3)
+            {
+                StartCoroutine(StopPowerUp3s());
+            }
         }
     }
 
@@ -79,18 +97,21 @@ public class PowerUp : MonoBehaviour
         if (other.tag == "NewEnemyShip")
         {
             Enemy _enemy = other.transform.GetComponent<Enemy>();
-            Debug.Log("Who? " + this.tag);
             switch (_powerUpID)
             {
                 case 2:
                     _enemy.EnemyShieldOnline(true);
                     Destroy(this.gameObject);
-                    Debug.Log("Enemy should have a sheild!");
                     break;
                 default:
                     Debug.Log("Default switch enabled...");
                     break;
             }
+        }
+        else if (other.tag == "EnemyLaser")
+        {
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
         }
     }
 

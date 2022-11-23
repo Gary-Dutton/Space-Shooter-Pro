@@ -30,6 +30,10 @@ public class Enemy : MonoBehaviour
     private float _fireRate = 3.0f;
     private float _canFire = -1f;
     private bool _isEnemyShieldOnlineActive;
+    private float _distanceToActivate = 3f;
+    private float _pickUpSpeed;
+    private bool _powerUpShot;
+    private Vector3 _powerUpShotOffset;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +42,7 @@ public class Enemy : MonoBehaviour
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         _cameraShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
         _audioSource = GetComponent<AudioSource>();
+        _powerUpShotOffset = new Vector3(0, -0.4f, 0);
         
         if(_player == null)
         {
@@ -65,96 +70,132 @@ public class Enemy : MonoBehaviour
 
         if (_player != null)
         {
-            if ( this.CompareTag("EnemyDodger") && _dodge == true)
-            {
-                Vector3 path = (_dodgePath == 0) ? Vector3.left : Vector3.right;
-                transform.Translate(path * _speed * 1.25f * Time.deltaTime);
-            }
+            PowerUpShot();
+        }
+    }
 
-            if (Time.time > _canFire)
-            {
-                _fireRate = Random.Range(3f, 7f);
-                _canFire = Time.time + _fireRate;
-                GameObject enemyLaser = Instantiate(_enemyLaserPrefab, transform.position, Quaternion.identity);
-                Laser[] lasers = enemyLaser.GetComponentsInChildren<Laser>();
+    private void LaserShot ()
+    {
 
+        if (this.CompareTag("EnemyDodger") && _dodge == true)
+        {
+            Vector3 path = (_dodgePath == 0) ? Vector3.left : Vector3.right;
+            transform.Translate(path * _speed * 1.25f * Time.deltaTime);
+        }
+
+        if (Time.time > _canFire)
+        {
+            _fireRate = Random.Range(3f, 7f);
+            _canFire = Time.time + _fireRate;
+            GameObject enemyLaser = Instantiate(_enemyLaserPrefab, transform.position, Quaternion.identity);
+            Laser[] lasers = enemyLaser.GetComponentsInChildren<Laser>();
+
+            if ((this.gameObject.transform.position.y - _player.transform.position.y) <= 0)
+            {
                 for (int i = 0; i < lasers.Length; i++)
                 {
                     if (this.gameObject != null)
                     {
-                        lasers[i].AssignEnemyLaser();
+                        lasers[i].AssignEnemyLaser(2);
                     }
                 }
-
-                if (this.gameObject == null && lasers.Length > 0)
-                {
-                    Debug.Log("Enemy still fired!");
-                }
-
-                _audioSource.clip = _enemyLaserSoundClip;
-                _audioSource.pitch = 0.5f;
-                _audioSource.Play();
             }
+            else
+            {
+                for (int i = 0; i < lasers.Length; i++)
+                {
+                    if (this.gameObject != null)
+                    {
+                        lasers[i].AssignEnemyLaser(1);
+                    }
+                }
+            }
+
+            if (this.gameObject == null && lasers.Length > 0)
+            {
+                Debug.Log("Enemy still fired!");
+            }
+
+            _audioSource.clip = _enemyLaserSoundClip;
+            _audioSource.pitch = 0.5f;
+            _audioSource.Play();
         }
     }
 
-    void CalculateMovement()
+    private void PowerUpShot()
     {
-
-        //transform.Translate(Vector3.down * Time.deltaTime * _speed);
-
-        //if (transform.position.y <= -5.75f)
-        //{
-        //    float enemyRangeX = Random.Range(-9f, 9f);
-        //    transform.position = new Vector3(enemyRangeX, 8f, 0);
-        //}
-        //int _leftrightMovement = Random.Range(0, 2);
-        //MovementArray(_leftrightMovement);
+        Debug.DrawRay(transform.position + _powerUpShotOffset, (-transform.up * _distanceToActivate), Color.red);
+        RaycastHit2D _hit  = Physics2D.Raycast(transform.position + _powerUpShotOffset, -transform.up, _distanceToActivate);
+        Debug.Log("HIT? " + _hit);
+        if (_hit)
+        {
+            if (_hit.collider.tag.Contains("PowerUp"))
+            {
+                Debug.Log("Power Up Name: " + _hit.collider.name);
+                if (_powerUpShot == false)
+                {
+                    LaserShot();
+                    StartCoroutine(PowerUpShotCoolDown());
+                }
+            }
+            else
+            {
+                LaserShot();
+            }
+        }
     }
 
     void MovementArray()
     {
-
-        transform.Translate(Vector3.down * Time.deltaTime * _speed);
-        int _leftrightMovement = Random.Range(0, 2);
-        
-
-        if (_leftrightMovement == 1)
-        {
-            if (transform.position.x >= Random.Range(-9, 3))
-            {
-                transform.Translate((Vector3.down + Vector3.right) * Time.deltaTime * _speed);
-                if (transform.position.x <= -10.5f)
-                {
-                    transform.position = new Vector3(10.5f, transform.position.y, 0);
-                }
-                else if (transform.position.x >= 10.5f)
-                {
-                    transform.position = new Vector3(-10.5f, transform.position.y, 0);
-                }
-            }
-            else if (transform.position.x <= Random.Range(9, -3))
-            {
-                transform.Translate((Vector3.down + Vector3.left) * Time.deltaTime * _speed);
-                if (transform.position.x <= -10.5f)
-                {
-                    transform.position = new Vector3(10.5f, transform.position.y, 0);
-                }
-                else if (transform.position.x >= 10.5f)
-                {
-                    transform.position = new Vector3(-10.5f, transform.position.y, 0);
-                }
-            }
-        }
-        else if (_leftrightMovement == 0)
+        if (_player != null)
         {
             transform.Translate(Vector3.down * Time.deltaTime * _speed);
-        }
+            int _leftrightMovement = Random.Range(0, 2);
 
-        if (transform.position.y <= -5.75f)
-        {
-            float enemyRangeX = Random.Range(-9f, 9f);
-            transform.position = new Vector3(enemyRangeX, 8f, 0);
+            float _distanceBetweenPlayerAndPickup = Vector2.Distance(transform.position, _player.transform.position);
+            if (_distanceBetweenPlayerAndPickup < _distanceToActivate)
+            {
+                _pickUpSpeed = _distanceToActivate - _distanceBetweenPlayerAndPickup;
+                transform.position = Vector2.MoveTowards(transform.position, _player.transform.position, _pickUpSpeed * Time.deltaTime);
+            }
+
+            if (_leftrightMovement == 1)
+            {
+                if (transform.position.x >= Random.Range(-9, 3))
+                {
+                    transform.Translate((Vector3.down + Vector3.right) * Time.deltaTime * _speed);
+                    if (transform.position.x <= -10.5f)
+                    {
+                        transform.position = new Vector3(10.5f, transform.position.y, 0);
+                    }
+                    else if (transform.position.x >= 10.5f)
+                    {
+                        transform.position = new Vector3(-10.5f, transform.position.y, 0);
+                    }
+                }
+                else if (transform.position.x <= Random.Range(9, -3))
+                {
+                    transform.Translate((Vector3.down + Vector3.left) * Time.deltaTime * _speed);
+                    if (transform.position.x <= -10.5f)
+                    {
+                        transform.position = new Vector3(10.5f, transform.position.y, 0);
+                    }
+                    else if (transform.position.x >= 10.5f)
+                    {
+                        transform.position = new Vector3(-10.5f, transform.position.y, 0);
+                    }
+                }
+            }
+            else if (_leftrightMovement == 0)
+            {
+                transform.Translate(Vector3.down * Time.deltaTime * _speed);
+            }
+
+            if (transform.position.y <= -5.75f)
+            {
+                float enemyRangeX = Random.Range(-9f, 9f);
+                transform.position = new Vector3(enemyRangeX, 8f, 0);
+            }
         }
     }
 
@@ -218,6 +259,14 @@ public class Enemy : MonoBehaviour
         }
 
     }
+
+    IEnumerator PowerUpShotCoolDown()
+    {
+        _powerUpShot = true;
+        yield return new WaitForSeconds(5.0f);
+        _powerUpShot= false;
+    }
+
 
     IEnumerator DodgeRoutine()
     {

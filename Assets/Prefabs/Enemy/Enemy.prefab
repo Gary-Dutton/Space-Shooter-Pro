@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitCounter: 0
-  _speed: 3
+  _speed: 1
   _enemyLaserPrefab: {fileID: 1703562589502738148, guid: feba82ddb55f0234f87ce3444f233bf6,
     type: 3}
   _enemyLaserSoundClip: {fileID: 8300000, guid: 75676f361bdfeaf41a46623e95df3dbc,

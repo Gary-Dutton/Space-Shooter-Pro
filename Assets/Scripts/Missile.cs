@@ -12,7 +12,7 @@ public class Missile : MonoBehaviour
     [SerializeField]
     private Rigidbody2D _rb;
     [SerializeField]
-    private float _speed = 50f;
+    private float _speed = 5f;
     [SerializeField]
     private float _rotateSpeed = 200f;
 
@@ -28,6 +28,10 @@ public class Missile : MonoBehaviour
             else if(GameObject.FindGameObjectWithTag("EnemyDodger"))
             {
                 target = GameObject.FindGameObjectWithTag("EnemyDodger").transform;
+            }
+            else if(GameObject.FindGameObjectWithTag("NewEnemyShip"))
+            {
+                target = GameObject.FindGameObjectWithTag("NewEnemyShip").transform;
             }
             
             if (target != null)
