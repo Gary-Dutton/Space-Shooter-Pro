@@ -7,8 +7,6 @@ using UnityEngine.UIElements;
 public class Enemy : MonoBehaviour
 {    
     public int hitCounter = 1;
-    
-    private CameraShake _cameraShake;
 
     [SerializeField]
     private float _speed = 4.0f;
@@ -34,6 +32,8 @@ public class Enemy : MonoBehaviour
     private float _pickUpSpeed;
     private bool _powerUpShot;
     private Vector3 _powerUpShotOffset;
+    private CameraShake _cameraShake;
+
 
     // Start is called before the first frame update
     void Start()
@@ -126,7 +126,6 @@ public class Enemy : MonoBehaviour
     {
         Debug.DrawRay(transform.position + _powerUpShotOffset, (-transform.up * _distanceToActivate), Color.red);
         RaycastHit2D _hit  = Physics2D.Raycast(transform.position + _powerUpShotOffset, -transform.up, _distanceToActivate);
-        Debug.Log("HIT? " + _hit);
         if (_hit)
         {
             if (_hit.collider.tag.Contains("PowerUp"))

@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   _rb: {fileID: 4060729609728354912}
-  _speed: 5
+  _speed: 3
   _rotateSpeed: 300
   _enemyExplosionSoundClip: {fileID: 8300000, guid: a885c043fab7e46438bba03ba9dab6bc,
     type: 3}

@@ -8,6 +8,7 @@ public class Laser : MonoBehaviour
     private float _speed = 8.0f;
 
     private bool _isEnemyLaser = false;
+    private bool _isBossLaser = false;
     private int _direction = 2;
 
     // Update is called once per frame
@@ -17,6 +18,10 @@ public class Laser : MonoBehaviour
         {
             MoveUp();
         }
+        else if (_isBossLaser == true && _direction == 1)
+        {
+            BossMoveDown();
+        }
         else if (_isEnemyLaser == true && _direction == 2)
         {
             ReverseLaser(); 
@@ -25,6 +30,7 @@ public class Laser : MonoBehaviour
         {
             MoveDown();
         }
+
     }
 
     void MoveUp()
@@ -55,6 +61,21 @@ public class Laser : MonoBehaviour
         }
     }
 
+    void BossMoveDown()
+    {
+        Debug.Log("Boss MoveDown");
+        transform.Translate(Vector3.down * Time.deltaTime * _speed);
+
+        if (transform.position.y <= -8)
+        {
+            if (transform.parent != null)
+            {
+                Destroy(transform.parent.gameObject);
+            }
+            Destroy(this.gameObject);
+        }
+    }
+
     void ReverseLaser()
     {
         transform.Translate(Vector3.up * Time.deltaTime * _speed);
@@ -73,6 +94,15 @@ public class Laser : MonoBehaviour
     {
         _isEnemyLaser = true;
         _direction = Direction;
+    }
+
+    public void AssignBossLaser()
+    {
+        Debug.Log("Boss Laser");
+        //_isBossLaser = true;
+        //_direction = 1;
+        BossMoveDown();
+        //_isBossLaser = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

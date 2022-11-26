@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PowerUp : MonoBehaviour
 {
-
-
     [SerializeField]
     private float _speed = 3.0f;
     [SerializeField]

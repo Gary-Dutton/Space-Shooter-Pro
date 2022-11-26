@@ -53,8 +53,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private AudioClip _playerDamageSoundClip;
 
-    //[SerializeField]
-    private GameObject _multipleLasers;
     private float _speedMultipler = 2.0f;
     private int _hitCounter = 3;
     private float _nextFire = 0.0f;
@@ -67,7 +65,6 @@ public class Player : MonoBehaviour
     private float _fillBG;
     private float _hFraction;
     private int _missileCounter = 1;
-
     private bool _isTripleShotActive;
     private bool _isSpeedBoostActive;
     private bool _isShieldOnlineActive;
@@ -78,6 +75,7 @@ public class Player : MonoBehaviour
     private UIManager _uiManager;
     private AudioSource _audioSource;
     private SpriteRenderer _fadingColor;
+    private GameObject _multipleLasers;
 
     // Start is called before the first frame update
     void Start()
