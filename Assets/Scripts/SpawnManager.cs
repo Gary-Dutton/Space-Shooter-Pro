@@ -17,6 +17,7 @@ public class SpawnManager : MonoBehaviour
     public WaveMachine[] waveMachine;
     public int enemyCounter;
 
+
     [SerializeField]
     private GameObject[] _ememyArray;
     [SerializeField]
@@ -42,17 +43,17 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private Boss _boss;
 
-    //[SerializeField]
-    private GameObject _enemyPrefab;
-    //[SerializeField]
-    private GameObject _enemyDodgePrefab;
+
     private int _numberOfEnemiesActive = 0;
-    
     private bool _stopSpawning = false;
     private bool _stopSpawningEnemy = false;
+    private int _loopCounter = 0;
+
+
+    private GameObject _enemyPrefab;
+    private GameObject _enemyDodgePrefab;
     private Player _player;
     private Enemy _enemy;
-    private int _loopCounter = 0;
 
 
     public void StartSpawning(int _waveIndex)

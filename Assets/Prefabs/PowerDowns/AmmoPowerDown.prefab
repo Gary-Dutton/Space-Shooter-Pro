@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8777482362188082211}
   - component: {fileID: 407518729739294625}
   - component: {fileID: 7080112579124710056}
-  - component: {fileID: 2207511039678930292}
+  - component: {fileID: 400301014}
   m_Layer: 0
   m_Name: AmmoPowerDown
   m_TagString: PowerDown
@@ -50,6 +50,7 @@ MonoBehaviour:
   _speed: 3
   _powerUpID: 6
   _clip: {fileID: 8300000, guid: 5ee343246919d2b4bba63ae629e95494, type: 3}
+  _enemy: {fileID: 0}
 --- !u!70 &8777482362188082211
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -127,18 +128,18 @@ SpriteRenderer:
   m_SortingLayerID: -1988424163
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fc96eb6e32376ce44a353be90b24d9b6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: edf446020e461684cb88a496604783be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 1.69, y: 2.49}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2207511039678930292
+--- !u!95 &400301014
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -148,7 +149,7 @@ Animator:
   m_GameObject: {fileID: 1406793227907465049}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2780a8e62c2df6649b308e4614132c3e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3038aa525c8c99648909613b5516c0bd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

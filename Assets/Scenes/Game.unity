@@ -478,17 +478,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 804217adfc665d0489813200b5eb2d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drainSpeed: 0.1
-  recoverSpeed: 0.1
   frontThrusterBar: {fileID: 1891539894}
   backThrusterBar: {fileID: 559231469}
   cameraShake: {fileID: 1355974983}
   boss: {fileID: 0}
-  _speed: 3.5
-  _fireRate: 0.3
-  _lives: 3
-  _ammo: 15
-  _newScore: 0
   _whatsLeft: {fileID: 524037646}
   _separator: {fileID: 1141409494}
   _laserShot: {fileID: 1873411901950341368, guid: 792912e8ef5d8c84b9af231e765e9365,
@@ -502,8 +495,6 @@ MonoBehaviour:
   _rightEngine: {fileID: 1081577685}
   _leftEngine: {fileID: 2126357909}
   _asteriod: {fileID: 1974439299}
-  _numberOfLasers: 3
-  _angleOfSpread: 90
   _rb: {fileID: 8578109854486320637, guid: 792912e8ef5d8c84b9af231e765e9365, type: 3}
   _laserSoundClip: {fileID: 8300000, guid: 75676f361bdfeaf41a46623e95df3dbc, type: 3}
   _playerDamageSoundClip: {fileID: 8300000, guid: a885c043fab7e46438bba03ba9dab6bc,

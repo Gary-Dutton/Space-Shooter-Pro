@@ -7,9 +7,12 @@ public class Boss : MonoBehaviour
 {
     public new ParticleSystem particleSystem;
     public CameraShake _cameraShake;
-    public float gravitySpeed = 12f;
-    public float gravity = -9.81f;
 
+
+    [SerializeField]
+    public float gravitySpeed = 12f;
+    [SerializeField]
+    public float gravity = -9.81f;
     [SerializeField]
     private int _numberOfHits = 10;
     [SerializeField]
@@ -31,19 +34,20 @@ public class Boss : MonoBehaviour
     [SerializeField]
     private UIManager _uiManager;
 
+
+    private bool _readyToFall;
+    private float _distanceToActivate = 8f;
+    private float _tractorBeam;
     private float _fireRate = 3.0f;
     private float _canFire = -1f;
+
 
     private Player _player;
     private SpriteRenderer _spriteLayer;
     private SpawnManager _spawnManager;
-
-    private AudioSource _audioSource;
-    private bool _readyToFall;
-
     private Animator _animator;
-    private float _distanceToActivate = 8f;
-    private float _tractorBeam;
+    private AudioSource _audioSource;
+
 
 
     // Start is called before the first frame update

@@ -19,10 +19,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private GameObject _enemyShieldOnline;
 
-    private Player _player;
-    private SpawnManager _spawnManager;
-    private Animator _anim;
-    private AudioSource _audioSource;
+
     private bool _dodge = false;
     private int _dodgePath = 0; // 0 = left, 1 = right
     private float _fireRate = 3.0f;
@@ -31,8 +28,14 @@ public class Enemy : MonoBehaviour
     private float _distanceToActivate = 3f;
     private float _pickUpSpeed;
     private bool _powerUpShot;
+
+
     private Vector3 _powerUpShotOffset;
     private CameraShake _cameraShake;
+    private Player _player;
+    private SpawnManager _spawnManager;
+    private Animator _anim;
+    private AudioSource _audioSource;
 
 
     // Start is called before the first frame update

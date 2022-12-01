@@ -14,9 +14,13 @@ public class PowerUp : MonoBehaviour
     [SerializeField]
     private Enemy _enemy;
 
-    private Player _player;
+
     private float _distanceToActivate = 5f;
     private float _pickUpSpeed;
+
+
+    private Player _player;
+
 
     void Start()
     { 

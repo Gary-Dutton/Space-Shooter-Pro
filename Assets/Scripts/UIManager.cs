@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public Text whatsLeft;
     public Image afterBurner;
 
+
     [SerializeField]
     private Text _scoreText;
     [SerializeField]
@@ -28,6 +29,7 @@ public class UIManager : MonoBehaviour
     private GameObject _separator;
     [SerializeField]
     private Text _waveLevelUp;
+
 
     private GameManager _gameManager;
 

@@ -8,23 +8,13 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public float drainSpeed = 0.1f;
-    public float recoverSpeed = 0.1f;
+
     public Image frontThrusterBar;
     public Image backThrusterBar;
     public CameraShake cameraShake;
     public GameObject boss;
 
-    [SerializeField]
-    private float _speed = 3.5f;    
-    [SerializeField]
-    private float _fireRate = 0.3f;    
-    [SerializeField]
-    private int _lives = 3;
-    [SerializeField]
-    private int _ammo = 15;
-    [SerializeField]
-    private int _newScore = 0;
+
     [SerializeField]
     private Text _whatsLeft;
     [SerializeField]
@@ -44,16 +34,22 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _asteriod;
     [SerializeField]
-    private int _numberOfLasers = 3;
-    [SerializeField]
-    private float _angleOfSpread = 90f;
-    [SerializeField]
     private Rigidbody2D _rb;
     [SerializeField]
     private AudioClip _laserSoundClip;
     [SerializeField]
     private AudioClip _playerDamageSoundClip;
 
+
+    private float _speed = 3.5f;    
+    private float _fireRate = 0.3f;    
+    private int _lives = 3;
+    private int _ammo = 15;
+    private int _newScore = 0;
+    private int _numberOfLasers = 3;
+    private float _angleOfSpread = 90f;
+    private float drainSpeed = 0.1f;
+    private float recoverSpeed = 0.1f;
     private float _speedMultipler = 2.0f;
     private int _hitCounter = 3;
     private float _nextFire = 0.0f;
@@ -71,14 +67,15 @@ public class Player : MonoBehaviour
     private bool _isShieldOnlineActive;
     private bool _isMissileStatusActive;
     private bool _isMultipleLasersActive;
+    private float _distanceToActivate = 8f;
+    private float _tractorBeam;
 
     private SpawnManager _spawnManager;
     private UIManager _uiManager;
     private AudioSource _audioSource;
     private SpriteRenderer _fadingColor;
     private GameObject _multipleLasers;
-    private float _distanceToActivate = 8f;
-    private float _tractorBeam;
+
 
     // Start is called before the first frame update
     void Start()
@@ -117,115 +114,151 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > _nextFire)
         {
-            if(_isMissileActive.activeSelf is true & _missileCounter <= 3)
-            {
-                _missileCounter++;
-                if(_missileCounter >3)
-                {
-                    _isMissileActive.gameObject.SetActive(false);
-                }
-            }
-            laserShot();
+            SpaceBar();
         }
+
 
         if (Input.GetKey(KeyCode.LeftShift) & _isSpeedBoostActive == false)
         {
-            _timerOn = true;
-            if (_currentTime >= 0 & _timerOn == true)
-            {
-                if (_rightEngine.activeSelf == (true))
-                {
-                    _speed = 5f;
-                }
-                else if (_leftEngine.activeSelf == (true) & _rightEngine.activeSelf == (true))
-                {
-                    _speed = 2.5f;
-                }
-                else
-                {
-                    _speed = 10f;
-                }
-
-                _currentTime = _currentTime - Time.deltaTime;
-                ThrusterDrain(drainSpeed);
-                if (backThrusterBar.fillAmount <= 0.1)
-                {
-                    {
-                        _uiManager.afterBurner.gameObject.SetActive(false);
-                        _timerOn = false;
-                        _speed = 5f;
-                    }
-                    
-                }
-            }
+            LeftShiftDown();
         }
         else if (_timerOn == true & _isSpeedBoostActive == true)
         {
-            _currentTime = _currentTime - Time.deltaTime;
-            ThrusterDrain(drainSpeed + 0.5f);
-            if (backThrusterBar.fillAmount <= 0.1)
-            {
-                _timerOn = false;
-            }
+            SpeedBoost();
         }
         else if (_timerOn == false || (_timerOn == true & frontThrusterBar.fillAmount <= 0.99))
         {
-            _currentTime = _currentTime + Time.time;
-            ThrusterRecovery(recoverSpeed);
-            if (_rightEngine.activeSelf == (true))
-            {
-                _speed = 2.5f;
-            }
-            else if (_leftEngine.activeSelf == (true))
-            {
-                _speed = 1.25f;
-            } 
-            else
-            {
-                _speed = 5f;
-            }
+            SpeedGovenor();
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            if (_rightEngine.activeSelf == (true))
-            {
-                _speed = 2.5f;
-            }
-            else if (_leftEngine.activeSelf == (true))
-            {
-                _speed = 1.25f;
-            }
-            else
-            {
-                _speed = 5f;
-            }
-
-            if (backThrusterBar.fillAmount >= 0.99 & frontThrusterBar.fillAmount >= 0.99)
-            {
-                _currentTime = 10;
-            }
+            LeftShiftUp();
         }
 
         if (Input.GetKeyDown(KeyCode.RightShift) & _asteriod.gameObject == false)
         {
-            if (_asteriod.gameObject == false) 
-            { 
-                MissileReady();
-            }
-            else
-            {
-                Debug.Log("Unable to activate Missile");
-            }
+            RightShiftDown();
         }
 
         if (boss != null)
         {
-            float _distanceBetweenPlayerAndBoss = Vector2.Distance(transform.position, boss.transform.position);
-            if (_distanceBetweenPlayerAndBoss <= 9f)
+            CallingTheBoss();
+        }
+    }
+
+    void SpeedBoost ()
+    {
+        _currentTime = _currentTime - Time.deltaTime;
+        ThrusterDrain(drainSpeed + 0.5f);
+        if (backThrusterBar.fillAmount <= 0.1)
+        {
+            _timerOn = false;
+        }
+    }
+
+    void SpeedGovenor ()
+    {
+        _currentTime = _currentTime + Time.time;
+        ThrusterRecovery(recoverSpeed);
+        if (_rightEngine.activeSelf == (true))
+        {
+            _speed = 2.5f;
+        }
+        else if (_leftEngine.activeSelf == (true))
+        {
+            _speed = 1.25f;
+        } 
+        else
+        {
+            _speed = 5f;
+        }
+    }
+
+    void SpaceBar()
+    {
+         if(_isMissileActive.activeSelf is true & _missileCounter <= 3)
+        {
+            _missileCounter++;
+            if(_missileCounter >3)
             {
-                _tractorBeam = _distanceToActivate - _distanceBetweenPlayerAndBoss;
-                transform.position = Vector2.MoveTowards(transform.position, boss.transform.position, _tractorBeam * Time.deltaTime);
+                _isMissileActive.gameObject.SetActive(false);
             }
+        }
+        laserShot();
+    }
+
+    void LeftShiftDown()
+    {
+        _timerOn = true;
+        if (_currentTime >= 0 & _timerOn == true)
+        {
+            if (_rightEngine.activeSelf == (true))
+            {
+                _speed = 5f;
+            }
+            else if (_leftEngine.activeSelf == (true) & _rightEngine.activeSelf == (true))
+            {
+                _speed = 2.5f;
+            }
+            else
+            {
+                _speed = 10f;
+            }
+
+            _currentTime = _currentTime - Time.deltaTime;
+            ThrusterDrain(drainSpeed);
+            if (backThrusterBar.fillAmount <= 0.1)
+            {
+                {
+                    _uiManager.afterBurner.gameObject.SetActive(false);
+                    _timerOn = false;
+                    _speed = 5f;
+                }
+
+            }
+        }
+    }
+
+    void LeftShiftUp ()
+    {
+        if (_rightEngine.activeSelf == (true))
+        {
+            _speed = 2.5f;
+        }
+        else if (_leftEngine.activeSelf == (true))
+        {
+            _speed = 1.25f;
+        }
+        else
+        {
+            _speed = 5f;
+        }
+
+        if (backThrusterBar.fillAmount >= 0.99 & frontThrusterBar.fillAmount >= 0.99)
+        {
+            _currentTime = 10;
+        }
+    }
+
+    void RightShiftDown()
+    {
+        if (_asteriod.gameObject == false)
+        {
+            MissileReady();
+        }
+        else
+        {
+            Debug.Log("Unable to activate Missile");
+        }
+    }
+
+    void CallingTheBoss ()
+    {
+        float _distanceBetweenPlayerAndBoss = Vector2.Distance(transform.position, boss.transform.position);
+        if (_distanceBetweenPlayerAndBoss <= 9f)
+        {
+            _tractorBeam = _distanceToActivate - _distanceBetweenPlayerAndBoss;
+            transform.position = Vector2.MoveTowards(transform.position, boss.transform.position, _tractorBeam * Time.deltaTime);
         }
     }
 
