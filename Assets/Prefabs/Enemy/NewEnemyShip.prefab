@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitCounter: 0
   _speed: 1
-  _enemyLaserPrefab: {fileID: 4060729609728354914, guid: 92891b01ec55c864181b2279d882ce25,
+  _enemyProjectilePrefab: {fileID: 4060729609728354914, guid: 92891b01ec55c864181b2279d882ce25,
     type: 3}
   _enemyLaserSoundClip: {fileID: 8300000, guid: 75676f361bdfeaf41a46623e95df3dbc,
     type: 3}

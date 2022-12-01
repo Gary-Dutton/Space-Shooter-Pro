@@ -44,7 +44,8 @@ public class Asteriod : MonoBehaviour
 
             Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
             Destroy(other.gameObject);
-            _spawnManager.StartSpawning();
+            //_spawnManager.StartSpawning(0);
+            _spawnManager.WaveLevelUpMain(-1);
             Destroy(this.gameObject);
         }
     }

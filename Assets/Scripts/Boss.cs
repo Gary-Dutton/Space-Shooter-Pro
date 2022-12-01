@@ -1,13 +1,14 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
     public new ParticleSystem particleSystem;
     public CameraShake _cameraShake;
+    public float gravitySpeed = 12f;
+    public float gravity = -9.81f;
 
     [SerializeField]
     private int _numberOfHits = 10;
@@ -18,7 +19,7 @@ public class Boss : MonoBehaviour
     [SerializeField]
     private bool _isMissileReady;
     [SerializeField]
-    private GameObject _bossLaserPrefab;
+    private GameObject[] _bossProjectilePrefab;
     [SerializeField]
     private AudioClip _enemyLaserSoundClip;
     [SerializeField]
@@ -27,6 +28,8 @@ public class Boss : MonoBehaviour
     private Animator[] _explosions;
     [SerializeField]
     private GameObject[] _explosionsGameObject;
+    [SerializeField]
+    private UIManager _uiManager;
 
     private float _fireRate = 3.0f;
     private float _canFire = -1f;
@@ -34,11 +37,13 @@ public class Boss : MonoBehaviour
     private Player _player;
     private SpriteRenderer _spriteLayer;
     private SpawnManager _spawnManager;
+
     private AudioSource _audioSource;
     private bool _readyToFall;
 
-    public float gravitySpeed = 12f;
-    public float gravity = -9.81f;
+    private Animator _animator;
+    private float _distanceToActivate = 8f;
+    private float _tractorBeam;
 
 
     // Start is called before the first frame update
@@ -49,10 +54,11 @@ public class Boss : MonoBehaviour
 
         _player = GameObject.Find("Player").GetComponent<Player>();
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        _animator= GetComponent<Animator>();
 
         _spriteLayer = GetComponent<SpriteRenderer>();
         _audioSource = GetComponent<AudioSource>();
-
+        particleSystem.gameObject.SetActive(true);
         particleSystem.Play();
         StartCoroutine(_cameraShake.Shake(0.09f, 0.09f));
 
@@ -61,11 +67,11 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.gameObject.transform.position.y < 5.45)
+        if (this.gameObject.transform.position.y < 5.1)
         {
             if (_player != null)
             {
-                BossLaserShot();
+                BossLaserShot();        
             }
 
             if (particleSystem != null)
@@ -74,7 +80,7 @@ public class Boss : MonoBehaviour
                 StartCoroutine(_cameraShake.Shake(0.07f, 0.07f));
             }
         }
-        else if (this.gameObject.transform.position.y <= 8 && this.gameObject.transform.position.y >= 5.5)
+        else if (this.gameObject.transform.position.y <= 8 && this.gameObject.transform.position.y >= 5.1)
         {
             StartCoroutine(_cameraShake.Shake(0.05f, 0.05f));
         }
@@ -82,7 +88,7 @@ public class Boss : MonoBehaviour
         {
             EnemyMovement();
         }
-        
+
         EnemyMovement();
     }
 
@@ -92,7 +98,7 @@ public class Boss : MonoBehaviour
         {
             transform.Translate(Vector3.down * Time.deltaTime * _speed);
 
-            if (transform.position.y <= 5.4f)
+            if (transform.position.y <= 5.0f)
             {
                 transform.Translate(Vector3.up * Time.deltaTime * _speed);
             }
@@ -114,23 +120,31 @@ public class Boss : MonoBehaviour
             {
                 _explosionsGameObject[0].SetActive(true);
                 _explosions[0].enabled = true;
-                Debug.Log("Explosion should appear");
             }
             else if (_numberOfHits > 3 && _numberOfHits <= 5)
             {
                 _explosionsGameObject[1].SetActive(true);
                 _explosions[1].enabled = true;
                 _cameraShake.Shake(0.05f, 0.05f);
-                Debug.Log("Second explosion, shaking should start");
             }
             else if (_numberOfHits > 1 && _numberOfHits <= 3)
             {
                 _readyToFall = true;
-                Debug.Log("Third explosion, shaking and add small gravity and sideways tilt");
             }
-            else if (_numberOfHits == 0 )
+            else if (_numberOfHits <= 0 )
             {
-                Debug.Log("Full explosion and drop from the sky (z) change layer to background too");
+                
+                _cameraShake.Shake(2.5f, 2.5f);
+                _animator.gameObject.SetActive(true);
+                _animator.enabled = true;
+                _canFire = 99f;
+                float _distanceBetweenPlayerAndBoss = Vector2.Distance(transform.position, this.transform.position);
+                if (_distanceBetweenPlayerAndBoss <= 16f)
+                {
+                    _tractorBeam = _distanceToActivate - _distanceBetweenPlayerAndBoss;
+                    transform.position = Vector2.MoveTowards(transform.position, this.transform.position, _tractorBeam * Time.deltaTime);
+                }
+                StartCoroutine(BossDeathScene());
             }
         }
     }
@@ -142,7 +156,6 @@ public class Boss : MonoBehaviour
             BossDamage();
             Destroy(other.gameObject);
         }
-
     }
 
 
@@ -161,27 +174,33 @@ public class Boss : MonoBehaviour
 
     private void BossLaserShot()
     {
-        if (Time.time > _canFire)
+        if (particleSystem == null && this.gameObject != null)
         {
-            _fireRate = Random.Range(3f, 7f);
-            _canFire = Time.time + _fireRate;
-            GameObject bossLaser = Instantiate(_bossLaserPrefab, transform.position, Quaternion.identity);
-            Laser[] lasers = bossLaser.GetComponentsInChildren<Laser>();
-
-            if ((this.gameObject.transform.position.y - _player.transform.position.y) <= 8)
+            if (Time.time > _canFire)
             {
-                for (int i = 0; i < lasers.Length; i++)
+                _fireRate = Random.Range(3f, 7f);
+                _canFire = Time.time + _fireRate;
+                int _automaticSelection = Random.Range(0, 2);
+                GameObject bossLaser = Instantiate(_bossProjectilePrefab[_automaticSelection], transform.position, Quaternion.identity);
+                Laser[] projectile = bossLaser.GetComponentsInChildren<Laser>();
+                for (int i = 0; i < projectile.Length; i++)
                 {
                     if (this.gameObject != null)
                     {
-                        lasers[i].AssignBossLaser();
+                        projectile[i].AssignBossLaser();
                     }
                 }
+                _audioSource.clip = _enemyLaserSoundClip;
+                _audioSource.pitch = 0.5f;
+                _audioSource.Play();
             }
-            _audioSource.clip = _enemyLaserSoundClip;
-            _audioSource.pitch = 0.5f;
-            _audioSource.Play();
         }
     }
 
+    IEnumerator  BossDeathScene()
+    {
+        yield return new WaitForSeconds(7f);
+        Destroy(this.gameObject);
+        _uiManager.UpdateLives(0);
+    }
 }

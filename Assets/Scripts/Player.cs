@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public Image frontThrusterBar;
     public Image backThrusterBar;
     public CameraShake cameraShake;
+    public GameObject boss;
 
     [SerializeField]
     private float _speed = 3.5f;    
@@ -76,6 +77,8 @@ public class Player : MonoBehaviour
     private AudioSource _audioSource;
     private SpriteRenderer _fadingColor;
     private GameObject _multipleLasers;
+    private float _distanceToActivate = 8f;
+    private float _tractorBeam;
 
     // Start is called before the first frame update
     void Start()
@@ -212,6 +215,16 @@ public class Player : MonoBehaviour
             else
             {
                 Debug.Log("Unable to activate Missile");
+            }
+        }
+
+        if (boss != null)
+        {
+            float _distanceBetweenPlayerAndBoss = Vector2.Distance(transform.position, boss.transform.position);
+            if (_distanceBetweenPlayerAndBoss <= 9f)
+            {
+                _tractorBeam = _distanceToActivate - _distanceBetweenPlayerAndBoss;
+                transform.position = Vector2.MoveTowards(transform.position, boss.transform.position, _tractorBeam * Time.deltaTime);
             }
         }
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,13 +30,17 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private UIManager _uiManager;
     [SerializeField]
-    private Text _testText;
+    private Text _waveText;
     [SerializeField]
     private int _numberOfSpawnedPowerUps = 0;
     [SerializeField]
     private int _healthPUCount = 0;
     [SerializeField]
     private int _ammoPUCount = 0;
+    [SerializeField]
+    private int _numberOfEnemies = 0;
+    [SerializeField]
+    private Boss _boss;
 
     //[SerializeField]
     private GameObject _enemyPrefab;
@@ -44,80 +49,82 @@ public class SpawnManager : MonoBehaviour
     private int _numberOfEnemiesActive = 0;
     
     private bool _stopSpawning = false;
+    private bool _stopSpawningEnemy = false;
     private Player _player;
+    private Enemy _enemy;
+    private int _loopCounter = 0;
 
-    public void StartSpawning()
+
+    public void StartSpawning(int _waveIndex)
     {
         _uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         _player = GameObject.Find("Player").GetComponent<Player>();
+        _enemy = GameObject.Find("SpawnManager").GetComponent<Enemy>();
 
         if (_player != null)
         {
-            switch (waveMachine[_waveIndex].name)
+            switch (_waveIndex)
             {
-                case "EASY":
-                    Debug.Log("Would use values: " + waveMachine[_waveIndex].rateOfRelease + "/" + waveMachine[_waveIndex].numberOfEnemies);
+                case 0:
                     StartCoroutine(SpawnEnemyRoutine(waveMachine[_waveIndex].numberOfEnemies, waveMachine[_waveIndex].rateOfRelease));
                     break;
-                case "MILD":
-                    Debug.Log("Would use values: " + waveMachine[_waveIndex].rateOfRelease + "/" + waveMachine[_waveIndex].numberOfEnemies);
+                case 1:
                     StartCoroutine(SpawnEnemyRoutine(waveMachine[_waveIndex].numberOfEnemies, waveMachine[_waveIndex].rateOfRelease));
                     break;
-                case "HARD":
-                    Debug.Log("Would use values: " + waveMachine[_waveIndex].rateOfRelease + "/" + waveMachine[_waveIndex].numberOfEnemies);
+                case 2:
                     StartCoroutine(SpawnEnemyRoutine(waveMachine[_waveIndex].numberOfEnemies, waveMachine[_waveIndex].rateOfRelease));
                     break;
-                case "EXTREME":
-                    Debug.Log("Would use values: " + waveMachine[_waveIndex].rateOfRelease + "/" + waveMachine[_waveIndex].numberOfEnemies);
+                case 3:
                     StartCoroutine(SpawnEnemyRoutine(waveMachine[_waveIndex].numberOfEnemies, waveMachine[_waveIndex].rateOfRelease));
                     break;
-                case "RANDOM":
-                    Debug.Log("Would use values: " + waveMachine[_waveIndex].rateOfRelease + "/" + waveMachine[_waveIndex].numberOfEnemies);
-                    StartCoroutine(SpawnEnemyRoutine(waveMachine[_waveIndex].numberOfEnemies, waveMachine[_waveIndex].rateOfRelease));
+                case 4:
+                    _boss.gameObject.SetActive(isActiveAndEnabled);
                     break;
                 default:
                     Debug.Log("DEAFULT Would use values: " + waveMachine[_waveIndex].rateOfRelease + "/" + waveMachine[_waveIndex].numberOfEnemies);
                     break;
             }
-            //StartCoroutine(SpawnEnemyRoutine(numberOfEnemies, numberOfEnemiesActive));
             StartCoroutine(SpawnPowerUpRoutine());
         }
     }
 
     void Update()
     {
-        if (_player != null)
-        { 
+        if (_player != null && waveMachine[_waveIndex].numberOfEnemies == _numberOfEnemies && _loopCounter == 0)
+        {
             if (waveMachine[_waveIndex].numberOfEnemies == _enemyCount)
             {
-
-                Debug.Log("Calling next wave!");
-                _testText.gameObject.SetActive(true);
+                _stopSpawningEnemy = true;
                 _stopSpawning = true;
-                WaveLevelUpMain();
-                _enemyCount = 0;
-                _waveIndex += 1;
-                _stopSpawning = false;
-                StartSpawning();
+                _loopCounter++;
+                if (_loopCounter == 1)
+                {
+                    WaveLevelUpMain(_waveIndex);
+                    _loopCounter = -1;
+                }
             }
         }
     }
     IEnumerator SpawnEnemyRoutine(int numberOfEnemies, float rateOfRelease)
     {
-        yield return new WaitForSeconds(7);
-        _numberOfEnemiesActive++;
-
-        while (_stopSpawning == false && _numberOfEnemiesActive <= numberOfEnemies)
+        while (_stopSpawningEnemy == false)    
         {
-            Vector3 posToSpawnEnemy = new Vector3(Random.Range(-9f, 9f), 7, 0);
-            int ememyPrefabRS = Random.Range(0, _ememyArray.Length); 
-            GameObject newEnemy = Instantiate(_ememyArray[ememyPrefabRS], posToSpawnEnemy, Quaternion.identity);
-            newEnemy.transform.parent = _enemyContainer.transform;
-            _numberOfEnemiesActive++;
-            yield return new WaitForSeconds(rateOfRelease);
+            if (_numberOfEnemies == waveMachine[_waveIndex].numberOfEnemies)
+            {
+                _stopSpawningEnemy = true;
+            } 
+            else
+            {
+                Vector3 posToSpawnEnemy = new Vector3(Random.Range(-9f, 9f), 7, 0);
+                int ememyPrefabRS = Random.Range(0, _ememyArray.Length);
+                GameObject newEnemy = Instantiate(_ememyArray[ememyPrefabRS], posToSpawnEnemy, Quaternion.identity);
+                newEnemy.transform.parent = _enemyContainer.transform;
+                _numberOfEnemies++;
+                yield return new WaitForSeconds(rateOfRelease);                
+
+            }
+
         }
-
-
     }
 
     IEnumerator SpawnPowerUpRoutine()
@@ -147,87 +154,97 @@ public class SpawnManager : MonoBehaviour
     public void OnPlayerDeath()
     {
         _stopSpawning = true;
+        _stopSpawningEnemy = true;
     }
 
     public void enemyCount(int enemyCounter)
     {
         _enemyCount ++;
-        Debug.Log("Number of Enemies destroyed: " + _enemyCount);
-        return;
     }
 
-    private void WaveLevelUpMain()
-    {
-        StartCoroutine(TextWaveLevelUpMain(_testText));
+
+    public void WaveLevelUpMain(int index)
+    {   
+        _waveIndex = index;
+        _waveText.text = "Next Wave In...";
+        _waveText.gameObject.SetActive(true);
+        StartCoroutine(TextWaveLevelUpMain(_waveText));
+
     }
-    IEnumerator TextWaveLevelUpMain(Text _testText)
+    IEnumerator TextWaveLevelUpMain(Text _waveText)
     {
-        yield return new WaitForSeconds(2f);
-        _testText.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        _waveText.gameObject.SetActive(false);
         WaveLevelUp5();
     }
     private void WaveLevelUp5()
     {
-        _testText.gameObject.SetActive(true);
-        _testText.text = "5".ToString();
-        StartCoroutine(TextWaveLevelUp5(_testText));
+        _waveText.text = "5".ToString();
+        _waveText.gameObject.SetActive(true);
+        StartCoroutine(TextWaveLevelUp5(_waveText));
 
     }
-    IEnumerator TextWaveLevelUp5(Text _testText)
+    IEnumerator TextWaveLevelUp5(Text _waveText)
     {
         yield return new WaitForSeconds(1f);
-        _testText.gameObject.SetActive(false);
+        _waveText.gameObject.SetActive(false);
         WaveLevelUp4();
     }
     private void WaveLevelUp4()
-    {
-        _testText.gameObject.SetActive(true);
-        _testText.text = "4".ToString();
-        StartCoroutine(TextWaveLevelUp4(_testText));
+    {        
+        _waveText.text = "4".ToString();
+        _waveText.gameObject.SetActive(true);
+        StartCoroutine(TextWaveLevelUp4(_waveText));
 
     }
-    IEnumerator TextWaveLevelUp4(Text _testText)
+    IEnumerator TextWaveLevelUp4(Text _waveText)
     {
         yield return new WaitForSeconds(1f);
-        _testText.gameObject.SetActive(false);
+        _waveText.gameObject.SetActive(false);
         WaveLevelUp3();
     }
     private void WaveLevelUp3()
-    {
-        _testText.gameObject.SetActive(true);
-        _testText.text = "3".ToString();
-        StartCoroutine(TextWaveLevelUp3(_testText));
+    {        
+        _waveText.text = "3".ToString();
+        _waveText.gameObject.SetActive(true);
+        StartCoroutine(TextWaveLevelUp3(_waveText));
 
     }
-    IEnumerator TextWaveLevelUp3(Text _testText)
+    IEnumerator TextWaveLevelUp3(Text _waveText)
     {
         yield return new WaitForSeconds(1f);
-        _testText.gameObject.SetActive(false);
+        _waveText.gameObject.SetActive(false);
         WaveLevelUp2();
     }
     private void WaveLevelUp2()
-    {
-        _testText.gameObject.SetActive(true);
-        _testText.text = "2".ToString();
-        StartCoroutine(TextWaveLevelUp2(_testText));
+    {        
+        _waveText.text = "2".ToString();
+        _waveText.gameObject.SetActive(true);
+        StartCoroutine(TextWaveLevelUp2(_waveText));
     }
-    IEnumerator TextWaveLevelUp2(Text _testText)
+    IEnumerator TextWaveLevelUp2(Text _waveText)
     {
         yield return new WaitForSeconds(1f);
-        _testText.gameObject.SetActive(false);
+        _waveText.gameObject.SetActive(false);
         WaveLevelUp1();
     }
     private void WaveLevelUp1()
-    {
-        _testText.gameObject.SetActive(true);
-        _testText.text = "1".ToString();
-        StartCoroutine(TextWaveLevelUp1(_testText));
+    {        
+        _waveText.text = "1".ToString();
+        _waveText.gameObject.SetActive(true);
+        StartCoroutine(TextWaveLevelUp1(_waveText));
 
     }
-    IEnumerator TextWaveLevelUp1(Text _testText)
+    IEnumerator TextWaveLevelUp1(Text _waveText)
     {
         yield return new WaitForSeconds(1f);
-        _numberOfEnemiesActive = 0;
-        _testText.gameObject.SetActive(false);
+        _waveText.gameObject.SetActive(false);
+        _waveIndex ++;
+        _stopSpawningEnemy = false;
+        _stopSpawning = false;
+        _loopCounter = 0;
+        _enemyCount = 0;
+        _numberOfEnemies = 0;
+        StartSpawning(_waveIndex);        
     }
 }

@@ -19,7 +19,7 @@ public class PowerUp : MonoBehaviour
     private float _pickUpSpeed;
 
     void Start()
-    {
+    { 
         _player = GameObject.Find("Player").GetComponent<Player>();
     }
 
@@ -33,7 +33,6 @@ public class PowerUp : MonoBehaviour
 
             if (_distanceBetweenPlayerAndPickup < _distanceToActivate && Input.GetKey(KeyCode.C))
             {
-                Debug.Log("Player? " + _player.transform);
                 _pickUpSpeed = _distanceToActivate - _distanceBetweenPlayerAndPickup;
                 transform.position = Vector2.MoveTowards(transform.position, _player.transform.position, _pickUpSpeed * Time.deltaTime);
             }
@@ -59,7 +58,6 @@ public class PowerUp : MonoBehaviour
 
             if (player != null)
             {
-                Debug.Log("Who? " + this.tag);
                 switch (_powerUpID)
                 {
                     case 0:

@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float _speed = 4.0f;
     [SerializeField]
-    private GameObject _enemyLaserPrefab;
+    private GameObject _enemyProjectilePrefab;
     [SerializeField]
     private AudioClip _enemyLaserSoundClip;
     [SerializeField]
@@ -43,8 +43,8 @@ public class Enemy : MonoBehaviour
         _cameraShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
         _audioSource = GetComponent<AudioSource>();
         _powerUpShotOffset = new Vector3(0, -0.4f, 0);
-        
-        if(_player == null)
+
+        if (_player == null)
         {
             Debug.LogError("Player is NULL!");
         }
@@ -65,7 +65,6 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //CalculateMovement();
         MovementArray();
 
         if (_player != null)
@@ -87,7 +86,7 @@ public class Enemy : MonoBehaviour
         {
             _fireRate = Random.Range(3f, 7f);
             _canFire = Time.time + _fireRate;
-            GameObject enemyLaser = Instantiate(_enemyLaserPrefab, transform.position, Quaternion.identity);
+            GameObject enemyLaser = Instantiate(_enemyProjectilePrefab, transform.position, Quaternion.identity);
             Laser[] lasers = enemyLaser.GetComponentsInChildren<Laser>();
 
             if ((this.gameObject.transform.position.y - _player.transform.position.y) <= 0)
@@ -111,11 +110,6 @@ public class Enemy : MonoBehaviour
                 }
             }
 
-            if (this.gameObject == null && lasers.Length > 0)
-            {
-                Debug.Log("Enemy still fired!");
-            }
-
             _audioSource.clip = _enemyLaserSoundClip;
             _audioSource.pitch = 0.5f;
             _audioSource.Play();
@@ -130,7 +124,6 @@ public class Enemy : MonoBehaviour
         {
             if (_hit.collider.tag.Contains("PowerUp"))
             {
-                Debug.Log("Power Up Name: " + _hit.collider.name);
                 if (_powerUpShot == false)
                 {
                     LaserShot();
@@ -220,7 +213,6 @@ public class Enemy : MonoBehaviour
         {
             if (_player != null && _isEnemyShieldOnlineActive == true)
             {
-                Debug.Log("Entered Shield On Code");
                 EnemyDamage();
             }
             else if (_player != null && _isEnemyShieldOnlineActive == false)
@@ -282,24 +274,19 @@ public class Enemy : MonoBehaviour
 
     public void EnemyKills(int hitCounter)
     {
-        hitCounter = +1;
-        if (_spawnManager!= null)
+        hitCounter ++;
+        if (_spawnManager!= null && _player != null)
         {
             _spawnManager.enemyCount(1);
             
-        }
-        Debug.Log("Value :" + hitCounter);
-        
+        }        
     }
 
     public void EnemyDamage ()
     {
-        Debug.Log("Enemy Damge has been called");
-        Debug.Log("True/False" + _isEnemyShieldOnlineActive);
         if (_isEnemyShieldOnlineActive is true)
         {
             StartCoroutine(_cameraShake.Shake(.15f, 0.4f));
-            Debug.Log("Enemy Shield is online");
             _audioSource.pitch = 1.5f;
             _audioSource.Play();
             _isEnemyShieldOnlineActive = false;
@@ -310,7 +297,6 @@ public class Enemy : MonoBehaviour
 
     public void EnemyShieldOnline(bool PowerUp)
     {
-        Debug.Log("Called by PowerUp Script...");
         _isEnemyShieldOnlineActive = PowerUp;
         _enemyShieldOnline.SetActive(PowerUp);
         StartCoroutine(shieldOnlinePowerUpDowerDown(15.0f));

@@ -20,6 +20,8 @@ public class EnemyMissile : MonoBehaviour
     private Animator _anim;
     [SerializeField]
     private Enemy _enemy;
+    [SerializeField]
+    private Boss _boss;
 
     private Player _player;
     private SpawnManager _spawnManager;
