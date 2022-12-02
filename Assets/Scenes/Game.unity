@@ -481,7 +481,7 @@ MonoBehaviour:
   frontThrusterBar: {fileID: 1891539894}
   backThrusterBar: {fileID: 559231469}
   cameraShake: {fileID: 1355974983}
-  boss: {fileID: 0}
+  boss: {fileID: 2130763484}
   _whatsLeft: {fileID: 524037646}
   _separator: {fileID: 1141409494}
   _laserShot: {fileID: 1873411901950341368, guid: 792912e8ef5d8c84b9af231e765e9365,
@@ -2151,13 +2151,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161460576}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 8.77, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.09647158, y: 0.695535, z: -0.09781697, w: -0.7052349}
+  m_LocalPosition: {x: -0.0445, y: 12.4451, z: 0}
+  m_LocalScale: {x: 1.9878349, y: 1.8474109, z: 2.240069}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 270.793, z: 15.793}
 --- !u!199 &1161460578
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -2200,7 +2200,7 @@ ParticleSystemRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 1
   m_RenderMode: 0
-  m_SortMode: 1
+  m_SortMode: 4
   m_MinParticleSize: 1
   m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
@@ -2219,7 +2219,7 @@ ParticleSystemRenderer:
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -2792,7 +2792,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 10000
+    maxNumParticles: 20000
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -2851,8 +2851,8 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 10
-    angle: 25
+    type: 4
+    angle: 45
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -2860,7 +2860,7 @@ ParticleSystem:
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 270, z: 90}
     m_Scale: {x: 0.37667358, y: 1, z: 2.1327312}
-    placementMode: 2
+    placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
     m_MeshSpawn:
@@ -2997,7 +2997,7 @@ ParticleSystem:
     arc:
       value: 360
       mode: 0
-      spread: 0
+      spread: 1
       speed:
         serializedVersion: 2
         minMaxState: 0

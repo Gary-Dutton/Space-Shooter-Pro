@@ -36,11 +36,10 @@ public class Boss : MonoBehaviour
 
 
     private bool _readyToFall;
-    private float _distanceToActivate = 8f;
     private float _tractorBeam;
     private float _fireRate = 3.0f;
     private float _canFire = -1f;
-
+    private float _distanceToActivate = 8f;
 
     private Player _player;
     private SpriteRenderer _spriteLayer;
@@ -143,6 +142,7 @@ public class Boss : MonoBehaviour
                 _animator.enabled = true;
                 _canFire = 99f;
                 float _distanceBetweenPlayerAndBoss = Vector2.Distance(transform.position, this.transform.position);
+                Debug.Log("Distance between player and Boss: " + _distanceBetweenPlayerAndBoss);
                 if (_distanceBetweenPlayerAndBoss <= 16f)
                 {
                     _tractorBeam = _distanceToActivate - _distanceBetweenPlayerAndBoss;
