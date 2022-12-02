@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8777482362188082211}
   - component: {fileID: 407518729739294625}
   - component: {fileID: 7080112579124710056}
-  - component: {fileID: 400301014}
+  - component: {fileID: 1488551377}
   m_Layer: 0
   m_Name: AmmoPowerDown
   m_TagString: PowerDown
@@ -139,7 +139,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &400301014
+--- !u!95 &1488551377
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -149,7 +149,7 @@ Animator:
   m_GameObject: {fileID: 1406793227907465049}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3038aa525c8c99648909613b5516c0bd, type: 2}
+  m_Controller: {fileID: 9100000, guid: a19001b2d6208bc40963ea435f8ef121, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
